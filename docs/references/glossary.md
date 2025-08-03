@@ -74,10 +74,24 @@ This glossary provides definitions for key terms and concepts used throughout th
 **Kyverno**
 : A policy engine designed for Kubernetes that validates, mutates, and generates configurations using admission controller webhooks and background scans.
 
+## M
+
+**MacVLAN**
+: A Linux networking driver that allows creating multiple virtual network interfaces with different MAC addresses on a single physical network interface, commonly used with Multus for VM networking.
+
+**Multus CNI**
+: A Container Network Interface (CNI) plugin that enables attachment of multiple network interfaces to pods and VMs in Kubernetes, allowing complex networking scenarios beyond single-network configurations.
+
 ## N
 
+**NAD (Network Attachment Definition)**
+: See NetworkAttachmentDefinition.
+
 **NetworkAttachmentDefinition**
-: A CRD that defines additional network interfaces for pods and VMs, enabling multi-network configurations beyond the default cluster network.
+: A CRD used by Multus that defines additional network interfaces for pods and VMs, enabling multi-network configurations beyond the default cluster network.
+
+**Network Plumbing Working Group**
+: A Kubernetes community working group focused on developing networking enhancements, including Multus CNI and related multi-networking technologies.
 
 **NUMA (Non-Uniform Memory Access)**
 : A computer memory design used in multiprocessing where memory access time depends on the memory location relative to the processor, important for VM performance tuning.

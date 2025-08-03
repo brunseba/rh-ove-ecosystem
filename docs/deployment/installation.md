@@ -2,21 +2,30 @@
 
 ## Overview
 
-This installation guide provides step-by-step instructions to deploy the RH OVE solution using OpenShift Container Platform. It covers the installation of core components, necessary configurations, and integration with external services.
+This installation guide provides step-by-step instructions to deploy the RH OVE ecosystem using a multi-cluster architecture. The deployment follows a hub-and-spoke pattern with one management cluster and multiple application clusters for different environments (production, staging, development).
+
+## Multi-Cluster Architecture
+
+The RH OVE ecosystem consists of:
+
+- **1 Management Cluster**: Centralized control plane for governance, policy, monitoring, and GitOps
+
+- **N Application Clusters**: Dedicated workload execution environments for virtual machines and containers
 
 ## Installation Flow
 
 ```mermaid
 graph TD
-    A[Prerequisites Check] --> B[OpenShift Cluster Setup]
-    B --> C[Install OpenShift Virtualization]
-    C --> D[Deploy Cilium CNI]
-    D --> E[Install Kyverno]
-    E --> F[Setup Monitoring Stack]
-    F --> G[Configure Backup]
-    G --> H[Setup GitOps]
-    H --> I[Deploy Sample Workloads]
-    I --> J[Validation / Testing]
+    A[Prerequisites Check] --> B[Management Cluster Setup]
+    B --> C[Install RHACM Hub]
+    C --> D[Deploy ArgoCD Hub]
+    D --> E[Setup RHACS Central]
+    E --> F[Configure Observability Stack]
+    F --> G[Application Cluster Provisioning]
+    G --> H[Deploy RH OVE to App Clusters]
+    H --> I[Configure Multi-Network]
+    I --> J[Setup Backup & DR]
+    J --> K[Validation & Testing]
 ```
 
 ## Core Component Installation

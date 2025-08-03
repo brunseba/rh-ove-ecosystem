@@ -332,6 +332,194 @@ spec:
           networkName: high-performance-network
 ```
 
+### Multi-Network Performance with Multus
+
+#### Dedicated Network Interfaces for Different Traffic Types
+
+```yaml
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: multi-interface-performance-vm
+  namespace: high-performance-workloads
+  annotations:
+    k8s.v1.cni.cncf.io/networks: |
+      [
+        {
+          "name": "management-network",
+          "ips": ["192.168.1.5/24"]
+        },
+        {
+          "name": "storage-network",
+          "ips": ["192.168.2.5/24"]
+        },
+        {
+          "name": "sriov-data-network",
+          "ips": ["10.0.0.5/24"]
+        }
+      ]
+spec:
+  running: true
+  template:
+    spec:
+      domain:
+        cpu:
+          cores: 16
+          dedicatedCpuPlacement: true
+          isolateEmulatorThread: true
+        memory:
+          guest: 32Gi
+          hugepages:
+            pageSize: 1Gi
+        devices:
+          interfaces:
+          - name: default
+            masquerade: {}
+          - name: management
+            bridge:
+              port: []
+          - name: storage
+            bridge:
+              port: []
+          - name: sriov-data
+            sriov: {}
+          disks:
+          - name: rootdisk
+            disk:
+              bus: virtio
+              cache: writeback
+        resources:
+          requests:
+            cpu: 16
+            memory: 32Gi
+            hugepages-1Gi: 32Gi
+          limits:
+            cpu: 16
+            memory: 32Gi
+            hugepages-1Gi: 32Gi
+      networks:
+      - name: default
+        pod: {}
+      - name: management
+        multus:
+          networkName: management-network
+      - name: storage
+        multus:
+          networkName: storage-network
+      - name: sriov-data
+        multus:
+          networkName: sriov-data-network
+      volumes:
+      - name: rootdisk
+        dataVolume:
+          name: multi-interface-vm-root
+```
+
+#### High-Performance NAD Configurations
+
+```yaml
+# High-performance management network
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: management-network
+  namespace: high-performance-workloads
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "management-network",
+      "type": "macvlan",
+      "master": "ens192",
+      "mode": "bridge",
+      "capabilities": {
+        "ips": true
+      },
+      "ipam": {
+        "type": "static"
+      }
+    }
+---
+# Dedicated storage network with optimized MTU
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: storage-network
+  namespace: high-performance-workloads
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "storage-network",
+      "type": "macvlan",
+      "master": "ens224",
+      "mode": "bridge",
+      "mtu": 9000,
+      "capabilities": {
+        "ips": true
+      },
+      "ipam": {
+        "type": "static"
+      }
+    }
+---
+# SR-IOV high-performance data network
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: sriov-data-network
+  namespace: high-performance-workloads
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "sriov-data-network",
+      "type": "sriov",
+      "deviceID": "1017",
+      "vf": 0,
+      "spoofchk": "off",
+      "trust": "on",
+      "capabilities": {
+        "ips": true
+      },
+      "ipam": {
+        "type": "static"
+      }
+    }
+```
+
+#### Bond Network for High Availability
+
+```yaml
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: bond-ha-network
+  namespace: high-performance-workloads
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "bond-ha-network",
+      "type": "bond",
+      "mode": "802.3ad",
+      "miimon": "100",
+      "updelay": "200",
+      "downdelay": "200",
+      "links": [
+        {
+          "name": "ens256"
+        },
+        {
+          "name": "ens257"
+        }
+      ],
+      "ipam": {
+        "type": "static"
+      }
+    }
+```
+
 ## Cluster Performance Optimization
 
 ### Node-Level Optimizations

@@ -52,6 +52,29 @@ This document provides an exhaustive list of product URLs, documentation, and re
 - **GitHub Repository**: [https://github.com/cilium/hubble](https://github.com/cilium/hubble)
 - **UI Repository**: [https://github.com/cilium/hubble-ui](https://github.com/cilium/hubble-ui)
 
+### Multus CNI (Multi-Network)
+
+- **Project Homepage**: [https://github.com/k8snetworkplumbingwg/multus-cni](https://github.com/k8snetworkplumbingwg/multus-cni)
+- **Documentation**: [https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/docs/how-to-use.md](https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/docs/how-to-use.md)
+- **OpenShift Documentation**: [https://docs.openshift.com/container-platform/latest/networking/multiple_networks/understanding-multiple-networks.html](https://docs.openshift.com/container-platform/latest/networking/multiple_networks/understanding-multiple-networks.html)
+- **Network Attachment Definitions**: [https://docs.openshift.com/container-platform/latest/networking/multiple_networks/configuring-additional-network-types.html](https://docs.openshift.com/container-platform/latest/networking/multiple_networks/configuring-additional-network-types.html)
+- **SR-IOV Network Operator**: [https://docs.openshift.com/container-platform/latest/networking/hardware_networks/about-sriov.html](https://docs.openshift.com/container-platform/latest/networking/hardware_networks/about-sriov.html)
+- **CNCF Landscape**: [https://landscape.cncf.io/card-mode?category=cni&grouping=category](https://landscape.cncf.io/card-mode?category=cni&grouping=category)
+- **Kubernetes Network SIG**: [https://github.com/kubernetes/community/tree/master/sig-network](https://github.com/kubernetes/community/tree/master/sig-network)
+
+### SR-IOV Network Operator
+
+- **GitHub Repository**: [https://github.com/k8snetworkplumbingwg/sriov-network-operator](https://github.com/k8snetworkplumbingwg/sriov-network-operator)
+- **OpenShift SR-IOV Documentation**: [https://docs.openshift.com/container-platform/latest/networking/hardware_networks/installing-sriov-operator.html](https://docs.openshift.com/container-platform/latest/networking/hardware_networks/installing-sriov-operator.html)
+- **Configuration Guide**: [https://docs.openshift.com/container-platform/latest/networking/hardware_networks/configuring-sriov-device.html](https://docs.openshift.com/container-platform/latest/networking/hardware_networks/configuring-sriov-device.html)
+- **Performance Tuning**: [https://docs.openshift.com/container-platform/latest/networking/hardware_networks/using-dpdk-and-rdma.html](https://docs.openshift.com/container-platform/latest/networking/hardware_networks/using-dpdk-and-rdma.html)
+
+### Network Plumbing Working Group
+
+- **GitHub Organization**: [https://github.com/k8snetworkplumbingwg](https://github.com/k8snetworkplumbingwg)
+- **Community Meetings**: [https://github.com/k8snetworkplumbingwg/community](https://github.com/k8snetworkplumbingwg/community)
+- **CNI Plugins**: [https://github.com/containernetworking/plugins](https://github.com/containernetworking/plugins)
+
 ## Policy and Security
 
 ### Kyverno

@@ -1,37 +1,45 @@
 # RH OVE Ecosystem Design and Management
 
-Welcome to the comprehensive guide for designing, deploying, and managing Red Hat OpenShift Virtualization Engine (RH OVE) solutions.
+Welcome to the comprehensive guide for designing, deploying, and managing the multi-cluster RH OVE ecosystem.
 
 ## Solution Overview
 
-This documentation covers a complete RH OVE ecosystem implementation with the following key components:
+This documentation covers a complete multi-cluster RH OVE implementation consisting of:
+
+- **1 Management Cluster**: Centralized control plane for governance, policy, monitoring, and GitOps
+- **N Application Clusters**: Dedicated workload execution environments for virtual machines and containers
 
 ```mermaid
 graph TB
-    subgraph "RH OVE Ecosystem"
-        A[Red Hat OpenShift Virtualization Engine] --> B[Cilium CNI]
-        A --> C[Kyverno Admission Control]
-        A --> D[GitOps with Argo CD]
-        A --> E[Dynatrace Monitoring]
-        A --> F[Rubrik Backup]
-        A --> G[ServiceNow CMDB Integration]
+    subgraph "Management Cluster"
+        A[Management Control Plane]
+        B[Argo CD Hub]
+        C[RHACM Central]
+        D[RHACS Security]
+        E[Observability Stack]
     end
     
-    subgraph "Workloads"
-        H[VM Workloads]
-        I[Container Workloads]
+    subgraph "Application Clusters"
+        F[Production Environments]
+        G[Staging Environments]
+        H[Development Environments]
     end
     
-    A --> H
-    A --> I
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    F --> E
+    G --> E
+    H --> E
 ```
 
 ## Key Features
 
 ### 1. Design Phase
-- **Application namespace-based topology** for security and scalability
-- **Cilium CNI** for enhanced network security with eBPF
-- **Mixed workload strategy** supporting both VMs and containers
+- **Multi-cluster topology** for separation of management and workloads
+- **Centralized governance** through the management cluster
+- **Consistent security** using RHACS and Kyverno policies
 
 ### 2. Deployment Phase
 - **Rubrik integration** for enterprise backup and recovery

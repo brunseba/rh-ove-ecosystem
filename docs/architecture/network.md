@@ -37,6 +37,11 @@ graph TB
             HUB[Hubble Relay]
         end
         
+        subgraph "Multus Control Plane"
+            MDS[Multus DaemonSet]
+            NADAPI[NAD API Server]
+        end
+        
         subgraph "Node 1"
             subgraph "Cilium Agent 1"
                 EBPF1[eBPF Programs]
@@ -44,9 +49,17 @@ graph TB
                 ENC1[Encryption]
             end
             
+            subgraph "Multus CNI 1"
+                MCNI1[Multus CNI]
+                NAD1[Network Attachments]
+                SRIOV1[SR-IOV CNI]
+                MACVLAN1[MacVLAN CNI]
+            end
+            
             subgraph "Workloads 1"
                 POD1[Container Pods]
                 VM1[Virtual Machines]
+                MVMI1[Multi-NIC VMs]
             end
         end
         
@@ -57,9 +70,17 @@ graph TB
                 ENC2[Encryption]
             end
             
+            subgraph "Multus CNI 2"
+                MCNI2[Multus CNI]
+                NAD2[Network Attachments]
+                SRIOV2[SR-IOV CNI]
+                MACVLAN2[MacVLAN CNI]
+            end
+            
             subgraph "Workloads 2"
                 POD2[Container Pods]
                 VM2[Virtual Machines]
+                MVMI2[Multi-NIC VMs]
             end
         end
     end
@@ -67,13 +88,29 @@ graph TB
     EXT --> LB
     LB --> API
     API --> CA
+    API --> MDS
     CA --> CO
     CO --> HUB
+    
+    NADAPI --> NAD1
+    NADAPI --> NAD2
     
     EBPF1 --> POD1
     EBPF1 --> VM1
     EBPF2 --> POD2
     EBPF2 --> VM2
+    
+    MCNI1 --> MVMI1
+    MCNI2 --> MVMI2
+    NAD1 --> SRIOV1
+    NAD1 --> MACVLAN1
+    NAD2 --> SRIOV2
+    NAD2 --> MACVLAN2
+    
+    SRIOV1 --> MVMI1
+    MACVLAN1 --> MVMI1
+    SRIOV2 --> MVMI2
+    MACVLAN2 --> MVMI2
     
     POL1 --> EBPF1
     POL2 --> EBPF2
@@ -220,6 +257,366 @@ spec:
       "type": "cilium-cni",
       "ipam": {
         "type": "cilium"
+      }
+    }
+```
+
+## Multus Multi-Network Configuration
+
+### Overview
+
+Multus CNI enables attaching multiple network interfaces to pods and VMs, allowing for complex networking scenarios such as:
+- Separation of management and data traffic
+- VLAN-based network segmentation
+- High-performance networking with SR-IOV
+- Legacy application networking requirements
+
+```mermaid
+graph TB
+    subgraph "VM with Multiple Network Interfaces"
+        A[Virtual Machine]
+        B[eth0 - Default Network]
+        C[eth1 - Management Network]
+        D[eth2 - Storage Network]
+        E[eth3 - SR-IOV Network]
+    end
+    
+    subgraph "Network Attachments"
+        F[Default CNI - Cilium]
+        G[Management NAD]
+        H[Storage NAD]
+        I[SR-IOV NAD]
+    end
+    
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    
+    B --> F
+    C --> G
+    D --> H
+    E --> I
+```
+
+### Multus Installation
+
+Multus is typically installed as part of OpenShift Container Platform:
+
+```bash
+# Verify Multus is installed
+oc get network.operator.openshift.io cluster -o yaml
+
+# Check Multus DaemonSet
+oc get ds multus -n openshift-multus
+```
+
+### Network Attachment Definitions (NADs)
+
+#### Management Network NAD
+
+```yaml
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: management-network
+  namespace: vm-infrastructure
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "management-network",
+      "type": "macvlan",
+      "master": "ens192",
+      "mode": "bridge",
+      "ipam": {
+        "type": "static",
+        "addresses": [
+          {
+            "address": "192.168.100.0/24",
+            "gateway": "192.168.100.1"
+          }
+        ],
+        "dns": {
+          "nameservers": ["192.168.100.10", "8.8.8.8"]
+        }
+      }
+    }
+```
+
+#### Storage Network NAD
+
+```yaml
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: storage-network
+  namespace: vm-infrastructure
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "storage-network",
+      "type": "macvlan",
+      "master": "ens224",
+      "mode": "bridge",
+      "ipam": {
+        "type": "static",
+        "addresses": [
+          {
+            "address": "10.0.200.0/24"
+          }
+        ]
+      }
+    }
+```
+
+#### VLAN-based Network NAD
+
+```yaml
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: vlan-100-network
+  namespace: vm-production
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-100-network",
+      "type": "macvlan",
+      "master": "ens192.100",
+      "mode": "bridge",
+      "ipam": {
+        "type": "dhcp"
+      }
+    }
+```
+
+#### SR-IOV Network NAD
+
+```yaml
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: sriov-high-performance
+  namespace: vm-production
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "sriov-high-performance",
+      "type": "sriov",
+      "deviceID": "1017",
+      "vf": 0,
+      "ipam": {
+        "type": "static",
+        "addresses": [
+          {
+            "address": "10.0.50.0/24"
+          }
+        ]
+      }
+    }
+```
+
+### VM Configuration with Multiple Network Cards
+
+#### VM with Multiple Interfaces
+
+```yaml
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: multi-network-vm
+  namespace: vm-infrastructure
+  annotations:
+    k8s.v1.cni.cncf.io/networks: |
+      [
+        {
+          "name": "management-network",
+          "ips": ["192.168.100.50/24"]
+        },
+        {
+          "name": "storage-network",
+          "ips": ["10.0.200.50/24"]
+        },
+        {
+          "name": "vlan-100-network"
+        }
+      ]
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        app: multi-network-app
+    spec:
+      domain:
+        cpu:
+          cores: 4
+        memory:
+          guest: 8Gi
+        devices:
+          interfaces:
+          - name: default
+            masquerade: {}
+          - name: management
+            bridge: {}
+          - name: storage
+            bridge: {}
+          - name: vlan-network
+            bridge: {}
+          disks:
+          - name: rootdisk
+            disk:
+              bus: virtio
+        resources:
+          requests:
+            cpu: 4
+            memory: 8Gi
+      networks:
+      - name: default
+        pod: {}
+      - name: management
+        multus:
+          networkName: management-network
+      - name: storage
+        multus:
+          networkName: storage-network
+      - name: vlan-network
+        multus:
+          networkName: vlan-100-network
+      volumes:
+      - name: rootdisk
+        dataVolume:
+          name: multi-network-vm-root
+```
+
+#### High-Performance VM with SR-IOV
+
+```yaml
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: high-perf-vm
+  namespace: vm-production
+  annotations:
+    k8s.v1.cni.cncf.io/networks: |
+      [
+        {
+          "name": "management-network",
+          "ips": ["192.168.100.100/24"]
+        },
+        {
+          "name": "sriov-high-performance",
+          "ips": ["10.0.50.100/24"]
+        }
+      ]
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        app: high-performance-app
+    spec:
+      domain:
+        cpu:
+          cores: 8
+          dedicatedCpuPlacement: true
+        memory:
+          guest: 16Gi
+          hugepages:
+            pageSize: 1Gi
+        devices:
+          interfaces:
+          - name: default
+            masquerade: {}
+          - name: management
+            bridge: {}
+          - name: sriov-net
+            sriov: {}
+          disks:
+          - name: rootdisk
+            disk:
+              bus: virtio
+        resources:
+          requests:
+            cpu: 8
+            memory: 16Gi
+            hugepages-1Gi: 16Gi
+      networks:
+      - name: default
+        pod: {}
+      - name: management
+        multus:
+          networkName: management-network
+      - name: sriov-net
+        multus:
+          networkName: sriov-high-performance
+      volumes:
+      - name: rootdisk
+        dataVolume:
+          name: high-perf-vm-root
+```
+
+### Advanced Multus Configurations
+
+#### Bond Network Interface
+
+```yaml
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: bond-network
+  namespace: vm-infrastructure
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "bond-network",
+      "type": "bond",
+      "mode": "active-backup",
+      "miimon": "100",
+      "links": [
+        {"name": "ens192"},
+        {"name": "ens224"}
+      ],
+      "ipam": {
+        "type": "static",
+        "addresses": [
+          {
+            "address": "10.0.100.0/24",
+            "gateway": "10.0.100.1"
+          }
+        ]
+      }
+    }
+```
+
+#### OVS Bridge Network
+
+```yaml
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: ovs-bridge-network
+  namespace: vm-infrastructure
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "ovs-bridge-network",
+      "type": "ovs",
+      "bridge": "br-data",
+      "vlan": 200,
+      "ipam": {
+        "type": "static",
+        "addresses": [
+          {
+            "address": "10.0.200.0/24"
+          }
+        ]
       }
     }
 ```

@@ -2,19 +2,20 @@
 
 ## Overview
 
-This document outlines the GitOps approach for managing RH OVE workloads, providing guidelines for implementing Infrastructure as Code (IaC) and application deployment through Git-based workflows.
+This document outlines the GitOps approach for managing the multi-cluster RH OVE ecosystem, providing guidelines for implementing Infrastructure as Code (IaC) and application deployment through Git-based workflows across management and application clusters.
 
-## GitOps Principles
+## Multi-Cluster GitOps Principles
 
-Based on our research, using GitOps for RH OVE is widely considered a good strategy with several key benefits:
+The RH OVE ecosystem implements GitOps across a hub-and-spoke architecture:
 
-- **Single Source of Truth**: All VM configurations and infrastructure stored in Git
-- **Declarative Management**: Infrastructure as Code for VMs and containers
-- **Automation**: Reduced human error through automated deployments
-- **Auditability**: Complete change tracking and rollback capabilities
-- **Collaboration**: Peer review through pull requests
+- **Centralized Control**: ArgoCD Hub manages deployments to multiple application clusters
+- **Single Source of Truth**: All cluster and VM configurations stored in Git repositories
+- **Declarative Management**: Infrastructure as Code for clusters, VMs, and containers
+- **Multi-Environment Support**: Separate overlays for production, staging, and development clusters
+- **Policy Distribution**: Centralized policy management with cluster-specific enforcement
+- **Automated Rollbacks**: Complete change tracking and rollback capabilities across clusters
 
-## Architecture
+## Multi-Cluster Architecture
 
 ```mermaid
 graph TB

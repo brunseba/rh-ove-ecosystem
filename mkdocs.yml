@@ -1,5 +1,5 @@
-site_name: RH OVE Ecosystem Design and Management
-site_description: Red Hat OpenShift Virtualization Engine Solution Architecture
+site_name: RH OVE Multi-Cluster Ecosystem
+site_description: Red Hat OpenShift Virtualization Engine Multi-Cluster Architecture and Management
 site_author: Professional Team
 site_url: https://rh-ove-ecosystem.example.com/
 
@@ -25,11 +25,20 @@ theme:
     - navigation.expand
     - navigation.path
     - navigation.top
+    - navigation.indexes
     - search.highlight
     - search.share
+    - search.suggest
     - toc.follow
+    - toc.integrate
     - content.code.copy
     - content.code.select
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/cloud-outline
 
 plugins:
   - search
@@ -67,10 +76,26 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Architecture:
-    - Overview: architecture/overview.md
+    - Global Overview: architecture/global-overview.md
+    - Single Cluster Overview: architecture/overview.md
     - Design Principles: architecture/design-principles.md
     - Network Architecture: architecture/network.md
     - Storage Architecture: architecture/storage.md
+    - IAM Strategy: architecture/iam.md
+    - ADRs:
+      - ADR Table: architecture/adr/adr-table.md
+      - ADR-001 Multi-Cluster Pattern: architecture/adr/adr-001-multi-cluster-pattern.md
+      - ADR-002 GitOps ArgoCD: architecture/adr/adr-002-gitops-argocd.md
+      - ADR-003 Cluster Topology: architecture/adr/adr-003-cluster-topology.md
+      - ADR-004 Admission Controller: architecture/adr/adr-004-admission-controller.md
+      - ADR-005 Network CNI: architecture/adr/adr-005-network-cni.md
+      - ADR-006 Backup Strategy: architecture/adr/adr-006-backup-strategy.md
+      - ADR-007 Monitoring Strategy: architecture/adr/adr-007-monitoring-strategy.md
+      - ADR-008 IAM Strategy: architecture/adr/adr-008-iam-strategy.md
+    - Requirements:
+      - Requirements Table: architecture/requirements/requirements-table.md
+      - Functional Requirements: architecture/requirements/fr.md
+      - Non-Functional Requirements: architecture/requirements/nfr.md
   - Deployment:
     - Prerequisites: deployment/prerequisites.md
     - Installation Guide: deployment/installation.md
@@ -91,8 +116,47 @@ nav:
 
 extra:
   generator: false
+  version:
+    provider: mike
+    default: latest
+  tags:
+    Multi-Cluster: multi-cluster
+    Management: management
+    Application: application
+    Networking: networking
+    Security: security
+    GitOps: gitops
+    Virtualization: virtualization
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/
+      name: GitHub Organization
+    - icon: fontawesome/brands/redhat
+      link: https://redhat.com/
+      name: Red Hat
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/
+      name: LinkedIn
+  analytics:
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

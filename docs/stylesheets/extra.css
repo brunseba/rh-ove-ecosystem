@@ -1,0 +1,187 @@
+/* Custom styles for RH OVE Multi-Cluster Documentation */
+
+/* Multi-cluster specific color scheme */
+:root {
+  --md-primary-fg-color: #ee0000;
+  --md-primary-fg-color--light: #ff4444;
+  --md-primary-fg-color--dark: #cc0000;
+  --md-accent-fg-color: #ff6b6b;
+  --md-accent-fg-color--transparent: rgba(255, 107, 107, 0.1);
+  
+  /* Custom colors for cluster types */
+  --cluster-management-color: #0066cc;
+  --cluster-production-color: #cc0000;
+  --cluster-staging-color: #ff9900;
+  --cluster-development-color: #00cc66;
+}
+
+/* Enhanced code blocks for multi-cluster configs */
+.highlight .language-yaml .na {
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* Cluster type badges */
+.cluster-badge {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 0.25em;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: white;
+  margin-right: 0.5em;
+}
+
+.cluster-badge--management {
+  background-color: var(--cluster-management-color);
+}
+
+.cluster-badge--production {
+  background-color: var(--cluster-production-color);
+}
+
+.cluster-badge--staging {
+  background-color: var(--cluster-staging-color);
+}
+
+.cluster-badge--development {
+  background-color: var(--cluster-development-color);
+}
+
+/* Architecture diagram enhancements */
+.mermaid {
+  text-align: center;
+  margin: 2em 0;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Multi-cluster navigation enhancements */
+.md-nav__item--nested > .md-nav__link::after {
+  content: "🏗️";
+  margin-left: 0.5em;
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="global-overview"]::before {
+  content: "🌐 ";
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="overview"]::before {
+  content: "🏢 ";
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="network"]::before {
+  content: "🌐 ";
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="storage"]::before {
+  content: "💾 ";
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="deployment"]::before {
+  content: "🚀 ";
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="management"]::before {
+  content: "⚙️ ";
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="operations"]::before {
+  content: "🔧 ";
+}
+
+.md-nav__item[data-md-level="1"] > .md-nav__link[href*="references"]::before {
+  content: "📚 ";
+}
+
+/* Enhanced admonitions for multi-cluster scenarios */
+.md-typeset .admonition.cluster {
+  border-color: var(--cluster-management-color);
+}
+
+.md-typeset .admonition.cluster > .admonition-title {
+  background-color: rgba(0, 102, 204, 0.1);
+  border-color: var(--cluster-management-color);
+}
+
+.md-typeset .admonition.cluster > .admonition-title::before {
+  content: "🏗️";
+  background-color: var(--cluster-management-color);
+}
+
+/* Command line styling for multi-cluster operations */
+.md-typeset code {
+  background-color: var(--md-code-bg-color);
+  border-radius: 0.25em;
+  padding: 0.2em 0.4em;
+  font-size: 0.85em;
+}
+
+.md-typeset pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Table enhancements for cluster comparison */
+.md-typeset table {
+  font-size: 0.9em;
+}
+
+.md-typeset th {
+  background-color: var(--md-accent-fg-color--transparent);
+  font-weight: 600;
+}
+
+/* Responsive design improvements */
+@media screen and (max-width: 76.1875em) {
+  .cluster-badge {
+    display: block;
+    margin: 0.2em 0;
+    text-align: center;
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  .cluster-badge {
+    border: 1px solid currentColor;
+    color: black !important;
+    background: transparent !important;
+  }
+  
+  .mermaid svg {
+    max-height: 500px;
+  }
+}
+
+/* Enhanced search highlighting */
+.md-search-result__teaser mark {
+  background-color: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+}
+
+/* Footer customization */
+.md-footer-meta {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-default-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-accent-fg-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-primary-fg-color);
+}

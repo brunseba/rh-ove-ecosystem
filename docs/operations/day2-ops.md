@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document covers day-2 operational activities essential for maintaining the RH OVE ecosystem. It includes guidelines for ongoing maintenance, upgrades, performance tuning, and operational tasks that ensure smooth running of the environment.
+This document covers day-2 operational activities essential for maintaining the multi-cluster RH OVE ecosystem. It includes guidelines for managing the management cluster and multiple application clusters, covering ongoing maintenance, upgrades, performance tuning, and operational tasks across the entire fleet.
 
 ## Maintenance Tasks
 
