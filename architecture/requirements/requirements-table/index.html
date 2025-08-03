@@ -1,0 +1,3788 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Red Hat OpenShift Virtualization Engine Multi-Cluster Architecture and Management">
+      
+      
+        <meta name="author" content="Professional Team">
+      
+      
+        <link rel="canonical" href="https://brunseba.github.io/rh-ove-ecosystem/architecture/requirements/requirements-table/">
+      
+      
+        <link rel="prev" href="../../adr/adr-008-iam-strategy/">
+      
+      
+        <link rel="next" href="../fr/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Requirements Table - RH OVE Multi-Cluster Ecosystem</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requirements-summary-table" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="RH OVE Multi-Cluster Ecosystem" class="md-header__button md-logo" aria-label="RH OVE Multi-Cluster Ecosystem" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RH OVE Multi-Cluster Ecosystem
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Requirements Table
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/brunseba/rh-ove-ecosystem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brunseba/rh-ove-ecosystem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../global-overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../deployment/prerequisites/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../management/admission-control/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Management
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../operations/day2-ops/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Operations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../use-cases/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Use Cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../references/product-urls/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="RH OVE Multi-Cluster Ecosystem" class="md-nav__button md-logo" aria-label="RH OVE Multi-Cluster Ecosystem" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    RH OVE Multi-Cluster Ecosystem
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/brunseba/rh-ove-ecosystem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brunseba/rh-ove-ecosystem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../global-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Single Cluster Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Network Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Storage Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IAM Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    ADRs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            ADRs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-001-multi-cluster-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-001 Multi-Cluster Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-002-gitops-argocd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-002 GitOps ArgoCD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-003-cluster-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-003 Cluster Topology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-004-admission-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-004 Admission Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-005-network-cni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-005 Network CNI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-006-backup-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-006 Backup Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-007-monitoring-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-007 Monitoring Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-008-iam-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-008 IAM Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Requirements
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Requirements
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Requirements Table
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requirements Table
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functional-requirements-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional Requirements Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-functional-requirements-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Functional Requirements Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Non-Functional Requirements Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#availability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Availability Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reliability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintainability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintainability Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usability Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacity-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacity Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compliance-regulatory-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compliance &amp; Regulatory Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-traceability-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements Traceability Matrix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements Traceability Matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adr-to-requirements-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADR to Requirements Mapping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-coverage-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements Coverage Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-validation-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements Validation Criteria
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements Validation Criteria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-requirements-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional Requirements Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-functional-requirements-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Functional Requirements Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functional Requirements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Non-Functional Requirements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deployment/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deployment/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deployment/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../management/admission-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Admission Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../management/gitops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitOps Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../management/monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../management/backup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backup & Recovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Operations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Operations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/day2-ops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day-2 Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performance Tuning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Cases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Use Cases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/use-cases-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    VM Lifecycle
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            VM Lifecycle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/vm-importation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VM Import & Migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/vm-template-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VM Template Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/vm-scaling-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VM Scaling & Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/vm-backup-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VM Backup & Recovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Application Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/hybrid-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/setup-multi-env-application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi-Environment Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PaaS Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            PaaS Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/database-services-paas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Enterprise Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            Enterprise Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/legacy-modernization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Legacy Modernization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disaster Recovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Observability
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Observability
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/end-to-end-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    End-to-End Observability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/waf-firewalling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WAF & Firewalling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use-cases/publishing-events-to-cmdb-siem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Events to CMDB/SIEM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/product-urls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Product URLs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="requirements-summary-table">Requirements Summary Table<a class="headerlink" href="#requirements-summary-table" title="Permanent link">&para;</a></h1>
+<p>This document provides a comprehensive overview of all functional and non-functional requirements for the RH OVE multi-cluster ecosystem.</p>
+<h2 id="functional-requirements-summary">Functional Requirements Summary<a class="headerlink" href="#functional-requirements-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Title</th>
+<th>ADR Reference</th>
+<th>Acceptance Criteria Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../fr/#fr-0011-cluster-topology-management">FR-001.1</a></td>
+<td>Multi-Cluster Management</td>
+<td>Cluster Topology Management</td>
+<td>ADR-003</td>
+<td>Namespace patterns <code>{app-name}-{environment}</code>, cross-namespace policies, resource quotas</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0012-multi-cluster-governance">FR-001.2</a></td>
+<td>Multi-Cluster Management</td>
+<td>Multi-Cluster Governance</td>
+<td>ADR-001</td>
+<td>RHACM cluster lifecycle, centralized policies, monitoring aggregation</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0021-argocd-hub-architecture">FR-002.1</a></td>
+<td>GitOps Integration</td>
+<td>ArgoCD Hub Architecture</td>
+<td>ADR-002</td>
+<td>HA ArgoCD Hub, Application of Applications, automated/manual sync</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0022-configuration-management">FR-002.2</a></td>
+<td>GitOps Integration</td>
+<td>Configuration Management</td>
+<td>ADR-002</td>
+<td>Git-based config, Kustomize overlays, drift detection</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0031-layered-admission-control">FR-003.1</a></td>
+<td>Policy Management</td>
+<td>Layered Admission Control</td>
+<td>ADR-004</td>
+<td>Kyverno, Security Context Constraints, policy-as-code</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0032-security-policy-enforcement">FR-003.2</a></td>
+<td>Policy Management</td>
+<td>Security Policy Enforcement</td>
+<td>ADR-004</td>
+<td>Blocking/warning modes, violation reporting, exemption workflows</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0041-cilium-cni-implementation">FR-004.1</a></td>
+<td>Networking</td>
+<td>Cilium CNI Implementation</td>
+<td>ADR-005</td>
+<td>Cilium with Hubble, identity-aware policies, WireGuard encryption</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0042-multi-network-support">FR-004.2</a></td>
+<td>Networking</td>
+<td>Multi-Network Support</td>
+<td>ADR-005</td>
+<td>Multus NADs, multiple VM interfaces, VLAN segmentation, SR-IOV</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0043-zero-trust-security">FR-004.3</a></td>
+<td>Networking</td>
+<td>Zero Trust Security</td>
+<td>ADR-005</td>
+<td>Default-deny policies, L7 enforcement, flow monitoring</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0051-centralized-backup-management">FR-005.1</a></td>
+<td>Backup &amp; DR</td>
+<td>Centralized Backup Management</td>
+<td>ADR-006</td>
+<td>Rubrik management, policy-driven scheduling, VM snapshots</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0052-disaster-recovery-capabilities">FR-005.2</a></td>
+<td>Backup &amp; DR</td>
+<td>Disaster Recovery Capabilities</td>
+<td>ADR-006</td>
+<td>Cloud replication, point-in-time recovery, cross-cluster failover</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0061-integrated-monitoring-stack">FR-006.1</a></td>
+<td>Monitoring</td>
+<td>Integrated Monitoring Stack</td>
+<td>ADR-007</td>
+<td>Federated Prometheus, Grafana, Dynatrace, Hubble integration</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0062-proactive-monitoring-and-alerting">FR-006.2</a></td>
+<td>Monitoring</td>
+<td>Proactive Monitoring and Alerting</td>
+<td>ADR-007</td>
+<td>Threshold/anomaly detection, ITSM integration, runbook automation</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0071-vm-lifecycle-management">FR-007.1</a></td>
+<td>VM Management</td>
+<td>VM Lifecycle Management</td>
+<td>KubeVirt</td>
+<td>VM CRUD operations, live migration, template management</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0072-storage-management">FR-007.2</a></td>
+<td>VM Management</td>
+<td>Storage Management</td>
+<td>KubeVirt</td>
+<td>Multiple storage classes, volume expansion, image import</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0081-identity-and-access-management">FR-008.1</a></td>
+<td>Security</td>
+<td>Identity and Access Management</td>
+<td>ADR-008</td>
+<td>Keycloak OIDC, LDAP/AD federation, SSO, Dex proxy, OAuth integration, RBAC</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0082-multi-factor-authentication-and-security-controls">FR-008.2</a></td>
+<td>Security</td>
+<td>Multi-Factor Authentication and Security Controls</td>
+<td>ADR-008</td>
+<td>Mandatory MFA, token security, TLS 1.3, mutual TLS, SCIM automation</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0083-compliance-management">FR-008.3</a></td>
+<td>Security</td>
+<td>Compliance Management</td>
+<td>ADR-008</td>
+<td>SOC 2/GDPR/HIPAA with IAM, automated access reviews, incident tracking</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0091-self-service-capabilities">FR-009.1</a></td>
+<td>Developer Experience</td>
+<td>Self-Service Capabilities</td>
+<td>DevEx</td>
+<td>Web interfaces, CLI tools, template provisioning</td>
+</tr>
+<tr>
+<td><a href="../fr/#fr-0092-cicd-integration">FR-009.2</a></td>
+<td>Developer Experience</td>
+<td>CI/CD Integration</td>
+<td>DevOps</td>
+<td>Git webhooks, image building, deployment strategies</td>
+</tr>
+</tbody>
+</table>
+<h2 id="non-functional-requirements-summary">Non-Functional Requirements Summary<a class="headerlink" href="#non-functional-requirements-summary" title="Permanent link">&para;</a></h2>
+<h3 id="performance-requirements">Performance Requirements<a class="headerlink" href="#performance-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Metric</th>
+<th>Target Value</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-001</td>
+<td>Latency</td>
+<td>API Response Time</td>
+<td>&lt; 200ms (95th percentile)</td>
+<td>User experience optimization</td>
+</tr>
+<tr>
+<td>FR-NFR-002</td>
+<td>Latency</td>
+<td>Cross-Cluster Communication</td>
+<td>&lt; 50ms</td>
+<td>Real-time data synchronization</td>
+</tr>
+<tr>
+<td>FR-NFR-003</td>
+<td>Latency</td>
+<td>VM Startup Time</td>
+<td>&lt; 60 seconds</td>
+<td>Rapid workload provisioning</td>
+</tr>
+<tr>
+<td>FR-NFR-004</td>
+<td>Throughput</td>
+<td>VM Deployment Rate</td>
+<td>100+ VMs/hour/cluster</td>
+<td>Support for scaling events</td>
+</tr>
+<tr>
+<td>FR-NFR-005</td>
+<td>Throughput</td>
+<td>Monitoring Metrics</td>
+<td>10,000+ metrics/second</td>
+<td>Comprehensive observability</td>
+</tr>
+<tr>
+<td>FR-NFR-006</td>
+<td>Throughput</td>
+<td>Log Processing</td>
+<td>1GB+ logs/hour</td>
+<td>Adequate logging capacity</td>
+</tr>
+<tr>
+<td>FR-NFR-007</td>
+<td>Resource Utilization</td>
+<td>CPU Usage</td>
+<td>≤ 80% under normal load</td>
+<td>Performance headroom</td>
+</tr>
+<tr>
+<td>FR-NFR-008</td>
+<td>Resource Utilization</td>
+<td>Memory Usage</td>
+<td>≤ 85% under normal load</td>
+<td>Stability margin</td>
+</tr>
+<tr>
+<td>FR-NFR-009</td>
+<td>Resource Utilization</td>
+<td>Storage Usage</td>
+<td>≤ 90% capacity</td>
+<td>Growth accommodation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="availability-requirements">Availability Requirements<a class="headerlink" href="#availability-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Metric</th>
+<th>Target Value</th>
+<th>Business Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-010</td>
+<td>Uptime</td>
+<td>Production Clusters</td>
+<td>99.9% (&lt; 8.77 hours/year downtime)</td>
+<td>Business continuity</td>
+</tr>
+<tr>
+<td>FR-NFR-011</td>
+<td>Uptime</td>
+<td>Management Cluster</td>
+<td>99.95% (&lt; 4.38 hours/year downtime)</td>
+<td>Central control availability</td>
+</tr>
+<tr>
+<td>FR-NFR-012</td>
+<td>Failover</td>
+<td>Critical Services</td>
+<td>&lt; 30 seconds failover time</td>
+<td>Minimal service disruption</td>
+</tr>
+<tr>
+<td>FR-NFR-013</td>
+<td>Disaster Recovery</td>
+<td>RPO (Recovery Point Objective)</td>
+<td>&lt; 4 hours</td>
+<td>Data loss tolerance</td>
+</tr>
+<tr>
+<td>FR-NFR-014</td>
+<td>Disaster Recovery</td>
+<td>RTO (Recovery Time Objective)</td>
+<td>&lt; 8 hours</td>
+<td>Recovery time tolerance</td>
+</tr>
+<tr>
+<td>FR-NFR-015</td>
+<td>Disaster Recovery</td>
+<td>Cross-Region Failover</td>
+<td>&lt; 15 minutes</td>
+<td>Geographic resilience</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scalability-requirements">Scalability Requirements<a class="headerlink" href="#scalability-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Metric</th>
+<th>Target Value</th>
+<th>Scalability Dimension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-016</td>
+<td>Horizontal Scaling</td>
+<td>Application Clusters</td>
+<td>Minimum 10 clusters</td>
+<td>Multi-environment support</td>
+</tr>
+<tr>
+<td>FR-NFR-017</td>
+<td>Horizontal Scaling</td>
+<td>Pods per Cluster</td>
+<td>1000+ pods</td>
+<td>Workload density</td>
+</tr>
+<tr>
+<td>FR-NFR-018</td>
+<td>Horizontal Scaling</td>
+<td>Total Containers</td>
+<td>50,000+ across all clusters</td>
+<td>Enterprise scale</td>
+</tr>
+<tr>
+<td>FR-NFR-019</td>
+<td>Vertical Scaling</td>
+<td>VM Resources</td>
+<td>Up to 64 vCPUs, 512GB RAM</td>
+<td>Large workload support</td>
+</tr>
+<tr>
+<td>FR-NFR-020</td>
+<td>Vertical Scaling</td>
+<td>Storage Volumes</td>
+<td>Up to 100TB per volume</td>
+<td>Big data capabilities</td>
+</tr>
+<tr>
+<td>FR-NFR-021</td>
+<td>Vertical Scaling</td>
+<td>Network Bandwidth</td>
+<td>Up to 25Gbps per node</td>
+<td>High-performance networking</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security-requirements">Security Requirements<a class="headerlink" href="#security-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Requirement</th>
+<th>Implementation</th>
+<th>Compliance Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-022</td>
+<td>Authentication</td>
+<td>Multi-Factor Authentication</td>
+<td>All API access</td>
+<td>Enhanced security posture</td>
+</tr>
+<tr>
+<td>FR-NFR-023</td>
+<td>Authorization</td>
+<td>RBAC Enforcement</td>
+<td>All cluster components</td>
+<td>Access control consistency</td>
+</tr>
+<tr>
+<td>FR-NFR-024</td>
+<td>Authentication</td>
+<td>Service Account Tokens</td>
+<td>Time-limited tokens</td>
+<td>Reduced credential exposure</td>
+</tr>
+<tr>
+<td>FR-NFR-025</td>
+<td>Data Protection</td>
+<td>Encryption in Transit</td>
+<td>TLS 1.3+</td>
+<td>Data confidentiality</td>
+</tr>
+<tr>
+<td>FR-NFR-026</td>
+<td>Data Protection</td>
+<td>Encryption at Rest</td>
+<td>AES-256</td>
+<td>Data protection compliance</td>
+</tr>
+<tr>
+<td>FR-NFR-027</td>
+<td>Key Management</td>
+<td>Key Rotation</td>
+<td>Every 90 days</td>
+<td>Security best practices</td>
+</tr>
+<tr>
+<td>FR-NFR-028</td>
+<td>Network Security</td>
+<td>Inter-Cluster Encryption</td>
+<td>All communications</td>
+<td>End-to-end security</td>
+</tr>
+<tr>
+<td>FR-NFR-029</td>
+<td>Network Security</td>
+<td>Network Policies</td>
+<td>Deny by default</td>
+<td>Zero trust implementation</td>
+</tr>
+<tr>
+<td>FR-NFR-030</td>
+<td>Network Security</td>
+<td>Environment Isolation</td>
+<td>Network segmentation</td>
+<td>Security boundaries</td>
+</tr>
+<tr>
+<td>FR-NFR-031</td>
+<td>Compliance</td>
+<td>SOC 2 Compliance</td>
+<td>Type II certification</td>
+<td>Regulatory adherence</td>
+</tr>
+<tr>
+<td>FR-NFR-032</td>
+<td>Audit</td>
+<td>Log Retention</td>
+<td>7 years</td>
+<td>Compliance requirements</td>
+</tr>
+<tr>
+<td>FR-NFR-033</td>
+<td>Security</td>
+<td>Vulnerability Scanning</td>
+<td>Daily scans</td>
+<td>Proactive security</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reliability-requirements">Reliability Requirements<a class="headerlink" href="#reliability-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Requirement</th>
+<th>Target</th>
+<th>Reliability Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-034</td>
+<td>Fault Tolerance</td>
+<td>Single Node Failure</td>
+<td>No service interruption</td>
+<td>High availability</td>
+</tr>
+<tr>
+<td>FR-NFR-035</td>
+<td>Fault Tolerance</td>
+<td>Single AZ Failure</td>
+<td>Continued operation</td>
+<td>Geographic resilience</td>
+</tr>
+<tr>
+<td>FR-NFR-036</td>
+<td>Data Replication</td>
+<td>Minimum Replicas</td>
+<td>3 nodes</td>
+<td>Data durability</td>
+</tr>
+<tr>
+<td>FR-NFR-037</td>
+<td>Error Handling</td>
+<td>Error Logging</td>
+<td>All errors with severity</td>
+<td>Operational visibility</td>
+</tr>
+<tr>
+<td>FR-NFR-038</td>
+<td>Error Handling</td>
+<td>Retry Logic</td>
+<td>Exponential backoff</td>
+<td>Resilient operations</td>
+</tr>
+<tr>
+<td>FR-NFR-039</td>
+<td>Error Handling</td>
+<td>Critical Error Alerting</td>
+<td>Automated notifications</td>
+<td>Rapid incident response</td>
+</tr>
+<tr>
+<td>FR-NFR-040</td>
+<td>Monitoring</td>
+<td>Health Coverage</td>
+<td>99% system coverage</td>
+<td>Comprehensive monitoring</td>
+</tr>
+<tr>
+<td>FR-NFR-041</td>
+<td>Monitoring</td>
+<td>Metrics Retention</td>
+<td>Minimum 1 year</td>
+<td>Historical analysis</td>
+</tr>
+<tr>
+<td>FR-NFR-042</td>
+<td>Observability</td>
+<td>Distributed Tracing</td>
+<td>All services</td>
+<td>End-to-end visibility</td>
+</tr>
+</tbody>
+</table>
+<h3 id="maintainability-requirements">Maintainability Requirements<a class="headerlink" href="#maintainability-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Requirement</th>
+<th>Implementation</th>
+<th>Operational Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-043</td>
+<td>Deployment</td>
+<td>Zero-Downtime Updates</td>
+<td>Rolling deployments</td>
+<td>Service continuity</td>
+</tr>
+<tr>
+<td>FR-NFR-044</td>
+<td>Deployment</td>
+<td>Rollback Capability</td>
+<td>&lt; 5 minutes</td>
+<td>Rapid recovery</td>
+</tr>
+<tr>
+<td>FR-NFR-045</td>
+<td>Testing</td>
+<td>Automated Test Coverage</td>
+<td>90%+ functionality</td>
+<td>Quality assurance</td>
+</tr>
+<tr>
+<td>FR-NFR-046</td>
+<td>Configuration</td>
+<td>Version Control</td>
+<td>All configuration</td>
+<td>Change management</td>
+</tr>
+<tr>
+<td>FR-NFR-047</td>
+<td>Configuration</td>
+<td>Change Auditability</td>
+<td>All changes tracked</td>
+<td>Compliance and debugging</td>
+</tr>
+<tr>
+<td>FR-NFR-048</td>
+<td>Infrastructure</td>
+<td>Infrastructure as Code</td>
+<td>All deployments</td>
+<td>Consistency and repeatability</td>
+</tr>
+<tr>
+<td>FR-NFR-049</td>
+<td>Documentation</td>
+<td>API Specifications</td>
+<td>OpenAPI for all APIs</td>
+<td>Developer experience</td>
+</tr>
+<tr>
+<td>FR-NFR-050</td>
+<td>Documentation</td>
+<td>Operational Runbooks</td>
+<td>All procedures</td>
+<td>Operational consistency</td>
+</tr>
+<tr>
+<td>FR-NFR-051</td>
+<td>Documentation</td>
+<td>Architecture Decisions</td>
+<td>ADR documentation</td>
+<td>Knowledge management</td>
+</tr>
+</tbody>
+</table>
+<h3 id="usability-requirements">Usability Requirements<a class="headerlink" href="#usability-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Requirement</th>
+<th>Standard/Implementation</th>
+<th>User Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-052</td>
+<td>User Interface</td>
+<td>Responsive Design</td>
+<td>Mobile-friendly web UI</td>
+<td>Multi-device access</td>
+</tr>
+<tr>
+<td>FR-NFR-053</td>
+<td>API Design</td>
+<td>RESTful Principles</td>
+<td>Standard REST API</td>
+<td>Developer experience</td>
+</tr>
+<tr>
+<td>FR-NFR-054</td>
+<td>CLI Tools</td>
+<td>Help Documentation</td>
+<td>Comprehensive help</td>
+<td>User self-service</td>
+</tr>
+<tr>
+<td>FR-NFR-055</td>
+<td>Accessibility</td>
+<td>WCAG Compliance</td>
+<td>2.1 AA standards</td>
+<td>Inclusive design</td>
+</tr>
+<tr>
+<td>FR-NFR-056</td>
+<td>Localization</td>
+<td>Multi-Language Support</td>
+<td>International users</td>
+<td>Global accessibility</td>
+</tr>
+<tr>
+<td>FR-NFR-057</td>
+<td>Accessibility</td>
+<td>High Contrast Mode</td>
+<td>Visual accessibility</td>
+<td>Enhanced usability</td>
+</tr>
+</tbody>
+</table>
+<h3 id="capacity-requirements">Capacity Requirements<a class="headerlink" href="#capacity-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Resource</th>
+<th>Minimum Capacity</th>
+<th>Scaling Consideration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-058</td>
+<td>Storage</td>
+<td>Usable Storage</td>
+<td>100TB per production cluster</td>
+<td>Data growth accommodation</td>
+</tr>
+<tr>
+<td>FR-NFR-059</td>
+<td>Storage</td>
+<td>IOPS Performance</td>
+<td>10,000+ IOPS per cluster</td>
+<td>High-performance workloads</td>
+</tr>
+<tr>
+<td>FR-NFR-060</td>
+<td>Storage</td>
+<td>Backup Retention</td>
+<td>5 years</td>
+<td>Compliance and recovery</td>
+</tr>
+<tr>
+<td>FR-NFR-061</td>
+<td>Network</td>
+<td>Inter-Cluster Connectivity</td>
+<td>10Gbps minimum</td>
+<td>High-bandwidth applications</td>
+</tr>
+<tr>
+<td>FR-NFR-062</td>
+<td>Network</td>
+<td>Intra-Cluster Latency</td>
+<td>≤ 5ms maximum</td>
+<td>Real-time applications</td>
+</tr>
+<tr>
+<td>FR-NFR-063</td>
+<td>Network</td>
+<td>MTU Support</td>
+<td>9000 bytes (jumbo frames)</td>
+<td>Network optimization</td>
+</tr>
+<tr>
+<td>FR-NFR-064</td>
+<td>Compute</td>
+<td>CPU Capacity</td>
+<td>1000 vCPUs per production cluster</td>
+<td>Computational workloads</td>
+</tr>
+<tr>
+<td>FR-NFR-065</td>
+<td>Compute</td>
+<td>Memory Capacity</td>
+<td>4TB RAM per production cluster</td>
+<td>Memory-intensive applications</td>
+</tr>
+<tr>
+<td>FR-NFR-066</td>
+<td>Compute</td>
+<td>GPU Support</td>
+<td>8+ GPUs per cluster</td>
+<td>AI/ML workloads</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compliance-regulatory-requirements">Compliance &amp; Regulatory Requirements<a class="headerlink" href="#compliance-regulatory-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Category</th>
+<th>Requirement</th>
+<th>Implementation</th>
+<th>Regulatory Framework</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-NFR-067</td>
+<td>Data Governance</td>
+<td>Data Classification</td>
+<td>Automated labeling</td>
+<td>Privacy regulations</td>
+</tr>
+<tr>
+<td>FR-NFR-068</td>
+<td>Data Protection</td>
+<td>PII Handling</td>
+<td>Encryption and access control</td>
+<td>GDPR, HIPAA</td>
+</tr>
+<tr>
+<td>FR-NFR-069</td>
+<td>Data Governance</td>
+<td>Retention Policies</td>
+<td>Automated enforcement</td>
+<td>Legal requirements</td>
+</tr>
+<tr>
+<td>FR-NFR-070</td>
+<td>Audit</td>
+<td>Administrative Logging</td>
+<td>All admin actions</td>
+<td>SOX, SOC 2</td>
+</tr>
+<tr>
+<td>FR-NFR-071</td>
+<td>Audit</td>
+<td>Log Integrity</td>
+<td>Tamper-proof, timestamped</td>
+<td>Legal evidence</td>
+</tr>
+<tr>
+<td>FR-NFR-072</td>
+<td>Compliance</td>
+<td>Automated Reporting</td>
+<td>Compliance dashboards</td>
+<td>Regulatory reporting</td>
+</tr>
+<tr>
+<td>FR-NFR-073</td>
+<td>Privacy</td>
+<td>Right to be Forgotten</td>
+<td>Data deletion capability</td>
+<td>GDPR Article 17</td>
+</tr>
+<tr>
+<td>FR-NFR-074</td>
+<td>Privacy</td>
+<td>Data Minimization</td>
+<td>Principle enforcement</td>
+<td>Privacy by design</td>
+</tr>
+<tr>
+<td>FR-NFR-075</td>
+<td>Privacy</td>
+<td>Privacy by Design</td>
+<td>Built-in privacy controls</td>
+<td>Proactive compliance</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requirements-traceability-matrix">Requirements Traceability Matrix<a class="headerlink" href="#requirements-traceability-matrix" title="Permanent link">&para;</a></h2>
+<h3 id="adr-to-requirements-mapping">ADR to Requirements Mapping<a class="headerlink" href="#adr-to-requirements-mapping" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ADR</th>
+<th>Related Functional Requirements</th>
+<th>Related Non-Functional Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADR-001: Multi-Cluster Pattern</td>
+<td>FR-001.1, FR-001.2</td>
+<td>FR-NFR-010, FR-NFR-011, FR-NFR-016, FR-NFR-034, FR-NFR-035</td>
+</tr>
+<tr>
+<td>ADR-002: GitOps ArgoCD</td>
+<td>FR-002.1, FR-002.2</td>
+<td>FR-NFR-043, FR-NFR-044, FR-NFR-046, FR-NFR-047, FR-NFR-048</td>
+</tr>
+<tr>
+<td>ADR-003: Namespace Topology</td>
+<td>FR-001.1, FR-008.1</td>
+<td>FR-NFR-023, FR-NFR-030, FR-NFR-067, FR-NFR-068</td>
+</tr>
+<tr>
+<td>ADR-004: Admission Controller</td>
+<td>FR-003.1, FR-003.2</td>
+<td>FR-NFR-022, FR-NFR-023, FR-NFR-031, FR-NFR-037, FR-NFR-070</td>
+</tr>
+<tr>
+<td>ADR-005: Cilium CNI</td>
+<td>FR-004.1, FR-004.2, FR-004.3</td>
+<td>FR-NFR-002, FR-NFR-021, FR-NFR-028, FR-NFR-029, FR-NFR-061, FR-NFR-062</td>
+</tr>
+<tr>
+<td>ADR-006: Backup Strategy</td>
+<td>FR-005.1, FR-005.2</td>
+<td>FR-NFR-013, FR-NFR-014, FR-NFR-015, FR-NFR-032, FR-NFR-060</td>
+</tr>
+<tr>
+<td>ADR-007: Monitoring Strategy</td>
+<td>FR-006.1, FR-006.2</td>
+<td>FR-NFR-005, FR-NFR-040, FR-NFR-041, FR-NFR-042, FR-NFR-072</td>
+</tr>
+<tr>
+<td>ADR-008: IAM Strategy</td>
+<td>FR-008.1, FR-008.2, FR-008.3</td>
+<td>FR-NFR-022, FR-NFR-023, FR-NFR-024, FR-NFR-025, FR-NFR-031, FR-NFR-070, FR-NFR-073</td>
+</tr>
+</tbody>
+</table>
+<h3 id="requirements-coverage-analysis">Requirements Coverage Analysis<a class="headerlink" href="#requirements-coverage-analysis" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Total Requirements</th>
+<th>Critical Requirements</th>
+<th>Implementation Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Functional Requirements</td>
+<td>19 sub-requirements</td>
+<td>12 critical</td>
+<td>Architecture defined</td>
+</tr>
+<tr>
+<td>Performance Requirements</td>
+<td>9 requirements</td>
+<td>6 critical</td>
+<td>Targets established</td>
+</tr>
+<tr>
+<td>Availability Requirements</td>
+<td>6 requirements</td>
+<td>6 critical</td>
+<td>SLAs defined</td>
+</tr>
+<tr>
+<td>Scalability Requirements</td>
+<td>6 requirements</td>
+<td>4 critical</td>
+<td>Capacity planned</td>
+</tr>
+<tr>
+<td>Security Requirements</td>
+<td>12 requirements</td>
+<td>12 critical</td>
+<td>Controls specified</td>
+</tr>
+<tr>
+<td>Reliability Requirements</td>
+<td>9 requirements</td>
+<td>6 critical</td>
+<td>Patterns established</td>
+</tr>
+<tr>
+<td>Maintainability Requirements</td>
+<td>9 requirements</td>
+<td>5 critical</td>
+<td>Processes defined</td>
+</tr>
+<tr>
+<td>Usability Requirements</td>
+<td>6 requirements</td>
+<td>2 critical</td>
+<td>Standards adopted</td>
+</tr>
+<tr>
+<td>Capacity Requirements</td>
+<td>9 requirements</td>
+<td>6 critical</td>
+<td>Minimums established</td>
+</tr>
+<tr>
+<td>Compliance Requirements</td>
+<td>9 requirements</td>
+<td>9 critical</td>
+<td>Frameworks aligned</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requirements-validation-criteria">Requirements Validation Criteria<a class="headerlink" href="#requirements-validation-criteria" title="Permanent link">&para;</a></h2>
+<h3 id="functional-requirements-validation">Functional Requirements Validation<a class="headerlink" href="#functional-requirements-validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>FR Validation Method</strong>: Acceptance criteria testing, integration testing, user acceptance testing</li>
+<li><strong>FR Success Metrics</strong>: All acceptance criteria met, integration tests pass, user stories completed</li>
+<li><strong>FR Review Frequency</strong>: Sprint reviews, milestone assessments, release validation</li>
+</ul>
+<h3 id="non-functional-requirements-validation">Non-Functional Requirements Validation<a class="headerlink" href="#non-functional-requirements-validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>NFR Validation Method</strong>: Performance testing, load testing, security testing, compliance auditing</li>
+<li><strong>NFR Success Metrics</strong>: All targets met or exceeded, benchmarks achieved, compliance verified</li>
+<li><strong>NFR Review Frequency</strong>: Continuous monitoring, quarterly assessments, annual compliance reviews</li>
+</ul>
+<p>This comprehensive requirements table provides complete traceability from high-level business needs through detailed technical requirements, enabling effective validation and implementation tracking for the RH OVE multi-cluster ecosystem.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2025 21:58:18 UTC">August 3, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2025 21:58:18 UTC">August 3, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback!
+
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/brunseba/rh-ove-ecosystem" target="_blank" rel="noopener" title="GitHub Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://redhat.com/" target="_blank" rel="noopener" title="Red Hat" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M341.52 285.56c33.65 0 82.34-6.94 82.34-47 .22-6.74.86-1.82-20.88-96.24-4.62-19.15-8.68-27.84-42.31-44.65-26.09-13.34-82.92-35.37-99.73-35.37-15.66 0-20.2 20.17-38.87 20.17-18 0-31.31-15.06-48.12-15.06-16.14 0-26.66 11-34.78 33.62-27.5 77.55-26.28 74.27-26.12 78.27 0 24.8 97.64 106.11 228.47 106.11M429 254.84c4.65 22 4.65 24.35 4.65 27.25 0 37.66-42.33 58.56-98 58.56-125.74.08-235.91-73.65-235.91-122.33a49.55 49.55 0 0 1 4.06-19.72C58.56 200.86 0 208.93 0 260.63c0 84.67 200.63 189 359.49 189 121.79 0 152.51-55.08 152.51-98.58 0-34.21-29.59-73.05-82.93-96.24"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://linkedin.com/" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "content.code.copy", "content.code.select", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": {"Application": "application", "GitOps": "gitops", "Management": "management", "Multi-Cluster": "multi-cluster", "Networking": "networking", "Security": "security", "Virtualization": "virtualization"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
