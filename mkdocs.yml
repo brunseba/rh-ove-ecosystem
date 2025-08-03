@@ -1,7 +1,9 @@
 site_name: RH OVE Multi-Cluster Ecosystem
 site_description: Red Hat OpenShift Virtualization Engine Multi-Cluster Architecture and Management
 site_author: Professional Team
-site_url: https://rh-ove-ecosystem.example.com/
+site_url: https://brunseba.github.io/rh-ove-ecosystem/
+repo_name: brunseba/rh-ove-ecosystem
+repo_url: https://github.com/brunseba/rh-ove-ecosystem
 
 theme:
   name: material
@@ -109,6 +111,28 @@ nav:
     - Day-2 Operations: operations/day2-ops.md
     - Troubleshooting: operations/troubleshooting.md
     - Performance Tuning: operations/performance.md
+  - Use Cases:
+    - Overview: use-cases/overview.md
+    - 'Summary Table': use-cases/use-cases-table.md
+    - VM Lifecycle:
+      - VM Import & Migration: use-cases/vm-importation.md
+      - VM Template Management: use-cases/vm-template-management.md
+      - VM Scaling & Performance: use-cases/vm-scaling-performance.md
+      - VM Backup & Recovery: use-cases/vm-backup-recovery.md
+    - Application Deployment:
+      - Hybrid Applications: use-cases/hybrid-applications.md
+      - Multi-Environment Setup: use-cases/setup-multi-env-application.md
+    - PaaS Integration:
+      - Database Services: use-cases/database-services-paas.md
+    - Enterprise Integration:
+      - Legacy Modernization: use-cases/legacy-modernization.md
+      - Disaster Recovery: use-cases/disaster-recovery.md
+    - Observability:
+      - End-to-End Observability: use-cases/end-to-end-observability.md
+    - Security:
+      - WAF & Firewalling: use-cases/waf-firewalling.md
+    - Integration:
+      - Events to CMDB/SIEM: use-cases/publishing-events-to-cmdb-siem.md
   - References:
     - Product URLs: references/product-urls.md
     - Best Practices: references/best-practices.md
@@ -129,8 +153,8 @@ extra:
     Virtualization: virtualization
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/
-      name: GitHub Organization
+      link: https://github.com/brunseba/rh-ove-ecosystem
+      name: GitHub Repository
     - icon: fontawesome/brands/redhat
       link: https://redhat.com/
       name: Red Hat

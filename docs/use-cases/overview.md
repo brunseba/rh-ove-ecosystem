@@ -3,6 +3,10 @@
 ## Introduction
 This section provides comprehensive use cases for the Red Hat OpenShift Virtualization Engine (RH OVE) multi-cluster ecosystem, demonstrating real-world scenarios and implementation patterns.
 
+## 📊 [Complete Use Cases Summary Table](use-cases-table.md)
+
+For a comprehensive overview of all use cases with complexity ratings, implementation timelines, and prerequisites, see our [Use Cases Summary Table](use-cases-table.md).
+
 ## Use Case Categories
 
 ### 1. VM Lifecycle Management
