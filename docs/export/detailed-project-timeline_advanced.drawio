@@ -1,0 +1,41 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="3">
+  <diagram id="5522e215f5844e3c" name="Detailed Project Timeline Flowchart Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;flowchart TD\n    A[Project Start] --&gt; B[Infrastructure Study]\n    B --&gt; C[Infrastructure Design]\n    C --&gt; D[Infrastructure Implementation]\n    D --&gt; E[Infrastructure Testing]\n    E --&gt; F[Infrastructure Day-2 Ops]\n    \n    C --&gt; G[Use-Cases Study]\n    G --&gt; H[Use-Cases Design]\n    D --&gt; I[Use-Cases Implementation]\n    I --&gt; J[Use-Cases Testing]\n    J --&gt; K[Use-Cases Day-2 Ops]\n    \n    D --&gt; L[Migration Study]\n    L --&gt; M[Migration Design]\n    E --&gt; N[Migration Implementation]\n    N --&gt; O[Migration Testing]\n    O --&gt; P[Migration Day-2 Ops]\n    \n    F --&gt; Q[Project Complete]\n    K --&gt; Q\n    P --&gt; Q\n    \n    classDef infrastructure fill:#e1f5fe\n    classDef usecases fill:#f3e5f5\n    classDef migration fill:#e8f5e8\n    classDef milestone fill:#fff3e0\n    \n    class B,C,D,E,F infrastructure\n    class G,H,I,J,K usecases\n    class L,M,N,O,P migration\n    class A,Q milestone&quot;}" id="d8c632b674ae4c81">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="70e7e9719d26499d" name="Detailed Project Timeline Gantt">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;gantt\n    title RH OVE Ecosystem Project Timeline\n    dateFormat YYYY-MM-DD\n    axisFormat %m/%d\n    \n    section Infrastructure Project\n    Study Phase           :inf-study, 2024-01-01, 28d\n    Design Phase          :inf-design, after inf-study, 56d\n    Implementation Phase  :inf-impl, after inf-design, 56d\n    Testing Phase         :inf-test, after inf-impl, 28d\n    Day-2 Operations      :inf-ops, after inf-test, 28d\n    \n    section Use-Cases Project  \n    Study Phase           :uc-study, after inf-design, 28d\n    Design Phase          :uc-design, after uc-study, 56d\n    Implementation Phase  :uc-impl, after inf-impl, 84d\n    Testing Phase         :uc-test, after uc-impl, 28d\n    Day-2 Operations      :uc-ops, after uc-test, 28d\n    \n    section Migration Project\n    Study Phase           :mig-study, after inf-impl, 56d\n    Design Phase          :mig-design, after mig-study, 56d\n    Implementation Phase  :mig-impl, after inf-test, 98d\n    Testing Phase         :mig-test, after mig-impl, 28d\n    Day-2 Operations      :mig-ops, after mig-test, 42d&quot;}" id="8c4c0c7d30a5478c">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="fedd2a0551a9416d" name="Detailed Project Timeline Gantt 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;gantt\n    title Detailed Resource Allocation by Phase\n    dateFormat YYYY-MM-DD\n    axisFormat %m/%d\n    \n    section Infrastructure Team\n    Infrastructure Architect       :inf-arch, 2024-01-01, 84d\n    Infrastructure Architect PT    :inf-arch-pt, 2024-03-25, 28d\n    DevOps Engineers (2)           :inf-devops, 2024-01-29, 140d\n    System Administrators (2)      :inf-sysadmin, 2024-03-25, 112d\n    Security Engineer              :inf-security, 2024-01-29, 84d\n    Network Engineer               :inf-network, 2024-01-01, 140d\n    \n    section Use-Cases Team\n    Solution Architect             :uc-arch, 2024-03-25, 84d\n    Application Developers (3)     :uc-dev, 2024-04-22, 140d\n    Testing Specialist             :uc-test, 2024-08-12, 56d\n    DevOps Engineer                :uc-devops, 2024-05-20, 168d\n    Security Specialist            :uc-security, 2024-04-22, 112d\n    Business Analyst               :uc-ba, 2024-03-25, 56d\n    \n    section Migration Team\n    Migration Specialist           :mig-specialist, 2024-04-22, 308d\n    VMware Administrators (2)      :mig-vmware, 2024-04-22, 196d\n    RH OVE Engineers (2)           :mig-rhove, 2024-08-12, 196d\n    Application Owners (2)         :mig-appowner, 2024-07-15, 182d\n    Performance Engineer           :mig-perf, 2024-06-17, 210d\n    Backup Administrator           :mig-backup, 2024-05-20, 280d\n    \n    section Critical Milestones\n    Infrastructure 70% Complete   :milestone, 2024-06-17, 1d\n    Infrastructure 80% Complete   :milestone, 2024-07-08, 1d\n    All Projects Complete         :milestone, 2025-02-24, 1d&quot;}" id="93fd9a820634459a">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

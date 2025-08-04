@@ -1,0 +1,28 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="2">
+  <diagram id="b9c257a5b9bd47ca" name="Index Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Management Cluster\&quot;\n        A[Management Control Plane]\n        B[Argo CD Hub]\n        C[RHACM Central]\n        D[RHACS Security]\n        E[Observability Stack]\n    end\n    \n    subgraph \&quot;Application Clusters\&quot;\n        F[Production Environments]\n        G[Staging Environments]\n        H[Development Environments]\n    end\n    \n    A --&gt; B\n    A --&gt; C\n    A --&gt; D\n    A --&gt; E\n    F --&gt; E\n    G --&gt; E\n    H --&gt; E&quot;}" id="1268c041a9274e10">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="5997bd84051c43e4" name="Index Graph Tb 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;External Systems\&quot;\n        EXT1[Rubrik Backup Platform]\n        EXT2[Dynatrace Monitoring]\n        EXT3[ServiceNow CMDB]\n        EXT4[Git Repository]\n    end\n    \n    subgraph \&quot;RH OVE Cluster\&quot;\n        subgraph \&quot;Control Plane\&quot;\n            CP1[OpenShift API Server]\n            CP2[etcd]\n            CP3[Controller Manager]\n        end\n        \n        subgraph \&quot;Admission Control Layer\&quot;\n            AC1[OpenShift Built-in Controllers]\n            AC2[KubeVirt Webhooks]\n            AC3[Kyverno Policy Engine]\n        end\n        \n        subgraph \&quot;Network Layer\&quot;\n            NET1[Cilium CNI]\n            NET2[eBPF Programs]\n            NET3[Network Policies]\n        end\n        \n        subgraph \&quot;GitOps Layer\&quot;\n            GO1[Argo CD]\n            GO2[Application Controller]\n        end\n        \n        subgraph \&quot;Workload Layer\&quot;\n            WL1[Virtual Machines]\n            WL2[Container Pods]\n            WL3[Persistent Volumes]\n        end\n    end\n    \n    EXT4 --&gt; GO1\n    GO1 --&gt; CP1\n    CP1 --&gt; AC1\n    CP1 --&gt; AC2\n    CP1 --&gt; AC3\n    AC1 --&gt; WL1\n    AC2 --&gt; WL1\n    AC3 --&gt; WL1\n    AC3 --&gt; WL2\n    NET1 --&gt; WL1\n    NET1 --&gt; WL2\n    WL1 --&gt; EXT1\n    WL2 --&gt; EXT1\n    NET1 --&gt; EXT2\n    WL1 --&gt; EXT2\n    WL2 --&gt; EXT2\n    CP1 --&gt; EXT3&quot;}" id="06d8c2ae604344b9">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

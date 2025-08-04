@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="5548330ebc07485e" name="Monitoring Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Data Sources\&quot;\n        A[Virtual Machines]\n        B[Container Workloads]\n        C[OpenShift Platform]\n        D[Cilium Network]\n        E[Storage Systems]\n    end\n    \n    subgraph \&quot;Collection Layer\&quot;\n        F[Dynatrace OneAgent]\n        G[Prometheus]\n        H[Node Exporter]\n        I[Hubble]\n        J[QEMU Guest Agent]\n    end\n    \n    subgraph \&quot;Processing &amp; Storage\&quot;\n        K[Dynatrace Platform]\n        L[Prometheus Server]\n        M[Alert Manager]\n    end\n    \n    subgraph \&quot;Visualization &amp; Alerting\&quot;\n        N[Dynatrace Dashboard]\n        O[Grafana]\n        P[OpenShift Console]\n        Q[Alert Notifications]\n    end\n    \n    A --&gt; F\n    A --&gt; J\n    B --&gt; F\n    C --&gt; G\n    C --&gt; H\n    D --&gt; I\n    E --&gt; G\n    \n    F --&gt; K\n    G --&gt; L\n    H --&gt; L\n    I --&gt; L\n    J --&gt; G\n    \n    K --&gt; N\n    L --&gt; O\n    L --&gt; M\n    M --&gt; Q\n    N --&gt; Q&quot;}" id="e4933310f40b4c2d">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

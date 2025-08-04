@@ -1,0 +1,54 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="4">
+  <diagram id="b512338a141f4766" name="Design Principles Graph Lr">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph LR\n    subgraph \&quot;RH OVE Cluster\&quot;\n        A[Unified Management Platform]\n        \n        subgraph \&quot;Container Workloads\&quot;\n            B[Microservices]\n            C[Cloud-Native Apps]\n            D[API Gateways]\n        end\n        \n        subgraph \&quot;VM Workloads\&quot;\n            E[Legacy Applications]\n            F[Windows Workloads]\n            G[Databases]\n            H[Monolithic Applications]\n        end\n    end\n    \n    A --&gt; B\n    A --&gt; C\n    A --&gt; D\n    A --&gt; E\n    A --&gt; F\n    A --&gt; G\n    A --&gt; H&quot;}" id="de1f3a1647c0461e">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="336cd266a63d4b00" name="Design Principles Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Cluster Level\&quot;\n        A[RH OVE Cluster]\n    end\n    \n    subgraph \&quot;Application Namespaces\&quot;\n        B[app-web]\n        C[app-database]\n        D[app-analytics]\n        E[app-monitoring]\n    end\n    \n    subgraph \&quot;Resources per Namespace\&quot;\n        B --&gt; F[VMs + Containers + Storage + Network]\n        C --&gt; G[VMs + Containers + Storage + Network]\n        D --&gt; H[VMs + Containers + Storage + Network]\n        E --&gt; I[VMs + Containers + Storage + Network]\n    end&quot;}" id="b28b84a9ce264c6b">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="72fd54d0b6194eb1" name="Design Principles Graph Tb 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Monitoring Stack\&quot;\n        A[Dynatrace] --&gt; B[Full-Stack Monitoring]\n        A --&gt; C[AI-Powered Analytics]\n        A --&gt; D[Application Performance]\n        \n        E[Prometheus] --&gt; F[Metrics Collection]\n        E --&gt; G[Custom Metrics]\n        \n        H[OpenShift Monitoring] --&gt; I[Cluster Health]\n        H --&gt; J[Platform Metrics]\n    end\n    \n    subgraph \&quot;Workloads\&quot;\n        K[VMs]\n        L[Containers]\n        M[Infrastructure]\n    end\n    \n    B --&gt; K\n    B --&gt; L\n    B --&gt; M\n    F --&gt; K\n    F --&gt; L\n    I --&gt; M&quot;}" id="e3c7f10c058b4939">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="5e5905f4187e4a43" name="Design Principles Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    A[Security Layers] --&gt; B[Network Security]\n    A --&gt; C[Admission Control]\n    A --&gt; D[RBAC &amp; SCC]\n    A --&gt; E[Pod Security Standards]\n    A --&gt; F[Image Security]\n    \n    B --&gt; G[Cilium CNI with eBPF]\n    B --&gt; H[Network Policies]\n    B --&gt; I[Microsegmentation]\n    \n    C --&gt; J[OpenShift Built-in]\n    C --&gt; K[KubeVirt Webhooks]\n    C --&gt; L[Kyverno Policies]\n    \n    D --&gt; M[Role-Based Access Control]\n    D --&gt; N[Security Context Constraints]\n    \n    E --&gt; O[Pod Security Standards]\n    E --&gt; P[Workload Isolation]\n    \n    F --&gt; Q[Image Scanning]\n    F --&gt; R[Registry Security]&quot;}" id="23077adfe2164f42">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

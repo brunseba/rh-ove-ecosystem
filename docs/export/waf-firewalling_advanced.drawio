@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="fb44127aae2046f6" name="Waf Firewalling Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;Application Layer\&quot;\n        APP1[\&quot;Web Application 1\&quot;]\n        APP2[\&quot;Web Application 2\&quot;]\n    end\n\n    subgraph \&quot;Security Layer\&quot;\n        CILIUM_WAF[\&quot;Cilium L4-L7 WAF\&quot;]\n        F5_BIGIP[\&quot;F5 BigIP\&quot;]\n    end\n\n    subgraph \&quot;Infrastructure Layer\&quot;\n        NETWORK[\&quot;Network Infrastructure\&quot;]\n        STORAGE[\&quot;Persistent Storage\&quot;]\n    end\n    \n    APP1 --&gt;|request| CILIUM_WAF\n    APP2 --&gt;|request| CILIUM_WAF\n    CILIUM_WAF --&gt;|forward| F5_BIGIP\n    F5_BIGIP --&gt;|filter| NETWORK\n\n    F5_BIGIP --&gt;|logs| STORAGE\n    CILIUM_WAF --&gt;|metrics| STORAGE\n\n    style CILIUM_WAF fill:#f9f,stroke:#333\n    style F5_BIGIP fill:#9ff,stroke:#333&quot;}" id="2fb18451ab3e488f">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

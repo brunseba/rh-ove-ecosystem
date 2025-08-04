@@ -162,3 +162,16 @@ tasks:
       - echo "Validating project..."
       - 'test -f "{{.SOURCE_FILE}}" || (echo "Error: Source file not found" && exit 1)'
       - echo "✓ Validation complete!"
+
+  convert-to-docx:
+    desc: Convert MkDocs documentation to DOCX using Pandoc
+    sources:
+      - "../mkdocs.yml"
+      - "../docs/**/*.md"
+      - convert_docs_to_docx.py
+    generates:
+      - "../docs/export/RH_OVE_Complete_Documentation.docx"
+    cmds:
+      - echo "Converting MkDocs documentation to DOCX..."
+      - uv run python convert_docs_to_docx.py
+      - echo "✓ DOCX conversion complete!"

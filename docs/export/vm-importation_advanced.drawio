@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="53851ffb3b334850" name="Vm Importation Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Source Environment\&quot;\n        VS[VMware vSphere]\n        RHV[Red Hat Virtualization]\n        HV[Hyper-V]\n        KVM[KVM/QEMU]\n    end\n    \n    subgraph \&quot;OpenShift Cluster\&quot;\n        MTV[Migration Toolkit for Virtualization]\n        CDI[Container Data Importer]\n        PVC[PersistentVolumeClaim]\n        DV[DataVolume]\n        VM[VirtualMachine]\n    end\n    \n    subgraph \&quot;Storage\&quot;\n        SC[StorageClass]\n        PV[PersistentVolume]\n        CSI[CSI Driver]\n    end\n    \n    VS --&gt; MTV\n    RHV --&gt; MTV\n    HV --&gt; MTV\n    KVM --&gt; CDI\n    \n    MTV --&gt; DV\n    CDI --&gt; DV\n    DV --&gt; PVC\n    PVC --&gt; PV\n    PV --&gt; CSI\n    \n    DV --&gt; VM\n    \n    style MTV fill:#99ccff\n    style CDI fill:#99ffcc\n    style VM fill:#ff99cc&quot;}" id="9be108f38eee457b">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

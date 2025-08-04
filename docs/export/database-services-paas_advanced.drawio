@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="cb83f74d4d244064" name="Database Services Paas Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;Database PaaS Control Plane\&quot;\n        DB_OPERATOR[\&quot;Database Operators\&quot;]\n        SERVICE_CATALOG[\&quot;Service Catalog\&quot;]\n        PROVISIONING[\&quot;Auto-Provisioning\&quot;]\n        BACKUP_CONTROLLER[\&quot;Backup Controller\&quot;]\n    end\n    \n    subgraph \&quot;Database Instances\&quot;\n        POSTGRES_CLUSTER[\&quot;PostgreSQL Cluster\&quot;]\n        MYSQL_CLUSTER[\&quot;MySQL Cluster\&quot;]\n        MONGO_CLUSTER[\&quot;MongoDB Cluster\&quot;]\n        REDIS_CLUSTER[\&quot;Redis Cluster\&quot;]\n    end\n    \n    subgraph \&quot;Application Layer\&quot;\n        APP1[\&quot;Application 1\&quot;]\n        APP2[\&quot;Application 2\&quot;]\n        MICROSERVICES[\&quot;Microservices\&quot;]\n    end\n    \n    subgraph \&quot;Storage Layer\&quot;\n        ODF[\&quot;OpenShift Data Foundation\&quot;]\n        SNAPSHOTS[\&quot;Volume Snapshots\&quot;]\n        BACKUPS[\&quot;Backup Storage\&quot;]\n    end\n    \n    SERVICE_CATALOG --&gt; DB_OPERATOR\n    DB_OPERATOR --&gt; POSTGRES_CLUSTER\n    DB_OPERATOR --&gt; MYSQL_CLUSTER\n    DB_OPERATOR --&gt; MONGO_CLUSTER\n    DB_OPERATOR --&gt; REDIS_CLUSTER\n    \n    APP1 --&gt; POSTGRES_CLUSTER\n    APP2 --&gt; MYSQL_CLUSTER\n    MICROSERVICES --&gt; REDIS_CLUSTER\n    \n    POSTGRES_CLUSTER --&gt; ODF\n    MYSQL_CLUSTER --&gt; ODF\n    MONGO_CLUSTER --&gt; ODF\n    REDIS_CLUSTER --&gt; ODF\n    \n    BACKUP_CONTROLLER --&gt; SNAPSHOTS\n    SNAPSHOTS --&gt; BACKUPS\n\n    style DB_OPERATOR fill:#f9f,stroke:#333\n    style SERVICE_CATALOG fill:#ff9,stroke:#333\n    style ODF fill:#9ff,stroke:#333&quot;}" id="d5e4b2585835479e">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

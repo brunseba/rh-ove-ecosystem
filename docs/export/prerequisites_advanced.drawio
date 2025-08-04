@@ -1,0 +1,54 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="4">
+  <diagram id="458231ad3c304201" name="Prerequisites Gantt">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;gantt\n    title RH OVE Deployment Timeline\n    dateFormat  YYYY-MM-DD\n    section Infrastructure\n    Hardware Setup           :done, infra1, 2024-01-01, 2024-01-07\n    OpenShift Installation   :done, infra2, 2024-01-08, 2024-01-14\n    \n    section Core Components\n    Virtualization Operator  :active, core1, 2024-01-15, 2024-01-21\n    Cilium CNI               :core2, 2024-01-22, 2024-01-28\n    \n    section Security &amp; Policy\n    Kyverno Installation     :policy1, 2024-01-29, 2024-02-04\n    Security Policies        :policy2, 2024-02-05, 2024-02-11\n    \n    section Monitoring\n    Dynatrace Setup          :monitor1, 2024-02-12, 2024-02-18\n    Backup Configuration     :backup1, 2024-02-19, 2024-02-25\n    \n    section GitOps\n    Argo CD Setup           :gitops1, 2024-02-26, 2024-03-04\n    Application Deployment  :gitops2, 2024-03-05, 2024-03-11&quot;}" id="f775591e62d34b4c">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="1e1c2b608d97400e" name="Prerequisites Graph Lr">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph LR\n    subgraph \&quot;External Load Balancer\&quot;\n        A[API Load Balancer]\n        B[Ingress Load Balancer]\n    end\n    \n    subgraph \&quot;OpenShift Cluster\&quot;\n        C[Master Nodes]\n        D[Worker Nodes]\n        E[Ingress Controllers]\n    end\n    \n    A --&gt; C\n    B --&gt; E\n    E --&gt; D&quot;}" id="4702550940b84bc4">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="332b05903d47444e" name="Prerequisites Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Master Nodes (3 minimum)\&quot;\n        A[CPU: 4+ cores per node]\n        B[Memory: 16GB+ per node]\n        C[Storage: 120GB+ per node]\n        D[Network: 1Gbps+]\n    end\n    \n    subgraph \&quot;Worker Nodes (3+ minimum)\&quot;\n        E[CPU: 8+ cores per node]\n        F[Memory: 32GB+ per node]\n        G[Storage: 500GB+ per node]\n        H[Network: 10Gbps+]\n        I[Virtualization: Intel VT-x/AMD-V]\n    end\n    \n    subgraph \&quot;Storage Backend\&quot;\n        J[High-performance SSD]\n        K[Network-attached storage]\n        L[Block storage support]\n    end&quot;}" id="56943a18a018412c">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cb7069d5dbfe42b4" name="Prerequisites Graph Tb 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Core Operators\&quot;\n        A[OpenShift Virtualization Operator]\n        B[Red Hat OpenShift GitOps]\n        C[Web Terminal Operator]\n    end\n    \n    subgraph \&quot;Networking\&quot;\n        D[Cilium CNI Operator]\n        E[Multus CNI]\n    end\n    \n    subgraph \&quot;Security &amp; Policy\&quot;\n        F[Kyverno Operator]\n        G[Compliance Operator]\n    end\n    \n    subgraph \&quot;Monitoring &amp; Observability\&quot;\n        H[Dynatrace Operator]\n        I[Prometheus Operator]\n    end\n    \n    subgraph \&quot;Backup &amp; Storage\&quot;\n        J[Rubrik Operator]\n        K[CSI Operators]\n    end&quot;}" id="9daaef89731344fe">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

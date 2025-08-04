@@ -50,6 +50,12 @@ tasks:
       - echo "Serving documentation locally..."
       - mkdocs serve
 
+  docs:export-docx:
+    desc: Export documentation to DOCX format
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task convert-to-docx
+
   health-check:
     desc: Run project health check
     cmds:

@@ -42,8 +42,9 @@ graph TD
 
     VM -->|run| POD
     POD --- PAS
-    POD -- L7 Policy --|Monitor| CILIUM_PROXY
-    CILIUM_GATEWAY --|Ingress| POD
+    POD -->|L7 Policy| CILIUM_PROXY
+    CILIUM_PROXY -->|Monitor| POD
+    CILIUM_GATEWAY -->|Ingress| POD
     VM -->|Storage| ODF
     POD -->|Storage| PVCs
     PVCs --> PVS

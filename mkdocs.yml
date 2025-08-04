@@ -78,6 +78,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Architecture:
+    - Context Diagram: architecture/context-diagram.md
     - Global Overview: architecture/global-overview.md
     - Single Cluster Overview: architecture/overview.md
     - Design Principles: architecture/design-principles.md
@@ -149,6 +150,8 @@ nav:
   - References:
     - Product URLs: references/product-urls.md
     - Best Practices: references/best-practices.md
+    - SBOM: references/sbom.md
+    - Downloads: references/downloads.md
     - Task Management: TASKS.md
     - Glossary: references/glossary.md
 

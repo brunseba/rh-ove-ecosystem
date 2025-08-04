@@ -1,0 +1,80 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="6">
+  <diagram id="7d272199d0fb4323" name="Network Graph Lr">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph LR\n    subgraph \&quot;Traditional Security\&quot;\n        A[IP-based Rules]\n        B[Port-based Rules]\n    end\n    \n    subgraph \&quot;Cilium Identity-Aware\&quot;\n        C[Label-based Identity]\n        D[Service Identity]\n        E[Namespace Identity]\n        F[Application Identity]\n    end\n    \n    A --&gt; G[Limited Flexibility]\n    B --&gt; G\n    \n    C --&gt; H[Zero Trust Architecture]\n    D --&gt; H\n    E --&gt; H\n    F --&gt; H&quot;}" id="75bec6df21944c85">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="fd3842e27b4b4fe3" name="Network Graph Lr 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph LR\n    subgraph \&quot;Traditional Service Mesh\&quot;\n        A[Application Pod]\n        B[Sidecar Proxy]\n        C[Network]\n    end\n    \n    subgraph \&quot;Cilium Service Mesh\&quot;\n        D[Application Pod]\n        E[eBPF in Kernel]\n        F[Network]\n    end\n    \n    A --&gt; B\n    B --&gt; C\n    \n    D --&gt; E\n    E --&gt; F\n    \n    G[Higher Resource Usage] --&gt; A\n    H[Lower Latency] --&gt; D\n    I[Better Performance] --&gt; D&quot;}" id="97ae207d9411449b">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="634b9138d52a4738" name="Network Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;External Networks\&quot;\n        EXT[External Networks]\n        LB[Load Balancers]\n    end\n    \n    subgraph \&quot;OpenShift Cluster\&quot;\n        subgraph \&quot;Control Plane\&quot;\n            API[API Server]\n            ETCD[etcd]\n        end\n        \n        subgraph \&quot;Cilium Control Plane\&quot;\n            CA[Cilium Agent]\n            CO[Cilium Operator]\n            HUB[Hubble Relay]\n        end\n        \n        subgraph \&quot;Multus Control Plane\&quot;\n            MDS[Multus DaemonSet]\n            NADAPI[NAD API Server]\n        end\n        \n        subgraph \&quot;Node 1\&quot;\n            subgraph \&quot;Cilium Agent 1\&quot;\n                EBPF1[eBPF Programs]\n                POL1[Policy Engine]\n                ENC1[Encryption]\n            end\n            \n            subgraph \&quot;Multus CNI 1\&quot;\n                MCNI1[Multus CNI]\n                NAD1[Network Attachments]\n                SRIOV1[SR-IOV CNI]\n                MACVLAN1[MacVLAN CNI]\n            end\n            \n            subgraph \&quot;Workloads 1\&quot;\n                POD1[Container Pods]\n                VM1[Virtual Machines]\n                MVMI1[Multi-NIC VMs]\n            end\n        end\n        \n        subgraph \&quot;Node 2\&quot;\n            subgraph \&quot;Cilium Agent 2\&quot;\n                EBPF2[eBPF Programs]\n                POL2[Policy Engine]\n                ENC2[Encryption]\n            end\n            \n            subgraph \&quot;Multus CNI 2\&quot;\n                MCNI2[Multus CNI]\n                NAD2[Network Attachments]\n                SRIOV2[SR-IOV CNI]\n                MACVLAN2[MacVLAN CNI]\n            end\n            \n            subgraph \&quot;Workloads 2\&quot;\n                POD2[Container Pods]\n                VM2[Virtual Machines]\n                MVMI2[Multi-NIC VMs]\n            end\n        end\n    end\n    \n    EXT --&gt; LB\n    LB --&gt; API\n    API --&gt; CA\n    API --&gt; MDS\n    CA --&gt; CO\n    CO --&gt; HUB\n    \n    NADAPI --&gt; NAD1\n    NADAPI --&gt; NAD2\n    \n    EBPF1 --&gt; POD1\n    EBPF1 --&gt; VM1\n    EBPF2 --&gt; POD2\n    EBPF2 --&gt; VM2\n    \n    MCNI1 --&gt; MVMI1\n    MCNI2 --&gt; MVMI2\n    NAD1 --&gt; SRIOV1\n    NAD1 --&gt; MACVLAN1\n    NAD2 --&gt; SRIOV2\n    NAD2 --&gt; MACVLAN2\n    \n    SRIOV1 --&gt; MVMI1\n    MACVLAN1 --&gt; MVMI1\n    SRIOV2 --&gt; MVMI2\n    MACVLAN2 --&gt; MVMI2\n    \n    POL1 --&gt; EBPF1\n    POL2 --&gt; EBPF2\n    ENC1 --&gt; EBPF1\n    ENC2 --&gt; EBPF2&quot;}" id="e531f86bce684ce5">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="35cb303dd4a04aae" name="Network Graph Tb 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Tenant A Namespace\&quot;\n        A1[VM Workloads A]\n        A2[Container Workloads A]\n        A3[Network Policies A]\n    end\n    \n    subgraph \&quot;Tenant B Namespace\&quot;\n        B1[VM Workloads B]\n        B2[Container Workloads B]\n        B3[Network Policies B]\n    end\n    \n    subgraph \&quot;Shared Services\&quot;\n        S1[DNS]\n        S2[Monitoring]\n        S3[Logging]\n    end\n    \n    A3 --&gt; A1\n    A3 --&gt; A2\n    B3 --&gt; B1\n    B3 --&gt; B2\n    \n    A1 -.-&gt; S1\n    A2 -.-&gt; S2\n    B1 -.-&gt; S1\n    B2 -.-&gt; S3&quot;}" id="200dd7db61854592">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="deee4aa9a07c4e55" name="Network Graph Tb 3">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;VM with Multiple Network Interfaces\&quot;\n        A[Virtual Machine]\n        B[eth0 - Default Network]\n        C[eth1 - Management Network]\n        D[eth2 - Storage Network]\n        E[eth3 - SR-IOV Network]\n    end\n    \n    subgraph \&quot;Network Attachments\&quot;\n        F[Default CNI - Cilium]\n        G[Management NAD]\n        H[Storage NAD]\n        I[SR-IOV NAD]\n    end\n    \n    A --&gt; B\n    A --&gt; C\n    A --&gt; D\n    A --&gt; E\n    \n    B --&gt; F\n    C --&gt; G\n    D --&gt; H\n    E --&gt; I&quot;}" id="6a267c96ef18493d">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ee3060f601c34d2b" name="Network Graph Tb 4">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Hubble Observability\&quot;\n        A[Hubble Agent]\n        B[Hubble Relay]\n        C[Hubble UI]\n        D[Hubble CLI]\n    end\n    \n    subgraph \&quot;Data Sources\&quot;\n        E[Network Flows]\n        F[Service Dependencies]\n        G[Security Events]\n        H[Performance Metrics]\n    end\n    \n    E --&gt; A\n    F --&gt; A\n    G --&gt; A\n    H --&gt; A\n    \n    A --&gt; B\n    B --&gt; C\n    B --&gt; D&quot;}" id="6a7347a0a05145ab">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="8fdcf1533a5344cd" name="Legacy Modernization Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;Legacy Environment\&quot;\n        LEGACY_APP[\&quot;Legacy Application\&quot;]\n        LEGACY_DB[\&quot;Legacy Database\&quot;]\n        LEGACY_FILES[\&quot;File System\&quot;]\n    end\n    \n    subgraph \&quot;Modernization Platform\&quot;\n        VM_LAYER[\&quot;VM Layer (Lift &amp; Shift)\&quot;]\n        CONTAINER_LAYER[\&quot;Container Layer\&quot;]\n        MICROSERVICES[\&quot;Microservices\&quot;]\n        MODERN_DB[\&quot;Modern Database\&quot;]\n    end\n    \n    subgraph \&quot;Integration Layer\&quot;\n        SERVICE_MESH[\&quot;Service Mesh\&quot;]\n        API_GATEWAY[\&quot;API Gateway\&quot;]\n        MESSAGE_QUEUE[\&quot;Message Queue\&quot;]\n    end\n    \n    LEGACY_APP --&gt; VM_LAYER\n    VM_LAYER --&gt; CONTAINER_LAYER\n    CONTAINER_LAYER --&gt; MICROSERVICES\n    LEGACY_DB --&gt; MODERN_DB\n    \n    SERVICE_MESH --&gt; VM_LAYER\n    SERVICE_MESH --&gt; CONTAINER_LAYER\n    SERVICE_MESH --&gt; MICROSERVICES\n    \n    API_GATEWAY --&gt; SERVICE_MESH\n    MESSAGE_QUEUE --&gt; SERVICE_MESH\n\n    style LEGACY_APP fill:#faa,stroke:#333\n    style MICROSERVICES fill:#afa,stroke:#333\n    style SERVICE_MESH fill:#aaf,stroke:#333&quot;}" id="7be3a71e5c0b4ce4">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="728c9f0cb0944193" name="Adr 008 Iam Strategy Sequencediagram">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;sequenceDiagram\n    participant User\n    participant Browser\n    participant Dex\n    participant Keycloak\n    participant K8s API\n    participant ArgoCD\n\n    User-&gt;&gt;Browser: Access ArgoCD\n    Browser-&gt;&gt;ArgoCD: Request access\n    ArgoCD-&gt;&gt;Dex: Redirect to OIDC\n    Dex-&gt;&gt;Keycloak: Authentication request\n    Keycloak-&gt;&gt;User: MFA challenge\n    User-&gt;&gt;Keycloak: Credentials + MFA\n    Keycloak-&gt;&gt;Dex: ID Token + Access Token\n    Dex-&gt;&gt;ArgoCD: Authorization code\n    ArgoCD-&gt;&gt;Dex: Exchange for tokens\n    ArgoCD-&gt;&gt;K8s API: API calls with user context\n    K8s API-&gt;&gt;ArgoCD: Authorized response\n    ArgoCD-&gt;&gt;Browser: Application access granted&quot;}" id="acd20622cc8d4254">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
