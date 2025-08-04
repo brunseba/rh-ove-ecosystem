@@ -56,6 +56,12 @@ tasks:
     cmds:
       - task convert-to-docx
 
+  docs:export-docx-filter:
+    desc: Export documentation to DOCX format using pandoc-mermaid-filter
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task convert-to-docx-filter
+
   health-check:
     desc: Run project health check
     cmds:

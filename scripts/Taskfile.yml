@@ -175,3 +175,16 @@ tasks:
       - echo "Converting MkDocs documentation to DOCX..."
       - uv run python convert_docs_to_docx.py
       - echo "✓ DOCX conversion complete!"
+
+  convert-to-docx-filter:
+    desc: Convert MkDocs documentation to DOCX using pandoc-mermaid-filter
+    sources:
+      - "../mkdocs.yml"
+      - "../docs/**/*.md"
+      - convert_docs_to_docx_with_filter.py
+    generates:
+      - "../docs/export/RH_OVE_Complete_Documentation_Filtered.docx"
+    cmds:
+      - echo "Converting MkDocs documentation to DOCX with pandoc-mermaid-filter..."
+      - uv run python convert_docs_to_docx_with_filter.py
+      - echo "✓ DOCX conversion with filter complete!"

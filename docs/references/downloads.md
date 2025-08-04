@@ -6,6 +6,7 @@ This page provides access to downloadable files and exports generated from the R
 
 ### Complete Documentation
 - **[RH OVE Complete Documentation (DOCX)](../export/RH_OVE_Complete_Documentation.docx)** - Comprehensive documentation in Microsoft Word format including all sections, diagrams, and technical specifications
+- **[RH OVE Complete Documentation with Rendered Diagrams (DOCX)](../export/RH_OVE_Complete_Documentation_Filtered.docx)** - Enhanced version with natively rendered Mermaid diagrams using pandoc-mermaid-filter
 
 ### Project Management Files
 - **[Weekly Workload Breakdown (XLSX)](../export/RH_OVE_Weekly_Workload_Breakdown.xlsx)** - Detailed project timeline and resource allocation spreadsheet
@@ -61,6 +62,9 @@ This page provides access to downloadable files and exports generated from the R
 - **Purpose**: Complete documentation for offline reading, sharing, and printing
 - **Software**: Microsoft Word, LibreOffice Writer, Google Docs
 - **Best For**: Executive summaries, client presentations, offline documentation
+- **Conversion Methods**:
+  - Standard version: Docker-based mermaid-cli for diagram rendering
+  - Filtered version: Native pandoc-mermaid-filter for enhanced diagram quality
 
 ### XLSX Files
 - **Purpose**: Project management data, timelines, and resource planning
@@ -98,8 +102,11 @@ This page provides access to downloadable files and exports generated from the R
 ## Version Information
 
 - **Generated**: 2025-08-04
-- **Documentation Version**: 1.0
+- **Documentation Version**: 1.1.0
 - **Last Updated**: Based on latest documentation changes
+- **Export Methods**: 
+  - Standard DOCX: `task docs:export-docx`
+  - Enhanced DOCX: `task docs:export-docx-filter`
 
 ## Support
 
