@@ -133,9 +133,23 @@ nav:
       - WAF & Firewalling: use-cases/waf-firewalling.md
     - Integration:
       - Events to CMDB/SIEM: use-cases/publishing-events-to-cmdb-siem.md
+  - Project Plan:
+    - Overview: project-plan/rh-ove-ecosystem-project-plan.md
+    - Detailed Timeline: project-plan/detailed-project-timeline.md
+    - Infrastructure Plan: project-plan/rh-ove-infrastructure-project-plan.md
+    - Use-Cases Plan: project-plan/use-cases-implementation-project-plan.md
+    - Migration Plan: project-plan/migration-workload-project-plan.md
+    - Personas: project-plan/personas.md
+    - RACI Matrix: project-plan/raci-matrix.md
+    - Risk Register: project-plan/risk-register.md
+    - Budget Estimate: project-plan/budget-estimate.md
+    - Sizing Plan: project-plan/sizing-plan.md
+    - Weekly Charge Breakdown: project-plan/weekly-charge-breakdown.md
+  
   - References:
     - Product URLs: references/product-urls.md
     - Best Practices: references/best-practices.md
+    - Task Management: TASKS.md
     - Glossary: references/glossary.md
 
 extra:
