@@ -1,0 +1,165 @@
+version: '3'
+
+vars:
+  PROJECT_NAME: RH OVE Ecosystem
+  SCRIPTS_DIR: scripts
+  DOCS_DIR: docs
+  EXPORT_DIR: docs/export
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  setup:
+    desc: Setup the entire project environment
+    cmds:
+      - echo "Setting up {{.PROJECT_NAME}} project..."
+      - echo "Setting up scripts environment..."
+      - cd {{.SCRIPTS_DIR}} && uv sync
+      - echo "Setup complete!"
+
+  clean:
+    desc: Clean all temporary files and caches
+    cmds:
+      - echo "Cleaning project..."
+      - find . -name "*.pyc" -delete
+      - find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+      - find . -name ".pytest_cache" -type d -exec rm -rf {} + 2>/dev/null || true
+      - rm -rf venv/
+      - echo "Clean complete!"
+
+  export-workload:
+    desc: Export workload data to XLSX
+    cmds:
+      - echo "Exporting workload data..."
+      - cd {{.SCRIPTS_DIR}} && uv run export-workload
+      - echo "Export complete!"
+
+  docs:build:
+    desc: Generate project documentation
+    cmds:
+      - echo "Building documentation..."
+      - mkdocs build
+      - echo "Documentation built!"
+
+  docs:serve:
+    desc: Serve documentation locally
+    cmds:
+      - echo "Serving documentation locally..."
+      - mkdocs serve
+
+  health-check:
+    desc: Run project health check
+    cmds:
+      - echo "Running project health check..."
+      - echo "Checking scripts..."
+      - cd {{.SCRIPTS_DIR}} && uv run python -m py_compile export_workload_to_xlsx.py
+      - echo "Checking documentation structure..."
+      - 'test -f {{.DOCS_DIR}}/index.md || echo "Warning: docs/index.md not found"'
+      - 'test -f mkdocs.yml || echo "Warning: mkdocs.yml not found"'
+      - echo "Health check complete!"
+
+  update:
+    desc: Update all dependencies
+    cmds:
+      - echo "Updating dependencies..."
+      - cd {{.SCRIPTS_DIR}} && uv lock --upgrade
+      - echo "Dependencies updated!"
+
+  status:
+    desc: Show project status
+    cmds:
+      - echo "{{.PROJECT_NAME}} Project Status"
+      - echo "==============================="
+      - echo "Scripts:"
+      - ls -la {{.SCRIPTS_DIR}}/
+      - echo ""
+      - echo "Documentation:"
+      - ls -la {{.DOCS_DIR}}/
+      - echo ""
+      - echo "Export files:"
+      - ls -la {{.EXPORT_DIR}}/ 2>/dev/null || echo "No export files found"
+
+  scripts:
+    desc: Show scripts-specific tasks
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task --list
+
+  scripts:setup:
+    desc: Setup scripts environment
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task setup
+
+  scripts:check:
+    desc: Check scripts syntax
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task check
+
+  scripts:lint:
+    desc: Lint scripts code
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task lint
+
+  scripts:format:
+    desc: Format scripts code
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task format
+
+  scripts:test:
+    desc: Run scripts tests
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task test
+
+  scripts:dev:
+    desc: Run scripts development workflow
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task dev
+
+  scripts:build:
+    desc: Build/validate scripts
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task build
+
+  scripts:watch:
+    desc: Watch scripts for changes
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task watch
+
+  scripts:info:
+    desc: Show scripts information
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task info
+
+  scripts:clean:
+    desc: Clean scripts cache files
+    dir: '{{.SCRIPTS_DIR}}'
+    cmds:
+      - task clean
+
+  init:
+    desc: Initialize a new development environment
+    cmds:
+      - echo "Initializing {{.PROJECT_NAME}} development environment..."
+      - task: setup
+      - task: health-check
+      - echo "Development environment ready!"
+
+  ci:
+    desc: Run continuous integration checks
+    cmds:
+      - echo "Running CI checks..."
+      - task: health-check
+      - task: export-workload
+      - echo "CI checks complete!"
