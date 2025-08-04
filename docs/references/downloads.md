@@ -5,8 +5,17 @@ This page provides access to downloadable files and exports generated from the R
 ## Documentation Exports
 
 ### Complete Documentation
-- **[RH OVE Complete Documentation (DOCX)](../export/RH_OVE_Complete_Documentation.docx)** - Comprehensive documentation in Microsoft Word format including all sections, diagrams, and technical specifications
 - **[RH OVE Complete Documentation with Rendered Diagrams (DOCX)](../export/RH_OVE_Complete_Documentation_Filtered.docx)** - Enhanced version with natively rendered Mermaid diagrams using pandoc-mermaid-filter
+
+### Chapter-wise Documentation
+- **[RH OVE Architecture Documentation (DOCX)](../export/RH_OVE_Architecture_Documentation.docx)** - Architecture-specific section
+- **[RH OVE Home Documentation (DOCX)](../export/RH_OVE_Home_Documentation.docx)** - Home section overview
+- **[RH OVE Deployment Documentation (DOCX)](../export/RH_OVE_Deployment_Documentation.docx)** - Deployment-related information
+- **[RH OVE Management Documentation (DOCX)](../export/RH_OVE_Management_Documentation.docx)** - Management aspects
+- **[RH OVE Operations Documentation (DOCX)](../export/RH_OVE_Operations_Documentation.docx)** - Operations and processes
+- **[RH OVE Use Cases Documentation (DOCX)](../export/RH_OVE_Use-Cases_Documentation.docx)** - Collection of use cases
+- **[RH OVE Project Plan Documentation (DOCX)](../export/RH_OVE_Project-Plan_Documentation.docx)** - Project planning details
+- **[RH OVE References Documentation (DOCX)](../export/RH_OVE_References_Documentation.docx)** - Reference materials
 
 ### Project Management Files
 - **[Weekly Workload Breakdown (XLSX)](../export/RH_OVE_Weekly_Workload_Breakdown.xlsx)** - Detailed project timeline and resource allocation spreadsheet
@@ -105,8 +114,9 @@ This page provides access to downloadable files and exports generated from the R
 - **Documentation Version**: 1.1.0
 - **Last Updated**: Based on latest documentation changes
 - **Export Methods**: 
-  - Standard DOCX: `task docs:export-docx`
-  - Enhanced DOCX: `task docs:export-docx-filter`
+  - Complete DOCX: `task scripts:convert-to-docx-filter`
+  - Chapter-wise DOCX: `task scripts:convert-to-docx-by-chapter`
+  - Workload XLSX: `task scripts:export-workload`
 
 ## Support
 
