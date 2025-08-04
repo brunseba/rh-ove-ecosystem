@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="2d171e9596d44070" name="Disaster Recovery Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;Primary Cluster\&quot;\n        VM1[\&quot;VM 1\&quot;]\n        VM2[\&quot;VM 2\&quot;]\n        PRIMARY_STORAGE[\&quot;Primary Storage\&quot;]\n    end\n    \n    subgraph \&quot;Disaster Recovery Cluster\&quot;\n        DR_VM1[\&quot;DR VM 1\&quot;]\n        DR_VM2[\&quot;DR VM 2\&quot;]\n        DR_STORAGE[\&quot;DR Storage\&quot;]\n    end\n    \n    PRIMARY_STORAGE -- Replication --&gt; DR_STORAGE\n    VM1 -- Synchronization --&gt; DR_VM1\n    VM2 -- Synchronization --&gt; DR_VM2\n    \n    style PRIMARY_STORAGE fill:#f99,stroke:#333\n    style DR_STORAGE fill:#99f,stroke:#333&quot;}" id="0f4e5dfdf3e94f90">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

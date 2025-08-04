@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="b400917c0b394123" name="Vm Backup Recovery Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;OpenShift Cluster\&quot;\n        VM1[\&quot;VM Instance 1\&quot;]\n        VM2[\&quot;VM Instance 2\&quot;]\n        VM3[\&quot;VM Instance 3\&quot;]\n    end\n    \n    subgraph \&quot;Rubrik Ecosystem\&quot;\n        RUBRIK_CDM[\&quot;Rubrik CDM\&quot;]\n        RUBRIK_POLARIS[\&quot;Rubrik Polaris\&quot;]\n        SLA_DOMAINS[\&quot;SLA Domains\&quot;]\n    end\n    \n    subgraph \&quot;Storage &amp; Replication\&quot;\n        LOCAL_STORAGE[\&quot;Local Rubrik Storage\&quot;]\n        REMOTE_RUBRIK[\&quot;Remote Rubrik Cluster\&quot;]\n        CLOUD_ARCHIVE[\&quot;Cloud Archive (AWS/Azure)\&quot;]\n    end\n    \n    VM1 --&gt; RUBRIK_CDM\n    VM2 --&gt; RUBRIK_CDM\n    VM3 --&gt; RUBRIK_CDM\n    \n    RUBRIK_CDM --&gt; SLA_DOMAINS\n    RUBRIK_CDM --&gt; LOCAL_STORAGE\n    LOCAL_STORAGE --&gt; REMOTE_RUBRIK\n    LOCAL_STORAGE --&gt; CLOUD_ARCHIVE\n    \n    RUBRIK_POLARIS --&gt; RUBRIK_CDM\n    RUBRIK_POLARIS --&gt; REMOTE_RUBRIK\n\n    style RUBRIK_CDM fill:#f9f,stroke:#333\n    style RUBRIK_POLARIS fill:#ff9,stroke:#333\n    style SLA_DOMAINS fill:#9ff,stroke:#333&quot;}" id="c54bc9152ee54f7c">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

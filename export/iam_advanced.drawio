@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="07f5d5acd5a14df2" name="Iam Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;External Identity Provider\&quot;\n        OIDC[\&quot;OIDC Provider&lt;br/&gt;(Keycloak/Auth0/Okta)\&quot;]\n        AD[\&quot;Active Directory/LDAP\&quot;]\n        MFA[\&quot;MFA Service\&quot;]\n    end\n    \n    subgraph \&quot;Management Cluster\&quot;\n        DEXM[\&quot;Dex OIDC Proxy\&quot;]\n        OAUTHM[\&quot;OAuth2 Proxy\&quot;]\n        APIM[\&quot;Kubernetes API Server\&quot;]\n    end\n    \n    subgraph \&quot;Application Clusters\&quot;\n        DEXA[\&quot;Dex OIDC Proxy\&quot;]\n        OAUTHA[\&quot;OAuth2 Proxy\&quot;]\n        APIA[\&quot;Kubernetes API Server\&quot;]\n    end\n    \n    subgraph \&quot;Services\&quot;\n        ARGO[\&quot;ArgoCD\&quot;]\n        GRAF[\&quot;Grafana\&quot;]\n        PROM[\&quot;Prometheus\&quot;]\n        KUBE[\&quot;Kubernetes Dashboard\&quot;]\n    end\n    \n    OIDC --&gt; DEXM\n    OIDC --&gt; DEXA\n    AD --&gt; OIDC\n    MFA --&gt; OIDC\n    \n    DEXM --&gt; APIM\n    DEXM --&gt; OAUTHM\n    DEXA --&gt; APIA\n    DEXA --&gt; OAUTHA\n    \n    OAUTHM --&gt; ARGO\n    OAUTHM --&gt; GRAF\n    OAUTHM --&gt; PROM\n    OAUTHA --&gt; KUBE&quot;}" id="7486632a93b04d3f">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

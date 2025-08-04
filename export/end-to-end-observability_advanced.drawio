@@ -1,0 +1,28 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="2">
+  <diagram id="ed46440ec8314b78" name="End To End Observability Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;RH OVE Application Layer\&quot;\n        CONTAINER_APPS[\&quot;Container Applications\&quot;]\n        VM_WORKLOADS[\&quot;VM Workloads\&quot;]\n        HYBRID_APPS[\&quot;Hybrid Applications\&quot;]\n    end\n\n    subgraph \&quot;OpenShift Native Observability Stack\&quot;\n        OCP_PROMETHEUS[\&quot;OpenShift Prometheus\&quot;]\n        OCP_GRAFANA[\&quot;OpenShift Console &amp; Grafana\&quot;]\n        OCP_JAEGER[\&quot;Red Hat OpenShift distributed tracing\&quot;]\n        OCP_LOKI[\&quot;Red Hat OpenShift Logging\&quot;]\n        CILIUM_HUBBLE[\&quot;Cilium Hubble\&quot;]\n        KUBEVIRT_METRICS[\&quot;KubeVirt Metrics\&quot;]\n    end\n\n    subgraph \&quot;Storage &amp; Processing\&quot;\n        ODF_STORAGE[\&quot;OpenShift Data Foundation\&quot;]\n        ALERTMANAGER[\&quot;AlertManager\&quot;]\n    end\n\n    CONTAINER_APPS --&gt; OCP_PROMETHEUS\n    VM_WORKLOADS --&gt; KUBEVIRT_METRICS\n    HYBRID_APPS --&gt; OCP_PROMETHEUS\n    \n    CONTAINER_APPS --&gt; OCP_JAEGER\n    HYBRID_APPS --&gt; OCP_JAEGER\n    \n    CONTAINER_APPS --&gt; OCP_LOKI\n    VM_WORKLOADS --&gt; OCP_LOKI\n    HYBRID_APPS --&gt; OCP_LOKI\n    \n    CILIUM_HUBBLE --&gt; OCP_PROMETHEUS\n    KUBEVIRT_METRICS --&gt; OCP_PROMETHEUS\n    \n    OCP_PROMETHEUS --&gt; OCP_GRAFANA\n    OCP_JAEGER --&gt; OCP_GRAFANA\n    OCP_LOKI --&gt; OCP_GRAFANA\n    \n    OCP_PROMETHEUS --&gt; ALERTMANAGER\n    OCP_PROMETHEUS --&gt; ODF_STORAGE\n    OCP_LOKI --&gt; ODF_STORAGE\n\n    style OCP_PROMETHEUS fill:#f9f,stroke:#333\n    style OCP_GRAFANA fill:#99f,stroke:#333\n    style OCP_JAEGER fill:#9ff,stroke:#333\n    style OCP_LOKI fill:#ff9,stroke:#333\n    style CILIUM_HUBBLE fill:#f99,stroke:#333&quot;}" id="b9444d134f6e46a0">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="a3d5f8c2559540a0" name="End To End Observability Graph Td 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;Application Layer\&quot;\n        APP1[\&quot;Microservice Application\&quot;]\n    end\n\n    subgraph \&quot;Dynatrace Observability\&quot;\n        ONEAGENT[\&quot;Dynatrace OneAgent\&quot;]\n        DT_SAAS[\&quot;Dynatrace SaaS\&quot;]\n    end\n\n    APP1 -- data --&gt; ONEAGENT\n    ONEAGENT --&gt; DT_SAAS\n\n    style ONEAGENT fill:#f9f,stroke:#333\n    style DT_SAAS fill:#99f,stroke:#333&quot;}" id="7118a027d6314ac4">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

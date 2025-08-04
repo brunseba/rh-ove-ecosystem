@@ -1,0 +1,15 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="1">
+  <diagram id="51b6b34e09fb4552" name="Vm Scaling Performance Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    subgraph \&quot;Monitoring Stack\&quot;\n        PROMETHEUS[\&quot;Prometheus\&quot;]\n        GRAFANA[\&quot;Grafana\&quot;]\n        ALERTMANAGER[\&quot;AlertManager\&quot;]\n    end\n    \n    subgraph \&quot;Scaling Infrastructure\&quot;\n        HPA[\&quot;Horizontal Pod Autoscaler\&quot;]\n        VPA[\&quot;Vertical Pod Autoscaler\&quot;]\n        METRICS[\&quot;Metrics Server\&quot;]\n    end\n    \n    subgraph \&quot;VM Workloads\&quot;\n        VM1[\&quot;VM Instance 1\&quot;]\n        VM2[\&quot;VM Instance 2\&quot;]\n        VM3[\&quot;VM Instance 3\&quot;]\n    end\n    \n    PROMETHEUS --&gt; ALERTMANAGER\n    GRAFANA --&gt; PROMETHEUS\n    METRICS --&gt; HPA\n    METRICS --&gt; VPA\n    HPA --&gt; VM1\n    HPA --&gt; VM2\n    VPA --&gt; VM3\n    \n    VM1 --&gt; PROMETHEUS\n    VM2 --&gt; PROMETHEUS\n    VM3 --&gt; PROMETHEUS\n\n    style PROMETHEUS fill:#f9f,stroke:#333\n    style HPA fill:#ff9,stroke:#333&quot;}" id="f4aba9fcf6f34f51">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

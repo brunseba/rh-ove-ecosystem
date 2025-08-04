@@ -1,0 +1,28 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="2">
+  <diagram id="7029fe1913044279" name="Adr Table Gantt">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;gantt\n    title ADR Implementation Timeline\n    dateFormat  YYYY-MM-DD\n    section Phase 1: Foundation\n    ADR-001 Multi-Cluster     :done, foundation1, 2024-01-01, 4w\n    ADR-003 Namespace Topology :done, foundation2, 2024-01-15, 3w\n    \n    section Phase 2: Identity\n    ADR-008 IAM Strategy       :active, iam, after foundation1, 4w\n    \n    section Phase 3: GitOps\n    ADR-002 GitOps ArgoCD      :gitops, after iam, 3w\n    ADR-004 Admission Control  :admission, after iam, 3w\n    \n    section Phase 4: Network\n    ADR-005 Network CNI        :network, after foundation2, 3w\n    \n    section Phase 5: Operations\n    ADR-006 Backup Strategy    :backup, after gitops, 4w\n    ADR-007 Monitoring         :monitoring, after network, 4w&quot;}" id="949db7fd2ba44428">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="9a84e9720c694bc6" name="Adr Table Graph Td">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TD\n    ADR001[ADR-001: Multi-Cluster] --&gt; ADR002[ADR-002: GitOps ArgoCD]\n    ADR001 --&gt; ADR003[ADR-003: Namespace Topology]\n    ADR001 --&gt; ADR006[ADR-006: Backup Strategy]\n    ADR001 --&gt; ADR007[ADR-007: Monitoring]\n    ADR001 --&gt; ADR008[ADR-008: IAM Strategy]\n    \n    ADR003 --&gt; ADR004[ADR-004: Admission Control]\n    ADR003 --&gt; ADR005[ADR-005: Network CNI]\n    ADR003 --&gt; ADR008\n    \n    ADR008 --&gt; ADR002\n    ADR008 --&gt; ADR004\n    ADR008 --&gt; ADR007\n    \n    ADR005 --&gt; ADR007\n    ADR002 --&gt; ADR004\n    \n    style ADR001 fill:#ff9999\n    style ADR002 fill:#99ccff\n    style ADR003 fill:#99ff99\n    style ADR004 fill:#ffcc99\n    style ADR005 fill:#cc99ff\n    style ADR006 fill:#ffff99\n    style ADR007 fill:#ff99cc\n    style ADR008 fill:#99ffcc&quot;}" id="2d28fd5c00e54efd">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

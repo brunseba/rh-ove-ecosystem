@@ -1,0 +1,54 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="4">
+  <diagram id="33abff0dd31d452e" name="Storage Graph Lr">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph LR\n    subgraph \&quot;Data Sources\&quot;\n        A[Container Registry]\n        B[HTTP Server]\n        C[S3 Bucket]\n        D[Existing PVC]\n    end\n    \n    subgraph \&quot;CDI Processing\&quot;\n        E[Import Pod]\n        F[Data Processing]\n        G[Format Conversion]\n    end\n    \n    subgraph \&quot;Target Storage\&quot;\n        H[DataVolume]\n        I[PVC]\n        J[VM Disk]\n    end\n    \n    A --&gt; E\n    B --&gt; E\n    C --&gt; E\n    D --&gt; E\n    \n    E --&gt; F\n    F --&gt; G\n    G --&gt; H\n    H --&gt; I\n    I --&gt; J&quot;}" id="9e7e3c360e924bc4">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="b70a737c00de47ba" name="Storage Graph Lr 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph LR\n    subgraph \&quot;Storage Metrics\&quot;\n        A[IOPS per VM]\n        B[Throughput per Volume]\n        C[Latency Metrics]\n        D[Storage Utilization]\n    end\n    \n    subgraph \&quot;Monitoring Stack\&quot;\n        E[Prometheus]\n        F[Grafana]\n        G[Alert Manager]\n    end\n    \n    A --&gt; E\n    B --&gt; E\n    C --&gt; E\n    D --&gt; E\n    \n    E --&gt; F\n    E --&gt; G&quot;}" id="43fd70c6e3bc4768">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="25205ab809e74ca5" name="Storage Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Storage Infrastructure\&quot;\n        A[Storage Classes]\n        B[Persistent Volumes]\n        C[Container Storage Interface]\n        D[Storage Backends]\n    end\n    \n    subgraph \&quot;VM Storage\&quot;\n        E[DataVolumes]\n        F[VM Disks]\n        G[CDI - Containerized Data Importer]\n        H[VM Templates]\n    end\n    \n    subgraph \&quot;Container Storage\&quot;\n        I[Persistent Volume Claims]\n        J[ConfigMaps]\n        K[Secrets]\n    end\n    \n    A --&gt; B\n    B --&gt; C\n    C --&gt; D\n    \n    E --&gt; G\n    F --&gt; E\n    H --&gt; E\n    \n    I --&gt; B\n    J --&gt; K\n    \n    B --&gt; E\n    B --&gt; I&quot;}" id="5a438bdb2513465a">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="e6648975e07845bb" name="Storage Graph Tb 2">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;RH OVE Cluster\&quot;\n        A[Virtual Machines]\n        B[DataVolumes]\n        C[Persistent Volumes]\n        D[Rubrik Agent]\n    end\n    \n    subgraph \&quot;Rubrik Platform\&quot;\n        E[Rubrik Cluster]\n        F[Backup Policies]\n        G[Recovery Points]\n        H[Immutable Storage]\n    end\n    \n    A --&gt; D\n    B --&gt; D\n    C --&gt; D\n    D --&gt; E\n    E --&gt; F\n    F --&gt; G\n    G --&gt; H&quot;}" id="342d59f8f9ba492e">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

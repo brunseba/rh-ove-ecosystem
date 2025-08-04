@@ -1,0 +1,28 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="2">
+  <diagram id="acc009f4a38140c3" name="Gitops Graph Tb">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;graph TB\n    subgraph \&quot;Git Repository\&quot;\n        A[Application Manifests]\n        B[VM Templates]\n        C[Infrastructure Config]\n        D[Policies]\n    end\n    \n    subgraph \&quot;GitOps Engine\&quot;\n        E[Argo CD]\n        F[Application Controller]\n        G[Sync Engine]\n    end\n    \n    subgraph \&quot;RH OVE Cluster\&quot;\n        H[Virtual Machines]\n        I[Container Workloads]\n        J[Storage Resources]\n        K[Network Policies]\n    end\n    \n    A --&gt; E\n    B --&gt; E\n    C --&gt; E\n    D --&gt; E\n    \n    E --&gt; F\n    F --&gt; G\n    G --&gt; H\n    G --&gt; I\n    G --&gt; J\n    G --&gt; K&quot;}" id="d3b13f27f0224183">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="2a5e90d9b5c640e2" name="Gitops Sequencediagram">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&quot;data&quot;:&quot;sequenceDiagram\n    participant Dev as Developer\n    participant Git as Git Repository\n    participant ArgoCD as Argo CD\n    participant DevCluster as Dev Cluster\n    participant ProdCluster as Prod Cluster\n\n    Dev-&gt;&gt;Git: Push changes to dev branch\n    Git-&gt;&gt;ArgoCD: Webhook triggers sync\n    ArgoCD-&gt;&gt;DevCluster: Deploy to dev environment\n    Dev-&gt;&gt;Git: Create PR to main branch\n    Git-&gt;&gt;ArgoCD: Merge triggers prod sync\n    ArgoCD-&gt;&gt;ProdCluster: Deploy to production&quot;}" id="18767f2273a64020">
+          <mxCell style="shape=image;noLabel=1;verticalAlign=top;imageAspect=1;image=data:image/svg+xml,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIgc3Ryb2tlPSIjY2NjIi8+PHRleHQgeD0iMTAwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+TWVybWFpZCBEaWFncmFtPC90ZXh0Pjwvc3ZnPg==;" vertex="1" parent="1">
+            <mxGeometry x="260" y="130" width="200" height="200" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

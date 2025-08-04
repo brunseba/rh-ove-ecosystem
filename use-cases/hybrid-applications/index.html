@@ -1181,6 +1181,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../references/downloads/">
+<span class="md-ellipsis">
+    Downloads
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../TASKS/">
 <span class="md-ellipsis">
     Task Management
@@ -1246,8 +1254,9 @@
 
     VM --&gt;|run| POD
     POD --- PAS
-    POD -- L7 Policy --|Monitor| CILIUM_PROXY
-    CILIUM_GATEWAY --|Ingress| POD
+    POD --&gt;|L7 Policy| CILIUM_PROXY
+    CILIUM_PROXY --&gt;|Monitor| POD
+    CILIUM_GATEWAY --&gt;|Ingress| POD
     VM --&gt;|Storage| ODF
     POD --&gt;|Storage| PVCs
     PVCs --&gt; PVS
