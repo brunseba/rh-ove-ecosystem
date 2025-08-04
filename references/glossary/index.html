@@ -2944,6 +2944,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      I
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#k" class="md-nav__link">
     <span class="md-ellipsis">
       K
@@ -3016,9 +3025,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#t" class="md-nav__link">
+    <span class="md-ellipsis">
+      T
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v" class="md-nav__link">
     <span class="md-ellipsis">
       V
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#w" class="md-nav__link">
+    <span class="md-ellipsis">
+      W
     </span>
   </a>
   
@@ -3074,6 +3101,8 @@
 <h2 id="a">A<a class="headerlink" href="#a" title="Permanent link">&para;</a></h2>
 <p><strong>Admission Control</strong>
 : A Kubernetes mechanism that validates and mutates API requests before they are persisted to etcd. In RH OVE, this includes OpenShift built-in controllers, KubeVirt webhooks, and Kyverno policies.</p>
+<p><strong>Ansible</strong>
+: An open-source, agentless IT automation tool used for configuration management, application deployment, orchestration, and task automation across multiple systems.</p>
 <p><strong>Argo CD</strong>
 : A declarative GitOps continuous delivery tool for Kubernetes that automatically synchronizes applications with their desired state defined in Git repositories.</p>
 <h2 id="b">B<a class="headerlink" href="#b" title="Permanent link">&para;</a></h2>
@@ -3090,6 +3119,8 @@
 : A specification and libraries for writing plugins to configure network interfaces in Linux containers, with Cilium being the recommended CNI for RH OVE.</p>
 <p><strong>CRD (Custom Resource Definition)</strong>
 : A Kubernetes extension mechanism that allows users to define custom resources that extend the Kubernetes API, extensively used in KubeVirt for VM management.</p>
+<p><strong>CSI (Container Storage Interface)</strong>
+: A standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes, enabling storage vendors to develop plugins that work across different container orchestration systems.</p>
 <h2 id="d">D<a class="headerlink" href="#d" title="Permanent link">&para;</a></h2>
 <p><strong>DataVolume</strong>
 : A KubeVirt CRD that provides a declarative way to import, upload, and clone data into PVCs, serving as the primary storage mechanism for VM disks.</p>
@@ -3100,19 +3131,32 @@
 <h2 id="e">E<a class="headerlink" href="#e" title="Permanent link">&para;</a></h2>
 <p><strong>eBPF (extended Berkeley Packet Filter)</strong>
 : A kernel technology that allows programs to run in kernel space without changing kernel source code or loading kernel modules, used by Cilium for high-performance networking.</p>
+<p><strong>etcd</strong>
+: A distributed, reliable key-value store used by Kubernetes to store all cluster data, providing a consistent and highly-available data store for cluster state.</p>
 <h2 id="g">G<a class="headerlink" href="#g" title="Permanent link">&para;</a></h2>
 <p><strong>GitOps</strong>
 : An operational framework that takes DevOps best practices used for application development and applies them to infrastructure automation, using Git as the single source of truth.</p>
+<p><strong>Grafana</strong>
+: An open-source platform for monitoring and observability that enables visualization, alerting, and exploration of metrics from multiple data sources including Prometheus, Elasticsearch, and others.</p>
 <h2 id="h">H<a class="headerlink" href="#h" title="Permanent link">&para;</a></h2>
 <p><strong>Hugepages</strong>
 : Large memory pages that can improve performance for memory-intensive applications by reducing memory management overhead in virtual machines.</p>
 <p><strong>Hubble</strong>
 : The network observability layer for Cilium that provides deep visibility into network flows, security policies, and performance metrics.</p>
+<p><strong>Helm</strong>
+: A Kubernetes package manager that helps you manage Kubernetes applications through charts, which are packages of pre-configured Kubernetes resources.</p>
 <p><strong>HyperConverged</strong>
 : A top-level CRD in OpenShift Virtualization that manages the deployment and configuration of all virtualization components.</p>
+<h2 id="i">I<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
+<p><strong>Ingress</strong>
+: A Kubernetes API object that manages external access to services in a cluster, typically HTTP, providing load balancing, SSL termination, and name-based virtual hosting.</p>
+<p><strong>Istio</strong>
+: An open-source service mesh that provides a uniform way to secure, connect, and monitor microservices, offering traffic management, security, and observability features.</p>
 <h2 id="k">K<a class="headerlink" href="#k" title="Permanent link">&para;</a></h2>
 <p><strong>KubeVirt</strong>
 : An open-source Kubernetes add-on that enables running virtual machines alongside containers in a Kubernetes cluster, forming the foundation of OpenShift Virtualization.</p>
+<p><strong>Karmada</strong>
+: A Kubernetes management system that enables multi-cluster application management and provides centralized control plane for managing workloads across multiple Kubernetes clusters.</p>
 <p><strong>Kyverno</strong>
 : A policy engine designed for Kubernetes that validates, mutates, and generates configurations using admission controller webhooks and background scans.</p>
 <h2 id="m">M<a class="headerlink" href="#m" title="Permanent link">&para;</a></h2>
@@ -3130,9 +3174,13 @@
 <p><strong>NUMA (Non-Uniform Memory Access)</strong>
 : A computer memory design used in multiprocessing where memory access time depends on the memory location relative to the processor, important for VM performance tuning.</p>
 <h2 id="o">O<a class="headerlink" href="#o" title="Permanent link">&para;</a></h2>
+<p><strong>OLM (Operator Lifecycle Manager)</strong>
+: A component of the Operator Framework that helps users install, update, and manage the lifecycle of Kubernetes operators and their associated services.</p>
 <p><strong>OpenShift Virtualization</strong>
 : Red Hat's enterprise virtualization solution that allows running virtual machines alongside containers on the same OpenShift platform.</p>
 <h2 id="p">P<a class="headerlink" href="#p" title="Permanent link">&para;</a></h2>
+<p><strong>Prometheus</strong>
+: An open-source systems monitoring and alerting toolkit with a dimensional data model, flexible query language (PromQL), efficient time series database, and modern alerting approach.</p>
 <p><strong>PVC (Persistent Volume Claim)</strong>
 : A request for storage by a user or application in Kubernetes, used extensively in RH OVE for VM disk storage.</p>
 <h2 id="q">Q<a class="headerlink" href="#q" title="Permanent link">&para;</a></h2>
@@ -3150,6 +3198,11 @@
 : An IT service management platform that provides CMDB functionality and can be integrated with RH OVE for automated configuration tracking.</p>
 <p><strong>SR-IOV (Single Root I/O Virtualization)</strong>
 : A specification that allows efficient sharing of PCIe devices between virtual machines, enabling high-performance networking for VMs.</p>
+<h2 id="t">T<a class="headerlink" href="#t" title="Permanent link">&para;</a></h2>
+<p><strong>Tekton</strong>
+: A Kubernetes-native open-source framework for creating continuous integration and delivery (CI/CD) systems, allowing developers to build, test, and deploy applications.</p>
+<p><strong>Terraform</strong>
+: An open-source infrastructure as code tool that allows users to define and provision data center infrastructure using a declarative configuration language.</p>
 <h2 id="v">V<a class="headerlink" href="#v" title="Permanent link">&para;</a></h2>
 <p><strong>VirtualMachine (VM)</strong>
 : A KubeVirt CRD that represents a virtual machine definition, including CPU, memory, storage, and network configurations.</p>
@@ -3159,30 +3212,49 @@
 : A KubeVirt CRD that ensures a specified number of VMI replicas are running, similar to Kubernetes ReplicaSets for pods.</p>
 <p><strong>virtctl</strong>
 : A command-line tool for managing KubeVirt virtual machines, providing functionality to start, stop, console access, and manage VMs.</p>
+<p><strong>VLAN (Virtual Local Area Network)</strong>
+: A network configuration that enables the logical partitioning of a physical network into multiple broadcast domains, improving security and network management.</p>
+<p><strong>VPC (Virtual Private Cloud)</strong>
+: A logically isolated section of a cloud provider's infrastructure where users can launch resources in a virtual network that they define.</p>
+<h2 id="w">W<a class="headerlink" href="#w" title="Permanent link">&para;</a></h2>
+<p><strong>WebAssembly (WASM)</strong>
+: A binary instruction format for a stack-based virtual machine that enables high-performance applications on web browsers and server environments, increasingly used for cloud-native applications.</p>
 <h2 id="common-acronyms">Common Acronyms<a class="headerlink" href="#common-acronyms" title="Permanent link">&para;</a></h2>
 <ul>
+<li><strong>ADR</strong>: Architecture Decision Record</li>
 <li><strong>API</strong>: Application Programming Interface</li>
 <li><strong>CDI</strong>: Containerized Data Importer</li>
+<li><strong>CI/CD</strong>: Continuous Integration/Continuous Deployment</li>
 <li><strong>CMDB</strong>: Configuration Management Database</li>
 <li><strong>CNI</strong>: Container Network Interface</li>
 <li><strong>CPU</strong>: Central Processing Unit</li>
 <li><strong>CRD</strong>: Custom Resource Definition</li>
+<li><strong>CSI</strong>: Container Storage Interface</li>
 <li><strong>DNS</strong>: Domain Name System</li>
 <li><strong>HA</strong>: High Availability</li>
+<li><strong>IAM</strong>: Identity and Access Management</li>
 <li><strong>I/O</strong>: Input/Output</li>
 <li><strong>IOPS</strong>: Input/Output Operations Per Second</li>
 <li><strong>ITSM</strong>: IT Service Management</li>
 <li><strong>JSON</strong>: JavaScript Object Notation</li>
 <li><strong>LDAP</strong>: Lightweight Directory Access Protocol</li>
 <li><strong>NFS</strong>: Network File System</li>
+<li><strong>OAuth</strong>: Open Authorization</li>
 <li><strong>OIDC</strong>: OpenID Connect</li>
+<li><strong>OLM</strong>: Operator Lifecycle Manager</li>
 <li><strong>RBAC</strong>: Role-Based Access Control</li>
 <li><strong>REST</strong>: Representational State Transfer</li>
+<li><strong>SAML</strong>: Security Assertion Markup Language</li>
+<li><strong>SIEM</strong>: Security Information and Event Management</li>
 <li><strong>SLA</strong>: Service Level Agreement</li>
 <li><strong>SSD</strong>: Solid State Drive</li>
 <li><strong>TLS</strong>: Transport Layer Security</li>
+<li><strong>VLAN</strong>: Virtual Local Area Network</li>
 <li><strong>VM</strong>: Virtual Machine</li>
 <li><strong>VMI</strong>: Virtual Machine Instance</li>
+<li><strong>VPC</strong>: Virtual Private Cloud</li>
+<li><strong>WAF</strong>: Web Application Firewall</li>
+<li><strong>WASM</strong>: WebAssembly</li>
 <li><strong>YAML</strong>: YAML Ain't Markup Language</li>
 </ul>
 <p>This glossary provides essential terminology for understanding and working with the RH OVE ecosystem. Terms are regularly updated as the technology and documentation evolve.</p>
