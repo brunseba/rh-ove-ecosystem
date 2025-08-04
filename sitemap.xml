@@ -2,186 +2,234 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/design-principles/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/global-overview/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/iam/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/network/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/overview/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/storage/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-001-multi-cluster-pattern/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-002-gitops-argocd/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-003-cluster-topology/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-004-admission-controller/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-005-network-cni/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-006-backup-strategy/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-007-monitoring-strategy/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-008-iam-strategy/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/adr/adr-table/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/requirements/fr/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/requirements/nfr/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/architecture/requirements/requirements-table/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/deployment/configuration/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/deployment/installation/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/deployment/prerequisites/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/management/admission-control/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/management/backup/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/management/gitops/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/management/monitoring/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/operations/day2-ops/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/operations/performance/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/operations/troubleshooting/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/budget-estimate/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/detailed-project-timeline/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/migration-workload-project-plan/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/personas/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/raci-matrix/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/rh-ove-ecosystem-project-plan/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/rh-ove-infrastructure-project-plan/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/risk-register/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/sizing-plan/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/use-cases-implementation-project-plan/</loc>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/project-plan/weekly-charge-breakdown/</loc>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/references/best-practices/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/references/glossary/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/references/product-urls/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/database-services-paas/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/disaster-recovery/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/end-to-end-observability/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/hybrid-applications/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/legacy-modernization/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/overview/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/publishing-events-to-cmdb-siem/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/setup-multi-env-application/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/use-cases-table/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/vm-backup-recovery/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/vm-importation/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/vm-scaling-performance/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/vm-template-management/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
     </url>
     <url>
          <loc>https://brunseba.github.io/rh-ove-ecosystem/use-cases/waf-firewalling/</loc>
-         <lastmod>2025-08-03</lastmod>
+         <lastmod>2025-08-04</lastmod>
+    </url>
+    <url>
+         <loc>https://brunseba.github.io/rh-ove-ecosystem/workspace/manual/</loc>
+         <lastmod>2025-08-04</lastmod>
     </url>
 </urlset>

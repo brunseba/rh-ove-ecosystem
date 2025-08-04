@@ -1,0 +1,24 @@
+Persona,Sub-Project,Phase,Duration (Weeks),Weekly Rate,Total Cost
+Infrastructure Architect,RH OVE Infrastructure,Study Phase,4,3500,14000
+Infrastructure Architect,RH OVE Infrastructure,Design Phase,8,3500,28000
+Infrastructure Architect,RH OVE Infrastructure,Implementation Phase,4,3500,14000
+
+DevOps Engineer,RH OVE Infrastructure,Design Phase to Day-2 Operations,20,3000,60000
+System Administrator,RH OVE Infrastructure,Implementation Phase to Day-2 Operations,16,2800,44800
+Security Engineer,RH OVE Infrastructure,Design Phase to Testing Phase,16,3200,51200
+Network Engineer,RH OVE Infrastructure,Study Phase to Implementation Phase,20,3200,64000
+
+Solution Architect,Use-Cases Implementation,Study Phase,4,3500,14000
+Application Developer,Use-Cases Implementation,Implementation Phase,12,2800,33600
+Testing Specialist,Use-Cases Implementation,Testing Phase,4,2800,11200
+DevOps Engineer,Use-Cases Implementation,Implementation to Day-2 Operations,16,3000,48000
+Security Specialist,Use-Cases Implementation,Design Phase to Testing Phase,12,3200,38400
+Business Analyst,Use-Cases Implementation,Study Phase,4,3000,12000
+
+Migration Specialist,Migration from VMware,Study to Day-2 Operations,38,3500,133000
+VMware Administrator,Migration from VMware,Study to Implementation,28,2800,78400
+RH OVE Engineer,Migration from VMware,Implementation to Day-2 Operations,28,3000,84000
+Application Owner,Migration from VMware,Design to Testing,26,3000,78000
+Performance Engineer,Migration from VMware,Testing to Day-2 Operations,18,3000,54000
+Backup Administrator,Migration from VMware,Implementation to Day-2 Operations,30,2800,84000
+
