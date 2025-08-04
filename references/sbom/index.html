@@ -12,9 +12,13 @@
         <meta name="author" content="Professional Team">
       
       
-        <link rel="canonical" href="https://brunseba.github.io/rh-ove-ecosystem/workspace/manual/">
+        <link rel="canonical" href="https://brunseba.github.io/rh-ove-ecosystem/references/sbom/">
       
       
+        <link rel="prev" href="../best-practices/">
+      
+      
+        <link rel="next" href="../../TASKS/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>RH OVE Infrastructure Project - RH OVE Multi-Cluster Ecosystem</title>
+        <title>SBOM - RH OVE Multi-Cluster Ecosystem</title>
       
     
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rh-ove-infrastructure-project" class="md-skip">
+        <a href="#software-bill-of-materials-sbom" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RH OVE Infrastructure Project
+              SBOM
             
           </span>
         </div>
@@ -379,11 +383,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../references/product-urls/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../product-urls/" class="md-tabs__link">
           
   
   
@@ -2638,8 +2644,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -2657,21 +2665,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -2684,7 +2693,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             References
@@ -2698,7 +2707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references/product-urls/" class="md-nav__link">
+      <a href="../product-urls/" class="md-nav__link">
         
   
   
@@ -2721,7 +2730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references/best-practices/" class="md-nav__link">
+      <a href="../best-practices/" class="md-nav__link">
         
   
   
@@ -2741,10 +2750,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../references/sbom/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    SBOM
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2755,6 +2786,560 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-platform-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Platform Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Platform Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#red-hat-openshift-container-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red Hat OpenShift Container Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtualization-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtualization Stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-network-interface-cni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Network Interface (CNI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-policy-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Policy Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security and Policy Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificate-and-identity-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certificate and Identity Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitops-and-continuous-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitOps and Continuous Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitOps and Continuous Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gitops-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitOps Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-control-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Control Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Observability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributed-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributed Tracing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-storage-interface-csi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Storage Interface (CSI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-and-disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup and Disaster Recovery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backup and Disaster Recovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup Solutions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-cluster-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Cluster Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Cluster Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-and-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development and Tooling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development and Tooling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-line-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Line Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operating-system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating System Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating System Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base Operating System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-and-itsm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration and ITSM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration and ITSM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#itsm-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      ITSM Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-hardware-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Hardware Specifications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      License Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="License Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commercial-licenses-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial Licenses Required
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-source-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Source Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-compatibility-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Compatibility Matrix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version Compatibility Matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-openshift-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported OpenShift Versions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cve-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      CVE Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supply-chain-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supply Chain Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-and-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintenance and Updates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance and Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-of-life-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      End-of-Life Planning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2790,7 +3375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references/glossary/" class="md-nav__link">
+      <a href="../glossary/" class="md-nav__link">
         
   
   
@@ -2832,77 +3417,1021 @@
   
 
 
-<h1 id="rh-ove-infrastructure-project">RH OVE Infrastructure Project<a class="headerlink" href="#rh-ove-infrastructure-project" title="Permanent link">&para;</a></h1>
-<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
-<p>Focus on the complete lifecycle of infrastructure setup and operations, including study, HLD, LLD, implementation, testing, and Day-2 operations.</p>
-<h3 id="documentation-areas">Documentation Areas<a class="headerlink" href="#documentation-areas" title="Permanent link">&para;</a></h3>
+<h1 id="software-bill-of-materials-sbom">Software Bill of Materials (SBOM)<a class="headerlink" href="#software-bill-of-materials-sbom" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This document provides a comprehensive Software Bill of Materials (SBOM) for the RH OVE Multi-Cluster Ecosystem, consolidating all required software components, versions, and dependencies needed for successful deployment and operation.</p>
+<h2 id="core-platform-components">Core Platform Components<a class="headerlink" href="#core-platform-components" title="Permanent link">&para;</a></h2>
+<h3 id="red-hat-openshift-container-platform">Red Hat OpenShift Container Platform<a class="headerlink" href="#red-hat-openshift-container-platform" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenShift Container Platform</td>
+<td>4.12+ (recommended 4.14+)</td>
+<td>Commercial</td>
+<td>Kubernetes platform foundation</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>OpenShift CLI (oc)</td>
+<td>Matches cluster version</td>
+<td>Apache 2.0</td>
+<td>Command-line interface</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>OpenShift Web Console</td>
+<td>Integrated with OCP</td>
+<td>Commercial</td>
+<td>Web-based management interface</td>
+<td>Red Hat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="virtualization-stack">Virtualization Stack<a class="headerlink" href="#virtualization-stack" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenShift Virtualization Operator</td>
+<td>4.14+</td>
+<td>Commercial</td>
+<td>VM management on OpenShift</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>KubeVirt</td>
+<td>Latest (upstream)</td>
+<td>Apache 2.0</td>
+<td>Kubernetes VM orchestration</td>
+<td>KubeVirt Community</td>
+</tr>
+<tr>
+<td>virtctl</td>
+<td>Matches KubeVirt version</td>
+<td>Apache 2.0</td>
+<td>VM command-line tool</td>
+<td>KubeVirt Community</td>
+</tr>
+<tr>
+<td>Containerized Data Importer (CDI)</td>
+<td>Latest</td>
+<td>Apache 2.0</td>
+<td>VM disk import/management</td>
+<td>KubeVirt Community</td>
+</tr>
+<tr>
+<td>libvirt</td>
+<td>7.0+</td>
+<td>LGPL 2.1+</td>
+<td>Virtualization API</td>
+<td>Red Hat Enterprise Linux</td>
+</tr>
+<tr>
+<td>QEMU/KVM</td>
+<td>6.0+</td>
+<td>GPL v2</td>
+<td>Hypervisor</td>
+<td>Red Hat Enterprise Linux</td>
+</tr>
+</tbody>
+</table>
+<h2 id="networking-components">Networking Components<a class="headerlink" href="#networking-components" title="Permanent link">&para;</a></h2>
+<h3 id="container-network-interface-cni">Container Network Interface (CNI)<a class="headerlink" href="#container-network-interface-cni" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cilium CNI</td>
+<td>1.12+</td>
+<td>Apache 2.0</td>
+<td>Primary network plugin with eBPF</td>
+<td>Cilium</td>
+</tr>
+<tr>
+<td>Cilium Operator</td>
+<td>Matches Cilium version</td>
+<td>Apache 2.0</td>
+<td>Cilium management operator</td>
+<td>Cilium</td>
+</tr>
+<tr>
+<td>Hubble</td>
+<td>Integrated with Cilium</td>
+<td>Apache 2.0</td>
+<td>Network observability</td>
+<td>Cilium</td>
+</tr>
+<tr>
+<td>Multus CNI</td>
+<td>3.8+</td>
+<td>Apache 2.0</td>
+<td>Multi-network support</td>
+<td>Network Plumbing WG</td>
+</tr>
+<tr>
+<td>SR-IOV Network Operator</td>
+<td>4.12+</td>
+<td>Apache 2.0</td>
+<td>High-performance networking</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>SR-IOV CNI</td>
+<td>Latest</td>
+<td>Apache 2.0</td>
+<td>SR-IOV network plugin</td>
+<td>Network Plumbing WG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="network-tools">Network Tools<a class="headerlink" href="#network-tools" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iptables</td>
+<td>1.8+</td>
+<td>GPL v2</td>
+<td>Network filtering</td>
+<td>Linux</td>
+</tr>
+<tr>
+<td>eBPF</td>
+<td>Kernel 4.14+</td>
+<td>GPL v2</td>
+<td>Network programming</td>
+<td>Linux Kernel</td>
+</tr>
+<tr>
+<td>OVS (Open vSwitch)</td>
+<td>2.15+</td>
+<td>Apache 2.0</td>
+<td>Virtual switching</td>
+<td>Open vSwitch</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-and-policy-management">Security and Policy Management<a class="headerlink" href="#security-and-policy-management" title="Permanent link">&para;</a></h2>
+<h3 id="security-platforms">Security Platforms<a class="headerlink" href="#security-platforms" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red Hat Advanced Cluster Security</td>
+<td>Latest</td>
+<td>Commercial</td>
+<td>Security and compliance platform</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Kyverno</td>
+<td>1.8+</td>
+<td>Apache 2.0</td>
+<td>Policy engine</td>
+<td>Kyverno Community</td>
+</tr>
+<tr>
+<td>Falco</td>
+<td>0.32+</td>
+<td>Apache 2.0</td>
+<td>Runtime security monitoring</td>
+<td>CNCF</td>
+</tr>
+</tbody>
+</table>
+<h3 id="certificate-and-identity-management">Certificate and Identity Management<a class="headerlink" href="#certificate-and-identity-management" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cert-manager</td>
+<td>1.10+</td>
+<td>Apache 2.0</td>
+<td>Certificate lifecycle management</td>
+<td>CNCF</td>
+</tr>
+<tr>
+<td>External Secrets Operator</td>
+<td>0.7+</td>
+<td>Apache 2.0</td>
+<td>Secret management</td>
+<td>External Secrets</td>
+</tr>
+<tr>
+<td>OpenShift OAuth</td>
+<td>Integrated</td>
+<td>Commercial</td>
+<td>Authentication provider</td>
+<td>Red Hat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gitops-and-continuous-deployment">GitOps and Continuous Deployment<a class="headerlink" href="#gitops-and-continuous-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="gitops-platform">GitOps Platform<a class="headerlink" href="#gitops-platform" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red Hat OpenShift GitOps</td>
+<td>Latest</td>
+<td>Commercial</td>
+<td>GitOps platform based on Argo CD</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Argo CD</td>
+<td>2.6+</td>
+<td>Apache 2.0</td>
+<td>GitOps continuous deployment</td>
+<td>Argo Project</td>
+</tr>
+<tr>
+<td>Argo Workflows</td>
+<td>3.4+</td>
+<td>Apache 2.0</td>
+<td>Workflow orchestration</td>
+<td>Argo Project</td>
+</tr>
+<tr>
+<td>Argo Rollouts</td>
+<td>1.4+</td>
+<td>Apache 2.0</td>
+<td>Progressive delivery</td>
+<td>Argo Project</td>
+</tr>
+</tbody>
+</table>
+<h3 id="source-control-integration">Source Control Integration<a class="headerlink" href="#source-control-integration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Git</td>
+<td>2.30+</td>
+<td>GPL v2</td>
+<td>Version control system</td>
+<td>Git Community</td>
+</tr>
+<tr>
+<td>GitHub/GitLab Webhooks</td>
+<td>API v4+</td>
+<td>Various</td>
+<td>Repository integration</td>
+<td>GitHub/GitLab</td>
+</tr>
+</tbody>
+</table>
+<h2 id="monitoring-and-observability">Monitoring and Observability<a class="headerlink" href="#monitoring-and-observability" title="Permanent link">&para;</a></h2>
+<h3 id="metrics-and-monitoring">Metrics and Monitoring<a class="headerlink" href="#metrics-and-monitoring" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dynatrace Operator</td>
+<td>Latest</td>
+<td>Commercial</td>
+<td>Full-stack observability platform</td>
+<td>Dynatrace</td>
+</tr>
+<tr>
+<td>Prometheus</td>
+<td>2.40+</td>
+<td>Apache 2.0</td>
+<td>Metrics collection and storage</td>
+<td>CNCF</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>9.0+</td>
+<td>AGPL v3</td>
+<td>Metrics visualization</td>
+<td>Grafana Labs</td>
+</tr>
+<tr>
+<td>AlertManager</td>
+<td>0.25+</td>
+<td>Apache 2.0</td>
+<td>Alert management</td>
+<td>Prometheus</td>
+</tr>
+<tr>
+<td>Node Exporter</td>
+<td>1.5+</td>
+<td>Apache 2.0</td>
+<td>Node metrics collection</td>
+<td>Prometheus</td>
+</tr>
+<tr>
+<td>kube-state-metrics</td>
+<td>2.7+</td>
+<td>Apache 2.0</td>
+<td>Kubernetes metrics</td>
+<td>Kubernetes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenShift Logging</td>
+<td>5.6+</td>
+<td>Commercial</td>
+<td>Log aggregation platform</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Elasticsearch</td>
+<td>7.17+</td>
+<td>Elastic License</td>
+<td>Log storage and search</td>
+<td>Elastic</td>
+</tr>
+<tr>
+<td>Fluentd</td>
+<td>1.15+</td>
+<td>Apache 2.0</td>
+<td>Log collection and forwarding</td>
+<td>CNCF</td>
+</tr>
+<tr>
+<td>Kibana</td>
+<td>7.17+</td>
+<td>Elastic License</td>
+<td>Log visualization</td>
+<td>Elastic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="distributed-tracing">Distributed Tracing<a class="headerlink" href="#distributed-tracing" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jaeger</td>
+<td>1.40+</td>
+<td>Apache 2.0</td>
+<td>Distributed tracing</td>
+<td>CNCF</td>
+</tr>
+<tr>
+<td>OpenTelemetry Operator</td>
+<td>0.70+</td>
+<td>Apache 2.0</td>
+<td>Telemetry collection</td>
+<td>CNCF</td>
+</tr>
+</tbody>
+</table>
+<h2 id="storage-solutions">Storage Solutions<a class="headerlink" href="#storage-solutions" title="Permanent link">&para;</a></h2>
+<h3 id="container-storage-interface-csi">Container Storage Interface (CSI)<a class="headerlink" href="#container-storage-interface-csi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS EBS CSI Driver</td>
+<td>1.15+</td>
+<td>Apache 2.0</td>
+<td>Block storage for AWS</td>
+<td>Kubernetes</td>
+</tr>
+<tr>
+<td>Azure Disk CSI Driver</td>
+<td>1.25+</td>
+<td>Apache 2.0</td>
+<td>Block storage for Azure</td>
+<td>Kubernetes</td>
+</tr>
+<tr>
+<td>GCE Persistent Disk CSI</td>
+<td>1.10+</td>
+<td>Apache 2.0</td>
+<td>Block storage for GCP</td>
+<td>Kubernetes</td>
+</tr>
+<tr>
+<td>Ceph CSI</td>
+<td>3.8+</td>
+<td>Apache 2.0</td>
+<td>Distributed storage</td>
+<td>Ceph</td>
+</tr>
+<tr>
+<td>NetApp Trident</td>
+<td>22.10+</td>
+<td>Apache 2.0</td>
+<td>Enterprise storage</td>
+<td>NetApp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storage-management">Storage Management<a class="headerlink" href="#storage-management" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenShift Data Foundation</td>
+<td>4.12+</td>
+<td>Commercial</td>
+<td>Software-defined storage</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Local Storage Operator</td>
+<td>4.12+</td>
+<td>Apache 2.0</td>
+<td>Local storage management</td>
+<td>Red Hat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backup-and-disaster-recovery">Backup and Disaster Recovery<a class="headerlink" href="#backup-and-disaster-recovery" title="Permanent link">&para;</a></h2>
+<h3 id="backup-solutions">Backup Solutions<a class="headerlink" href="#backup-solutions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rubrik</td>
+<td>Latest</td>
+<td>Commercial</td>
+<td>Enterprise backup platform</td>
+<td>Rubrik</td>
+</tr>
+<tr>
+<td>Velero</td>
+<td>1.10+</td>
+<td>Apache 2.0</td>
+<td>Kubernetes backup</td>
+<td>VMware</td>
+</tr>
+<tr>
+<td>OADP (OpenShift API for Data Protection)</td>
+<td>1.1+</td>
+<td>Apache 2.0</td>
+<td>Backup operator</td>
+<td>Red Hat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="multi-cluster-management">Multi-Cluster Management<a class="headerlink" href="#multi-cluster-management" title="Permanent link">&para;</a></h2>
+<h3 id="cluster-management">Cluster Management<a class="headerlink" href="#cluster-management" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red Hat Advanced Cluster Management</td>
+<td>Latest</td>
+<td>Commercial</td>
+<td>Multi-cluster management</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Submariner</td>
+<td>0.14+</td>
+<td>Apache 2.0</td>
+<td>Multi-cluster networking</td>
+<td>Submariner</td>
+</tr>
+<tr>
+<td>Skupper</td>
+<td>1.2+</td>
+<td>Apache 2.0</td>
+<td>Application connectivity</td>
+<td>Red Hat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-and-tooling">Development and Tooling<a class="headerlink" href="#development-and-tooling" title="Permanent link">&para;</a></h2>
+<h3 id="command-line-tools">Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kubectl</td>
+<td>Matches cluster version</td>
+<td>Apache 2.0</td>
+<td>Kubernetes CLI</td>
+<td>Kubernetes</td>
+</tr>
+<tr>
+<td>helm</td>
+<td>3.10+</td>
+<td>Apache 2.0</td>
+<td>Package manager</td>
+<td>CNCF</td>
+</tr>
+<tr>
+<td>kustomize</td>
+<td>4.5+</td>
+<td>Apache 2.0</td>
+<td>Configuration management</td>
+<td>Kubernetes</td>
+</tr>
+<tr>
+<td>jq</td>
+<td>1.6+</td>
+<td>MIT</td>
+<td>JSON processing</td>
+<td>jq</td>
+</tr>
+<tr>
+<td>yq</td>
+<td>4.30+</td>
+<td>MIT</td>
+<td>YAML processing</td>
+<td>yq</td>
+</tr>
+</tbody>
+</table>
+<h3 id="container-tools">Container Tools<a class="headerlink" href="#container-tools" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Podman</td>
+<td>4.3+</td>
+<td>Apache 2.0</td>
+<td>Container management</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Buildah</td>
+<td>1.28+</td>
+<td>Apache 2.0</td>
+<td>Container image building</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Skopeo</td>
+<td>1.10+</td>
+<td>Apache 2.0</td>
+<td>Container image operations</td>
+<td>Red Hat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="operating-system-requirements">Operating System Requirements<a class="headerlink" href="#operating-system-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="base-operating-system">Base Operating System<a class="headerlink" href="#base-operating-system" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red Hat Enterprise Linux CoreOS</td>
+<td>4.12+</td>
+<td>Commercial</td>
+<td>Container-optimized OS</td>
+<td>Red Hat</td>
+</tr>
+<tr>
+<td>Red Hat Enterprise Linux</td>
+<td>8.6+ or 9.0+</td>
+<td>Commercial</td>
+<td>General-purpose OS</td>
+<td>Red Hat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-dependencies">System Dependencies<a class="headerlink" href="#system-dependencies" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>systemd</td>
+<td>239+</td>
+<td>LGPL 2.1+</td>
+<td>System and service manager</td>
+<td>systemd</td>
+</tr>
+<tr>
+<td>Docker/Podman</td>
+<td>4.0+</td>
+<td>Apache 2.0</td>
+<td>Container runtime</td>
+<td>Various</td>
+</tr>
+<tr>
+<td>CRI-O</td>
+<td>1.25+</td>
+<td>Apache 2.0</td>
+<td>Container runtime</td>
+<td>CRI-O</td>
+</tr>
+<tr>
+<td>runc</td>
+<td>1.1+</td>
+<td>Apache 2.0</td>
+<td>Container runtime</td>
+<td>OCI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="integration-and-itsm">Integration and ITSM<a class="headerlink" href="#integration-and-itsm" title="Permanent link">&para;</a></h2>
+<h3 id="itsm-integration">ITSM Integration<a class="headerlink" href="#itsm-integration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ServiceNow</td>
+<td>Latest</td>
+<td>Commercial</td>
+<td>ITSM platform</td>
+<td>ServiceNow</td>
+</tr>
+<tr>
+<td>ServiceNow MID Server</td>
+<td>Latest</td>
+<td>Commercial</td>
+<td>Integration middleware</td>
+<td>ServiceNow</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-management">Event Management<a class="headerlink" href="#event-management" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+<th>License</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Splunk</td>
+<td>8.2+</td>
+<td>Commercial</td>
+<td>SIEM platform</td>
+<td>Splunk</td>
+</tr>
+<tr>
+<td>Elastic Security</td>
+<td>7.17+</td>
+<td>Elastic License</td>
+<td>Security analytics</td>
+<td>Elastic</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hardware-requirements">Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="minimum-hardware-specifications">Minimum Hardware Specifications<a class="headerlink" href="#minimum-hardware-specifications" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Requirement</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU (Master Nodes)</td>
+<td>4+ cores per node</td>
+<td>Control plane operations</td>
+</tr>
+<tr>
+<td>Memory (Master Nodes)</td>
+<td>16GB+ per node</td>
+<td>Control plane operations</td>
+</tr>
+<tr>
+<td>Storage (Master Nodes)</td>
+<td>120GB+ per node</td>
+<td>etcd and system data</td>
+</tr>
+<tr>
+<td>CPU (Worker Nodes)</td>
+<td>8+ cores per node</td>
+<td>Workload execution</td>
+</tr>
+<tr>
+<td>Memory (Worker Nodes)</td>
+<td>32GB+ per node</td>
+<td>VM and container workloads</td>
+</tr>
+<tr>
+<td>Storage (Worker Nodes)</td>
+<td>500GB+ per node</td>
+<td>Application data</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>10Gbps+</td>
+<td>High-performance networking</td>
+</tr>
+<tr>
+<td>Virtualization</td>
+<td>Intel VT-x/AMD-V</td>
+<td>Hardware virtualization support</td>
+</tr>
+</tbody>
+</table>
+<h2 id="network-requirements">Network Requirements<a class="headerlink" href="#network-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="port-requirements">Port Requirements<a class="headerlink" href="#port-requirements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Port Range</th>
+<th>Protocol</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6443</td>
+<td>TCP</td>
+<td>Kubernetes API server</td>
+</tr>
+<tr>
+<td>22623</td>
+<td>TCP</td>
+<td>Machine config server</td>
+</tr>
+<tr>
+<td>80/443</td>
+<td>TCP</td>
+<td>HTTP/HTTPS ingress</td>
+</tr>
+<tr>
+<td>9000-9999</td>
+<td>TCP</td>
+<td>Host level services</td>
+</tr>
+<tr>
+<td>10250-10259</td>
+<td>TCP</td>
+<td>Kubernetes node ports</td>
+</tr>
+<tr>
+<td>30000-32767</td>
+<td>TCP</td>
+<td>NodePort services</td>
+</tr>
+</tbody>
+</table>
+<h2 id="license-summary">License Summary<a class="headerlink" href="#license-summary" title="Permanent link">&para;</a></h2>
+<h3 id="commercial-licenses-required">Commercial Licenses Required<a class="headerlink" href="#commercial-licenses-required" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Architecture</strong>: <code>global-overview.md</code>, <code>overview.md</code>, <code>design-principles.md</code>, <code>network.md</code>, <code>storage.md</code>, <code>iam.md</code></li>
-<li><strong>ADRs (Architecture Decision Records)</strong>: Multi-cluster patterns, GitOps, cluster topology, admission control, network CNI, backup, monitoring, IAM</li>
-<li><strong>Deployment</strong>: <code>prerequisites.md</code>, <code>installation.md</code>, <code>configuration.md</code></li>
-<li><strong>Management</strong>: <code>admission-control.md</code>, <code>gitops.md</code>, <code>monitoring.md</code>, <code>backup.md</code></li>
-<li><strong>Operations</strong>: <code>day2-ops.md</code>, <code>troubleshooting.md</code>, <code>performance.md</code></li>
+<li>Red Hat OpenShift Container Platform</li>
+<li>OpenShift Virtualization</li>
+<li>Red Hat Advanced Cluster Security</li>
+<li>Red Hat Advanced Cluster Management</li>
+<li>Red Hat Enterprise Linux / CoreOS</li>
+<li>Dynatrace (monitoring platform)</li>
+<li>Rubrik (backup platform)</li>
+<li>ServiceNow (ITSM platform)</li>
 </ul>
-<h3 id="work-phases">Work Phases<a class="headerlink" href="#work-phases" title="Permanent link">&para;</a></h3>
+<h3 id="open-source-components">Open Source Components<a class="headerlink" href="#open-source-components" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Study</strong>: Gather detailed understanding of the RH OVE architecture and components.</li>
-<li><strong>Design</strong>: Create and validate HLD and LLD documents.</li>
-<li><strong>Implementation</strong>: Deploy infrastructure components following established practices.</li>
-<li><strong>Testing</strong>: Verify infrastructure robustness, security, and performance.</li>
-<li><strong>Day-2 Operations</strong>: Establish ongoing monitoring, troubleshooting, and tuning.</li>
+<li>KubeVirt and related components (Apache 2.0)</li>
+<li>Cilium networking (Apache 2.0)</li>
+<li>Argo CD and GitOps tools (Apache 2.0)</li>
+<li>Kyverno policy engine (Apache 2.0)</li>
+<li>Prometheus monitoring stack (Apache 2.0)</li>
+<li>Various Kubernetes ecosystem tools (Apache 2.0)</li>
 </ul>
-<h3 id="required-personas">Required Personas<a class="headerlink" href="#required-personas" title="Permanent link">&para;</a></h3>
+<h2 id="version-compatibility-matrix">Version Compatibility Matrix<a class="headerlink" href="#version-compatibility-matrix" title="Permanent link">&para;</a></h2>
+<h3 id="supported-openshift-versions">Supported OpenShift Versions<a class="headerlink" href="#supported-openshift-versions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>OpenShift Version</th>
+<th>KubeVirt</th>
+<th>Cilium</th>
+<th>RHACM</th>
+<th>RHACS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.12.x</td>
+<td>4.12+</td>
+<td>1.12+</td>
+<td>2.7+</td>
+<td>4.2+</td>
+</tr>
+<tr>
+<td>4.13.x</td>
+<td>4.13+</td>
+<td>1.13+</td>
+<td>2.8+</td>
+<td>4.3+</td>
+</tr>
+<tr>
+<td>4.14.x</td>
+<td>4.14+</td>
+<td>1.14+</td>
+<td>2.9+</td>
+<td>4.4+</td>
+</tr>
+<tr>
+<td>4.15.x</td>
+<td>4.15+</td>
+<td>1.15+</td>
+<td>2.10+</td>
+<td>4.5+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="cve-monitoring">CVE Monitoring<a class="headerlink" href="#cve-monitoring" title="Permanent link">&para;</a></h3>
+<p>All components should be regularly updated to address security vulnerabilities. Subscribe to security advisories from:</p>
 <ul>
-<li><strong>Architect</strong></li>
-<li><strong>DevOps Engineer</strong></li>
-<li><strong>System Administrator</strong></li>
+<li>Red Hat Security Advisories</li>
+<li>CNCF Security SIG</li>
+<li>Individual project security lists</li>
+<li>National Vulnerability Database (NVD)</li>
+</ul>
+<h3 id="supply-chain-security">Supply Chain Security<a class="headerlink" href="#supply-chain-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Verify image signatures for all container images</li>
+<li>Use Red Hat certified operators when available</li>
+<li>Implement image scanning in CI/CD pipelines</li>
+<li>Maintain software inventory and track dependencies</li>
+</ul>
+<h2 id="maintenance-and-updates">Maintenance and Updates<a class="headerlink" href="#maintenance-and-updates" title="Permanent link">&para;</a></h2>
+<h3 id="update-frequency">Update Frequency<a class="headerlink" href="#update-frequency" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Security patches</strong>: As soon as available</li>
+<li><strong>Minor versions</strong>: Monthly evaluation</li>
+<li><strong>Major versions</strong>: Quarterly evaluation</li>
+<li><strong>OpenShift</strong>: Follow Red Hat support lifecycle</li>
+</ul>
+<h3 id="end-of-life-planning">End-of-Life Planning<a class="headerlink" href="#end-of-life-planning" title="Permanent link">&para;</a></h3>
+<p>Track EOL dates for all components and plan migrations:</p>
+<ul>
+<li>OpenShift: 18-month support lifecycle per version</li>
+<li>Kubernetes: 12-month support window</li>
+<li>Third-party components: Vendor-specific lifecycles</li>
 </ul>
 <hr />
-<h1 id="use-cases-implementation-project">Use-Cases Implementation Project<a class="headerlink" href="#use-cases-implementation-project" title="Permanent link">&para;</a></h1>
-<h2 id="scope_1">Scope<a class="headerlink" href="#scope_1" title="Permanent link">&para;</a></h2>
-<p>Study, design, implement, test, and operate comprehensive use-cases demonstrating RH OVE capabilities for applications and services.</p>
-<h3 id="documentation-areas_1">Documentation Areas<a class="headerlink" href="#documentation-areas_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Overview, multi-env setup, hybrid applications, database services, legacy modernization, disaster recovery, observability, security, integration</li>
-<li><strong>References</strong>: <code>best-practices.md</code>, <code>glossary.md</code></li>
-</ul>
-<h3 id="work-phases_1">Work Phases<a class="headerlink" href="#work-phases_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Study</strong>: Analyze use case requirements and dependencies.</li>
-<li><strong>Design</strong>: Develop HLD and LLD for each use case.</li>
-<li><strong>Implementation</strong>: Build and deploy use case configurations, manifests, and scripts.</li>
-<li><strong>Testing</strong>: Conduct functional and integration testing.</li>
-<li><strong>Day-2 Operations</strong>: Develop runbooks for operational support.</li>
-</ul>
-<h3 id="required-personas_1">Required Personas<a class="headerlink" href="#required-personas_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Solution Architect</strong></li>
-<li><strong>Application Developer</strong></li>
-<li><strong>Testing Specialist</strong></li>
-</ul>
-<hr />
-<h1 id="migration-workload-from-vmware-project">Migration Workload from VMware Project<a class="headerlink" href="#migration-workload-from-vmware-project" title="Permanent link">&para;</a></h1>
-<h2 id="scope_2">Scope<a class="headerlink" href="#scope_2" title="Permanent link">&para;</a></h2>
-<p>Plan and execute the migration of workloads from VMware environments to RH OVE.</p>
-<h3 id="documentation-areas_2">Documentation Areas<a class="headerlink" href="#documentation-areas_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>VM Lifecycle</strong>: <code>vm-importation.md</code>, <code>vm-template-management.md</code>, <code>vm-scaling-performance.md</code>, <code>vm-backup-recovery.md</code></li>
-<li><strong>Related ADRs</strong>: Migration strategies or compatibility considerations</li>
-</ul>
-<h3 id="work-phases_2">Work Phases<a class="headerlink" href="#work-phases_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Study</strong>: Inventory and analyze existing VMware workloads and requirements.</li>
-<li><strong>Design</strong>: Create migration strategies, including HLD and LLD documents.</li>
-<li><strong>Implementation</strong>: Execute migration workflows.</li>
-<li><strong>Testing</strong>: Validate functionality and performance post-migration.</li>
-<li><strong>Day-2 Operations</strong>: Develop monitoring, backup, and disaster recovery procedures.</li>
-</ul>
-<h3 id="required-personas_2">Required Personas<a class="headerlink" href="#required-personas_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Migration Specialist</strong></li>
-<li><strong>VMware Administrator</strong></li>
-<li><strong>RH OVE Engineer</strong></li>
-</ul>
+<p><strong>Document Version</strong>: 1.0<br />
+<strong>Last Updated</strong>: 2025-08-04<br />
+<strong>Next Review</strong>: 2025-11-04</p>
+<p>This SBOM should be reviewed and updated quarterly or whenever significant changes are made to the RH OVE ecosystem architecture.</p>
 
 
 
@@ -2925,7 +4454,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2025 07:35:09 UTC">August 4, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2025 09:15:01 UTC">August 4, 2025</span>
   </span>
 
     
@@ -2935,7 +4464,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2025 07:35:09 UTC">August 4, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2025 09:15:01 UTC">August 4, 2025</span>
   </span>
 
     
