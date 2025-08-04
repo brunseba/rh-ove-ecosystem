@@ -1019,6 +1019,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#chapter-wise-documentation">
+<span class="md-ellipsis">
+      Chapter-wise Documentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#project-management-files">
 <span class="md-ellipsis">
       Project Management Files
@@ -1200,8 +1207,18 @@
 <h2 id="documentation-exports">Documentation Exports<a class="headerlink" href="#documentation-exports" title="Permanent link">¶</a></h2>
 <h3 id="complete-documentation">Complete Documentation<a class="headerlink" href="#complete-documentation" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong><a href="../export/RH_OVE_Complete_Documentation.docx">RH OVE Complete Documentation (DOCX)</a></strong> - Comprehensive documentation in Microsoft Word format including all sections, diagrams, and technical specifications</li>
 <li><strong><a href="../../export/RH_OVE_Complete_Documentation_Filtered.docx">RH OVE Complete Documentation with Rendered Diagrams (DOCX)</a></strong> - Enhanced version with natively rendered Mermaid diagrams using pandoc-mermaid-filter</li>
+</ul>
+<h3 id="chapter-wise-documentation">Chapter-wise Documentation<a class="headerlink" href="#chapter-wise-documentation" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong><a href="../../export/RH_OVE_Architecture_Documentation.docx">RH OVE Architecture Documentation (DOCX)</a></strong> - Architecture-specific section</li>
+<li><strong><a href="../../export/RH_OVE_Home_Documentation.docx">RH OVE Home Documentation (DOCX)</a></strong> - Home section overview</li>
+<li><strong><a href="../../export/RH_OVE_Deployment_Documentation.docx">RH OVE Deployment Documentation (DOCX)</a></strong> - Deployment-related information</li>
+<li><strong><a href="../../export/RH_OVE_Management_Documentation.docx">RH OVE Management Documentation (DOCX)</a></strong> - Management aspects</li>
+<li><strong><a href="../../export/RH_OVE_Operations_Documentation.docx">RH OVE Operations Documentation (DOCX)</a></strong> - Operations and processes</li>
+<li><strong><a href="../../export/RH_OVE_Use-Cases_Documentation.docx">RH OVE Use Cases Documentation (DOCX)</a></strong> - Collection of use cases</li>
+<li><strong><a href="../../export/RH_OVE_Project-Plan_Documentation.docx">RH OVE Project Plan Documentation (DOCX)</a></strong> - Project planning details</li>
+<li><strong><a href="../../export/RH_OVE_References_Documentation.docx">RH OVE References Documentation (DOCX)</a></strong> - Reference materials</li>
 </ul>
 <h3 id="project-management-files">Project Management Files<a class="headerlink" href="#project-management-files" title="Permanent link">¶</a></h3>
 <ul>
@@ -1311,8 +1328,9 @@
 <li><strong>Documentation Version</strong>: 1.1.0</li>
 <li><strong>Last Updated</strong>: Based on latest documentation changes</li>
 <li><strong>Export Methods</strong>: </li>
-<li>Standard DOCX: <code>task docs:export-docx</code></li>
-<li>Enhanced DOCX: <code>task docs:export-docx-filter</code></li>
+<li>Complete DOCX: <code>task scripts:convert-to-docx-filter</code></li>
+<li>Chapter-wise DOCX: <code>task scripts:convert-to-docx-by-chapter</code></li>
+<li>Workload XLSX: <code>task scripts:export-workload</code></li>
 </ul>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">¶</a></h2>
 <p>For questions about these exports or to request additional formats, please:
@@ -1326,7 +1344,7 @@
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2025 11:23:18 UTC">August 4, 2025</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2025 12:07:37 UTC">August 4, 2025</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Created">
