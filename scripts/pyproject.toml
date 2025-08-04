@@ -1,0 +1,12 @@
+[project]
+name = "rh-ove-scripts"
+version = "0.1.0"
+description = "RH OVE Ecosystem project management and export scripts"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "openpyxl>=3.1.5",
+]
+
+[project.scripts]
+export-workload = "export_workload_to_xlsx:main"

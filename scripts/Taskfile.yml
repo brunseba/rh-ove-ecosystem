@@ -1,0 +1,164 @@
+version: '3'
+
+vars:
+  PROJECT_NAME: RH OVE Scripts
+  PYTHON_FILES: "*.py"
+  EXPORT_FILE: "../docs/export/RH_OVE_Weekly_Workload_Breakdown.xlsx"
+  SOURCE_FILE: "../docs/project-plan/weekly-charge-breakdown.md"
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  setup:
+    desc: Setup the scripts environment
+    cmds:
+      - echo "Setting up {{.PROJECT_NAME}} environment..."
+      - uv sync
+      - echo "Scripts setup complete!"
+
+  install:
+    desc: Install dependencies
+    cmds:
+      - echo "Installing dependencies..."
+      - uv sync
+
+  add:
+    desc: Add a new dependency
+    cmds:
+      - echo "Adding dependency..."
+      - uv add
+
+  export-workload:
+    desc: Run the workload export script
+    sources:
+      - "{{.SOURCE_FILE}}"
+      - export_workload_to_xlsx.py
+    generates:
+      - "{{.EXPORT_FILE}}"
+    cmds:
+      - echo "Running workload export..."
+      - uv run export-workload
+
+  export-workload-py:
+    desc: Run the export script directly with Python
+    sources:
+      - "{{.SOURCE_FILE}}"
+      - export_workload_to_xlsx.py
+    generates:
+      - "{{.EXPORT_FILE}}"
+    cmds:
+      - echo "Running workload export with Python..."
+      - uv run python export_workload_to_xlsx.py
+
+  check:
+    desc: Check Python syntax
+    sources:
+      - "{{.PYTHON_FILES}}"
+    cmds:
+      - echo "Checking Python syntax..."
+      - uv run python -m py_compile export_workload_to_xlsx.py
+      - echo "✓ Syntax check passed!"
+
+  format:
+    desc: Format code
+    sources:
+      - "{{.PYTHON_FILES}}"
+    cmds:
+      - echo "Formatting code..."
+      - cmd: uv run ruff format .
+        ignore_error: true
+      - echo "Code formatting complete!"
+
+  lint:
+    desc: Lint code
+    sources:
+      - "{{.PYTHON_FILES}}"
+    cmds:
+      - echo "Linting code..."
+      - cmd: uv run ruff check .
+        ignore_error: true
+
+  test:
+    desc: Run tests
+    cmds:
+      - echo "Running tests..."
+      - cmd: uv run pytest
+        ignore_error: true
+
+  clean:
+    desc: Clean Python cache files
+    cmds:
+      - echo "Cleaning Python cache files..."
+      - find . -name "*.pyc" -delete
+      - find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+      - find . -name ".pytest_cache" -type d -exec rm -rf {} + 2>/dev/null || true
+      - echo "✓ Clean complete!"
+
+  update:
+    desc: Update dependencies
+    cmds:
+      - echo "Updating dependencies..."
+      - uv lock --upgrade
+      - uv sync
+      - echo "✓ Dependencies updated!"
+
+  info:
+    desc: Show project information
+    cmds:
+      - echo "{{.PROJECT_NAME}} Information"
+      - echo "=========================="
+      - echo "Python version:"
+      - cat .python-version
+      - echo ""
+      - echo "Dependencies:"
+      - uv tree
+      - echo ""
+      - echo "Available scripts:"
+      - ls -la {{.PYTHON_FILES}}
+
+  dev-setup:
+    desc: Install development tools
+    cmds:
+      - echo "Installing development tools..."
+      - uv add --dev ruff pytest
+      - echo "✓ Development tools installed!"
+
+  dev:
+    desc: Run development workflow
+    deps:
+      - check
+    cmds:
+      - echo "Running development workflow..."
+      - task: lint
+      - echo "✓ Development workflow complete!"
+
+  build:
+    desc: Build/validate the project
+    deps:
+      - check
+      - lint
+    cmds:
+      - echo "Building project..."
+      - task: export-workload
+      - echo "✓ Build complete!"
+
+  watch:
+    desc: Watch for changes and run export
+    cmds:
+      - echo "Watching for changes..."
+      - 'echo "Note: Install watchexec for file watching via brew install watchexec"'
+      - cmd: 'watchexec -e py,md -w . -w ../docs/project-plan/ -- task export-workload'
+        ignore_error: true
+
+  validate:
+    desc: Validate all aspects of the project
+    deps:
+      - check
+      - lint
+    cmds:
+      - echo "Validating project..."
+      - 'test -f "{{.SOURCE_FILE}}" || (echo "Error: Source file not found" && exit 1)'
+      - echo "✓ Validation complete!"
