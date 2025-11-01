@@ -34,7 +34,7 @@ class MkDocsToDocxByChapterConverter:
         self.mkdocs_config = project_root / "mkdocs.yml"
         
         # Ensure export directory exists
-        self.export_dir.mkdir(exist_ok=True)
+        self.export_dir.mkdir(parents=True, exist_ok=True)
         
     def check_dependencies(self) -> bool:
         """Check if required dependencies are available."""
@@ -310,8 +310,12 @@ class MkDocsToDocxByChapterConverter:
 
 def main():
     """Main entry point."""
-    script_dir = Path(__file__).parent
-    project_root = script_dir.parent
+    # Use current working directory as project root
+    project_root = Path.cwd()
+    
+    # Check if mkdocs.yml exists, if not try parent directory
+    if not (project_root / 'mkdocs.yml').exists() and (project_root.parent / 'mkdocs.yml').exists():
+        project_root = project_root.parent
     
     converter = MkDocsToDocxByChapterConverter(project_root)
     success = converter.run()
