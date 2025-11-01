@@ -196,7 +196,7 @@ class MkDocsToDocxByChapterConverter:
         """Convert markdown content to DOCX using pandoc with mermaid filter."""
         
         # Create output filename
-        output_file = self.export_dir / f"RH_OVE_{chapter_name}_Documentation.docx"
+        output_file = self.export_dir / f"{chapter_name}_Documentation.docx"
         
         # Create temporary markdown file
         with tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False, encoding='utf-8') as tmp_file:
@@ -216,8 +216,8 @@ class MkDocsToDocxByChapterConverter:
                 '--toc-depth=3',
                 '--standalone',
                 '--reference-doc=' + str(self.project_root / 'scripts' / 'reference.docx') if (self.project_root / 'scripts' / 'reference.docx').exists() else '',
-                '--metadata', f'title=RH OVE {chapter_name.replace("-", " ").title()} Documentation',
-                '--metadata', 'author=Red Hat OpenShift Virtualization Ecosystem Team',
+                '--metadata', f'title={chapter_name.replace("-", " ").title()} Documentation',
+                '--metadata', 'author=Documentation Team',
                 '--metadata', 'date=' + subprocess.run(['date', '+%Y-%m-%d'], capture_output=True, text=True).stdout.strip()
             ]
             

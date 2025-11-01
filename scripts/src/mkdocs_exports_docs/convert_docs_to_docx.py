@@ -316,8 +316,8 @@ def create_combined_markdown(files, output_path, images_dir):
     
     with open(output_path, 'w', encoding='utf-8') as combined:
         # Write title page
-        combined.write("# RH OVE Multi-Cluster Ecosystem\n\n")
-        combined.write("## Complete Documentation Export\n\n")
+        combined.write("# Complete Documentation\n\n")
+        combined.write("## Documentation Export\n\n")
         combined.write("*Generated from MkDocs documentation*\n\n")
         combined.write("---\n\n")
         
@@ -375,8 +375,8 @@ def convert_to_docx(markdown_path, docx_path):
         '--toc-depth=3',
         '--number-sections',
         '--highlight-style', 'pygments',
-        '--metadata', 'title=RH OVE Multi-Cluster Ecosystem Documentation',
-        '--metadata', 'author=Professional Team',
+        '--metadata', 'title=Complete Documentation',
+        '--metadata', 'author=Documentation Team',
         '--metadata', 'date=' + subprocess.check_output(['date', '+%Y-%m-%d']).decode().strip(),
     ]
     
@@ -432,7 +432,7 @@ def main():
         create_combined_markdown(nav_files, temp_md_path, temp_images_dir)
         
         # Convert to DOCX
-        output_path = 'docs/export/RH_OVE_Complete_Documentation.docx'
+        output_path = 'docs/export/Complete_Documentation.docx'
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         
         print(f"Converting to DOCX: {output_path}")

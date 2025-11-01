@@ -1,9 +1,9 @@
 version: '3'
 
 vars:
-  PROJECT_NAME: RH OVE Scripts
-  PYTHON_FILES: "*.py"
-  EXPORT_FILE: "../docs/export/RH_OVE_Weekly_Workload_Breakdown.xlsx"
+  PROJECT_NAME: MkDocs Exports Docs
+  PYTHON_FILES: "src/**/*.py"
+  EXPORT_FILE: "../docs/export/Weekly_Workload_Breakdown.xlsx"
   SOURCE_FILE: "../docs/project-plan/weekly-charge-breakdown.md"
 
 tasks:
@@ -35,23 +35,18 @@ tasks:
     desc: Run the workload export script
     sources:
       - "{{.SOURCE_FILE}}"
-      - export_workload_to_xlsx.py
+      - src/mkdocs_exports_docs/export_workload_to_xlsx.py
     generates:
       - "{{.EXPORT_FILE}}"
     cmds:
       - echo "Running workload export..."
-      - uv run export-workload
+      - uv run mkdocs-exports-docs export-workload
 
-  export-workload-py:
-    desc: Run the export script directly with Python
-    sources:
-      - "{{.SOURCE_FILE}}"
-      - export_workload_to_xlsx.py
-    generates:
-      - "{{.EXPORT_FILE}}"
+  howto:
+    desc: Display CLI usage guide
     cmds:
-      - echo "Running workload export with Python..."
-      - uv run python export_workload_to_xlsx.py
+      - echo "Displaying usage guide..."
+      - uv run mkdocs-exports-docs howto
 
   check:
     desc: Check Python syntax
@@ -59,7 +54,7 @@ tasks:
       - "{{.PYTHON_FILES}}"
     cmds:
       - echo "Checking Python syntax..."
-      - uv run python -m py_compile export_workload_to_xlsx.py
+      - uv run python -m py_compile src/mkdocs_exports_docs/*.py
       - echo "✓ Syntax check passed!"
 
   format:
@@ -163,28 +158,46 @@ tasks:
       - 'test -f "{{.SOURCE_FILE}}" || (echo "Error: Source file not found" && exit 1)'
       - echo "✓ Validation complete!"
 
-  convert-to-docx:
+  convert-docs:
     desc: Convert MkDocs documentation to DOCX using Pandoc
     sources:
       - "../mkdocs.yml"
       - "../docs/**/*.md"
-      - convert_docs_to_docx.py
+      - src/mkdocs_exports_docs/convert_docs_to_docx.py
     generates:
-      - "../docs/export/RH_OVE_Complete_Documentation.docx"
+      - "../docs/export/Complete_Documentation.docx"
     cmds:
       - echo "Converting MkDocs documentation to DOCX..."
-      - uv run python convert_docs_to_docx.py
+      - uv run mkdocs-exports-docs convert-docs
       - echo "✓ DOCX conversion complete!"
 
-  convert-to-docx-filter:
+  convert-with-filter:
     desc: Convert MkDocs documentation to DOCX using pandoc-mermaid-filter
     sources:
       - "../mkdocs.yml"
       - "../docs/**/*.md"
-      - convert_docs_to_docx_with_filter.py
+      - src/mkdocs_exports_docs/convert_docs_to_docx_with_filter.py
     generates:
-      - "../docs/export/RH_OVE_Complete_Documentation_Filtered.docx"
+      - "../docs/export/Complete_Documentation_Filtered.docx"
     cmds:
       - echo "Converting MkDocs documentation to DOCX with pandoc-mermaid-filter..."
-      - uv run python convert_docs_to_docx_with_filter.py
+      - uv run mkdocs-exports-docs convert-with-filter
       - echo "✓ DOCX conversion with filter complete!"
+
+  convert-by-chapter:
+    desc: Convert MkDocs documentation to DOCX by chapter
+    sources:
+      - "../mkdocs.yml"
+      - "../docs/**/*.md"
+      - src/mkdocs_exports_docs/convert_docs_to_docx_by_chapter.py
+    cmds:
+      - echo "Converting MkDocs documentation by chapter..."
+      - uv run mkdocs-exports-docs convert-by-chapter
+      - echo "✓ Chapter conversion complete!"
+
+  build-package:
+    desc: Build the Python package
+    cmds:
+      - echo "Building package..."
+      - uv build
+      - echo "✓ Package built!"

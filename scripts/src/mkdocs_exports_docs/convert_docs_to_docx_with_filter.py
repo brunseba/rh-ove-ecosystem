@@ -184,8 +184,8 @@ class MkDocsToDocxConverter:
                 '--toc-depth=3',
                 '--standalone',
                 '--reference-doc=' + str(self.project_root / 'scripts' / 'reference.docx') if (self.project_root / 'scripts' / 'reference.docx').exists() else '',
-                '--metadata', 'title=RH OVE Complete Documentation',
-                '--metadata', 'author=Red Hat OpenShift Virtualization Ecosystem Team',
+                '--metadata', 'title=Complete Documentation',
+                '--metadata', 'author=Documentation Team',
                 '--metadata', 'date=' + subprocess.run(['date', '+%Y-%m-%d'], capture_output=True, text=True).stdout.strip()
             ]
             
@@ -258,7 +258,7 @@ class MkDocsToDocxConverter:
             return False
             
         # Convert to DOCX
-        output_file = self.export_dir / "RH_OVE_Complete_Documentation_Filtered.docx"
+        output_file = self.export_dir / "Complete_Documentation_Filtered.docx"
         logger.info(f"Converting to DOCX: {output_file}")
         
         success = self.convert_to_docx(combined_content, output_file)
