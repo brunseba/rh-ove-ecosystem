@@ -158,15 +158,15 @@ class MkDocsToDocxConverter:
                 if i > 0:
                     combined_content.append('\n\\newpage\n')
                 
-                # Add file title as a heading
-                relative_path = file_path.relative_to(self.docs_dir)
-                section_title = f"# {relative_path.stem.replace('-', ' ').replace('_', ' ').title()}"
-                combined_content.append(section_title)
-                combined_content.append('')
+                # Don't adjust heading levels - keep original structure for proper TOC
+                # Only add file title as heading if file doesn't start with one
+                if not content.strip().startswith('#'):
+                    relative_path = file_path.relative_to(self.docs_dir)
+                    section_title = f"# {relative_path.stem.replace('-', ' ').replace('_', ' ').title()}"
+                    combined_content.append(section_title)
+                    combined_content.append('')
                 
-                # Adjust heading levels in content (shift all headings down by 1)
-                adjusted_content = self.adjust_heading_levels(content, 1)
-                combined_content.append(adjusted_content)
+                combined_content.append(content)
                 combined_content.append('')
                 
                 if self.verbose:
