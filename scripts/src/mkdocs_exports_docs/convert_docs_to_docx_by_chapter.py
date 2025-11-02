@@ -25,6 +25,17 @@ import re
 # Setup logging
 logger = logging.getLogger(__name__)
 
+class MkDocsToDocxByChapterConverter:
+    def __init__(self, project_root: Path, verbose: bool = False, include_toc: bool = True):
+        self.project_root = project_root
+        self.docs_dir = project_root / "docs"
+        self.export_dir = project_root / "docs" / "export"
+        self.mkdocs_config = project_root / "mkdocs.yml"
+        self.verbose = verbose
+        self.include_toc = include_toc
+        
+        # Ensure export directory exists
+        self.export_dir.mkdir(parents=True, exist_ok=True)
         
     def check_dependencies(self) -> bool:
         """Check if required dependencies are available."""
@@ -219,14 +230,17 @@ logger = logging.getLogger(__name__)
                 '--to', 'docx',
                 '--output', str(output_file),
                 '--resource-path', f"{self.docs_dir}:{self.project_root}",  # Allow Pandoc to find images
-                '--toc',
-                '--toc-depth=3',
                 '--standalone',
                 '--reference-doc=' + str(self.project_root / 'scripts' / 'reference.docx') if (self.project_root / 'scripts' / 'reference.docx').exists() else '',
                 '--metadata', f'title={chapter_name.replace("-", " ").title()} Documentation',
                 '--metadata', 'author=Documentation Team',
                 '--metadata', 'date=' + subprocess.run(['date', '+%Y-%m-%d'], capture_output=True, text=True).stdout.strip()
             ]
+            
+            # Add TOC options if requested
+            if self.include_toc:
+                pandoc_cmd.insert(pandoc_cmd.index('--standalone'), '--toc')
+                pandoc_cmd.insert(pandoc_cmd.index('--toc'), '--toc-depth=3')
             
             # Remove empty reference-doc argument if file doesn't exist
             pandoc_cmd = [arg for arg in pandoc_cmd if arg and not arg.startswith('--reference-doc=--reference-doc')]
@@ -315,6 +329,25 @@ logger = logging.getLogger(__name__)
         logger.info(f"Output directory: {self.export_dir}")
         return len(failed_chapters) == 0
 
+def main(verbose=False, include_toc=True):
+    """Main entry point."""
+    # Configure logging
+    if verbose:
+        logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s', force=True)
+    else:
+        logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s', force=True)
+    
+    # Use current working directory as project root
+    project_root = Path.cwd()
+    
+    # Check if mkdocs.yml exists, if not try parent directory
+    if not (project_root / 'mkdocs.yml').exists() and (project_root.parent / 'mkdocs.yml').exists():
+        project_root = project_root.parent
+    
+    converter = MkDocsToDocxByChapterConverter(project_root, verbose=verbose, include_toc=include_toc)
+    success = converter.run()
+    
+    sys.exit(0 if success else 1)
 
 if __name__ == "__main__":
     main()
