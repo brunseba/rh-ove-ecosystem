@@ -23,15 +23,15 @@ import logging
 import re
 
 # Setup logging
-logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
 class MkDocsToDocxByChapterConverter:
-    def __init__(self, project_root: Path):
+    def __init__(self, project_root: Path, verbose: bool = False):
         self.project_root = project_root
         self.docs_dir = project_root / "docs"
         self.export_dir = project_root / "docs" / "export"
         self.mkdocs_config = project_root / "mkdocs.yml"
+        self.verbose = verbose
         
         # Ensure export directory exists
         self.export_dir.mkdir(parents=True, exist_ok=True)
@@ -159,6 +159,7 @@ class MkDocsToDocxByChapterConverter:
     def combine_chapter_files(self, chapter_name: str, files: List[Path]) -> str:
         """Combine multiple markdown files for a chapter into a single document."""
         combined_content = []
+        total_images = 0
         
         # Add chapter title
         chapter_title = f"# {chapter_name.replace('-', ' ').title()}"
@@ -169,6 +170,17 @@ class MkDocsToDocxByChapterConverter:
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
+                
+                # Detect images if verbose
+                if self.verbose:
+                    import re
+                    image_pattern = r'!\[([^\]]*)\]\(([^\)]+)\)'
+                    matches = re.findall(image_pattern, content)
+                    if matches:
+                        logger.debug(f"Found {len(matches)} image(s) in {file_path}")
+                        for alt_text, img_path in matches:
+                            logger.debug(f"  - Image: {img_path} (alt: '{alt_text}')")
+                        total_images += len(matches)
                 
                 # Add section break before each file (except first)
                 if i > 0:
@@ -185,10 +197,14 @@ class MkDocsToDocxByChapterConverter:
                 combined_content.append(adjusted_content)
                 combined_content.append('')
                 
-                logger.debug(f"Added to {chapter_name}: {relative_path}")
+                if self.verbose:
+                    logger.debug(f"Added to {chapter_name}: {relative_path}")
                 
             except Exception as e:
                 logger.error(f"Failed to read {file_path}: {e}")
+        
+        if self.verbose and total_images > 0:
+            logger.info(f"Total images in chapter '{chapter_name}': {total_images}")
                 
         return '\n'.join(combined_content)
     
@@ -308,8 +324,14 @@ class MkDocsToDocxByChapterConverter:
         logger.info(f"Output directory: {self.export_dir}")
         return len(failed_chapters) == 0
 
-def main():
+def main(verbose=False):
     """Main entry point."""
+    # Configure logging
+    if verbose:
+        logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s', force=True)
+    else:
+        logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s', force=True)
+    
     # Use current working directory as project root
     project_root = Path.cwd()
     
@@ -317,7 +339,7 @@ def main():
     if not (project_root / 'mkdocs.yml').exists() and (project_root.parent / 'mkdocs.yml').exists():
         project_root = project_root.parent
     
-    converter = MkDocsToDocxByChapterConverter(project_root)
+    converter = MkDocsToDocxByChapterConverter(project_root, verbose=verbose)
     success = converter.run()
     
     sys.exit(0 if success else 1)

@@ -16,6 +16,9 @@ import base64
 import json
 import requests
 import urllib.parse
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Custom YAML loader to handle MkDocs-specific Python tags
 class MkDocsYamlLoader(SafeLoader):
@@ -211,10 +214,25 @@ def load_mkdocs_config():
     with open('mkdocs.yml', 'r') as f:
         return yaml.load(f, Loader=MkDocsYamlLoader)
 
+def process_markdown_images(content, source_file):
+    """Detect and log markdown images in content"""
+    # Pattern to match markdown images: ![alt](path)
+    image_pattern = r'!\[([^\]]*)\]\(([^\)]+)\)'
+    
+    matches = re.findall(image_pattern, content)
+    if matches:
+        logger.debug(f"Found {len(matches)} image(s) in {source_file}")
+        for alt_text, img_path in matches:
+            logger.debug(f"  - Image: {img_path} (alt: '{alt_text}')")
+    
+    return len(matches)
+
 def process_mermaid_diagrams(content, images_dir):
     """Process Mermaid diagrams in markdown content and render to images"""
     # Pattern to match mermaid code blocks
     mermaid_pattern = r'```mermaid\n(.*?)\n```'
+    
+    logger.debug(f"Processing content for mermaid diagrams in: {images_dir}")
     
     # Fix: Remove trailing % character and other problematic characters causing syntax errors
     def clean_mermaid_code(code):
@@ -314,6 +332,9 @@ def extract_nav_files(nav_section, prefix=""):
 def create_combined_markdown(files, output_path, images_dir):
     """Combine all markdown files into one document"""
     
+    total_images = 0
+    total_mermaid = 0
+    
     with open(output_path, 'w', encoding='utf-8') as combined:
         # Write title page
         combined.write("# Complete Documentation\n\n")
@@ -336,6 +357,10 @@ def create_combined_markdown(files, output_path, images_dir):
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
+                
+                # Detect images
+                img_count = process_markdown_images(content, file_path)
+                total_images += img_count
                 
                 # Add section header
                 combined.write(f"\n\\newpage\n\n# {title}\n\n")
@@ -360,6 +385,9 @@ def create_combined_markdown(files, output_path, images_dir):
             except Exception as e:
                 print(f"Error processing {file_path}: {e}")
                 combined.write(f"*Error loading content from {file_path}*\n\n")
+    
+    logger.info(f"Total images detected: {total_images}")
+    return total_images
 
 def convert_to_docx(markdown_path, docx_path):
     """Convert markdown to DOCX using Pandoc"""
@@ -396,8 +424,14 @@ def convert_to_docx(markdown_path, docx_path):
         print(f"Error output: {e.stderr}")
         raise
 
-def main():
+def main(verbose=False):
     """Main conversion process"""
+    
+    # Configure logging
+    if verbose:
+        logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s', force=True)
+    else:
+        logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s', force=True)
     
     # Change to project root if we're in scripts directory
     if os.path.basename(os.getcwd()) == 'scripts':

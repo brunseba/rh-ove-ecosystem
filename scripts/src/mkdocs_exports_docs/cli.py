@@ -5,13 +5,24 @@ MkDocs Exports Docs - Federated CLI for documentation export and project managem
 
 import click
 import sys
+import logging
 
 
 @click.group()
 @click.version_option(version="0.1.0")
-def cli():
+@click.option('--verbose', '-v', is_flag=True, help='Enable verbose output')
+@click.pass_context
+def cli(ctx, verbose):
     """MkDocs documentation export and project management scripts."""
-    pass
+    # Ensure that ctx.obj exists and is a dict
+    ctx.ensure_object(dict)
+    ctx.obj['verbose'] = verbose
+    
+    # Set up logging
+    if verbose:
+        logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s')
+    else:
+        logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
 
 @cli.command(name="export-workload")
@@ -44,27 +55,30 @@ def export_workload_cmd(input, output):
 
 
 @cli.command(name="convert-docs")
-def convert_docs_cmd():
+@click.pass_context
+def convert_docs_cmd(ctx):
     """Convert MkDocs documentation to comprehensive DOCX file using Pandoc."""
     from .convert_docs_to_docx import main as convert_main
 
-    sys.exit(convert_main())
+    sys.exit(convert_main(verbose=ctx.obj.get('verbose', False)))
 
 
 @cli.command(name="convert-by-chapter")
-def convert_by_chapter_cmd():
+@click.pass_context
+def convert_by_chapter_cmd(ctx):
     """Convert MkDocs documentation to separate DOCX files by chapter."""
     from .convert_docs_to_docx_by_chapter import main as convert_chapter_main
 
-    convert_chapter_main()
+    convert_chapter_main(verbose=ctx.obj.get('verbose', False))
 
 
 @cli.command(name="convert-with-filter")
-def convert_with_filter_cmd():
+@click.pass_context
+def convert_with_filter_cmd(ctx):
     """Convert MkDocs documentation to DOCX using pandoc-mermaid-filter."""
     from .convert_docs_to_docx_with_filter import main as convert_filter_main
 
-    convert_filter_main()
+    convert_filter_main(verbose=ctx.obj.get('verbose', False))
 
 
 @cli.command(name="howto")
