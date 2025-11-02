@@ -231,6 +231,7 @@ class MkDocsToDocxByChapterConverter:
                 '--output', str(output_file),
                 '--resource-path', f"{self.docs_dir}:{self.project_root}",  # Allow Pandoc to find images
                 '--standalone',
+                '--shift-heading-level-by=1',  # Shift all headings down by 1 to make TOC work
                 '--reference-doc=' + str(self.project_root / 'scripts' / 'reference.docx') if (self.project_root / 'scripts' / 'reference.docx').exists() else '',
                 '--metadata', f'title={chapter_name.replace("-", " ").title()} Documentation',
                 '--metadata', 'author=Documentation Team',
@@ -240,7 +241,7 @@ class MkDocsToDocxByChapterConverter:
             # Add TOC options if requested
             if self.include_toc:
                 pandoc_cmd.insert(pandoc_cmd.index('--standalone'), '--toc')
-                pandoc_cmd.insert(pandoc_cmd.index('--toc'), '--toc-depth=3')
+                pandoc_cmd.insert(pandoc_cmd.index('--toc'), '--toc-depth=4')  # Depth 4 because we shifted by 1
             
             # Remove empty reference-doc argument if file doesn't exist
             pandoc_cmd = [arg for arg in pandoc_cmd if arg and not arg.startswith('--reference-doc=--reference-doc')]

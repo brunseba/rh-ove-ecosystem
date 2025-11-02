@@ -188,6 +188,12 @@ class MkDocsToDocxConverter:
             tmp_file.write(markdown_content)
             tmp_markdown = Path(tmp_file.name)
         
+        # Debug: Save a copy of the markdown if verbose
+        if self.verbose:
+            debug_md = self.export_dir / "_debug_combined.md"
+            debug_md.write_text(markdown_content, encoding='utf-8')
+            logger.debug(f"Saved debug markdown to: {debug_md}")
+        
         try:
             # Pandoc command with mermaid filter
             pandoc_cmd = [
@@ -199,6 +205,7 @@ class MkDocsToDocxConverter:
                 '--output', str(output_file),
                 '--resource-path', f"{self.docs_dir}:{self.project_root}",  # Allow Pandoc to find images
                 '--standalone',
+                '--shift-heading-level-by=1',  # Shift all headings down by 1 to make TOC work
                 '--reference-doc=' + str(self.project_root / 'scripts' / 'reference.docx') if (self.project_root / 'scripts' / 'reference.docx').exists() else '',
                 '--metadata', 'title=Complete Documentation',
                 '--metadata', 'author=Documentation Team',
@@ -208,7 +215,7 @@ class MkDocsToDocxConverter:
             # Add TOC options if requested
             if self.include_toc:
                 pandoc_cmd.insert(pandoc_cmd.index('--standalone'), '--toc')
-                pandoc_cmd.insert(pandoc_cmd.index('--toc'), '--toc-depth=3')
+                pandoc_cmd.insert(pandoc_cmd.index('--toc'), '--toc-depth=4')  # Depth 4 because we shifted by 1
             
             # Remove empty reference-doc argument if file doesn't exist
             pandoc_cmd = [arg for arg in pandoc_cmd if arg and not arg.startswith('--reference-doc=--reference-doc')]
