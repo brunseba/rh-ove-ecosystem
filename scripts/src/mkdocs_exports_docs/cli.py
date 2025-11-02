@@ -55,30 +55,33 @@ def export_workload_cmd(input, output):
 
 
 @cli.command(name="convert-docs")
+@click.option('--no-toc', is_flag=True, help='Disable table of contents')
 @click.pass_context
-def convert_docs_cmd(ctx):
+def convert_docs_cmd(ctx, no_toc):
     """Convert MkDocs documentation to comprehensive DOCX file using Pandoc."""
     from .convert_docs_to_docx import main as convert_main
 
-    sys.exit(convert_main(verbose=ctx.obj.get('verbose', False)))
+    sys.exit(convert_main(verbose=ctx.obj.get('verbose', False), include_toc=not no_toc))
 
 
 @cli.command(name="convert-by-chapter")
+@click.option('--no-toc', is_flag=True, help='Disable table of contents')
 @click.pass_context
-def convert_by_chapter_cmd(ctx):
+def convert_by_chapter_cmd(ctx, no_toc):
     """Convert MkDocs documentation to separate DOCX files by chapter."""
     from .convert_docs_to_docx_by_chapter import main as convert_chapter_main
 
-    convert_chapter_main(verbose=ctx.obj.get('verbose', False))
+    convert_chapter_main(verbose=ctx.obj.get('verbose', False), include_toc=not no_toc)
 
 
 @cli.command(name="convert-with-filter")
+@click.option('--no-toc', is_flag=True, help='Disable table of contents')
 @click.pass_context
-def convert_with_filter_cmd(ctx):
+def convert_with_filter_cmd(ctx, no_toc):
     """Convert MkDocs documentation to DOCX using pandoc-mermaid-filter."""
     from .convert_docs_to_docx_with_filter import main as convert_filter_main
 
-    convert_filter_main(verbose=ctx.obj.get('verbose', False))
+    convert_filter_main(verbose=ctx.obj.get('verbose', False), include_toc=not no_toc)
 
 
 @cli.command(name="howto")
